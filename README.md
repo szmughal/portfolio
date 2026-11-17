@@ -33,46 +33,43 @@ npm run start
 
 ---
 
-## Project Structure & Content Editing
+## Sections Architecture (`src/components/sections/`)
 
-All client content, biography, case study statistics, credentials, and project data are decoupled from UI components and stored in `src/data/*.ts`:
+All sections are laid out matching the approved Figma order and styling:
 
-| File | Content |
-| :--- | :--- |
-| `src/data/personal.ts` | Executive bio, contact info, social links, location, SLA stats, tech badges |
-| `src/data/metrics.ts` | 4 headline telemetry counters (8+ yrs, 99.9% uptime, 85% OCR cut, 5+ portals) |
-| `src/data/skills.ts` | 6 competency bento cards (Networks, ERP, OCR, Security, Cloud, SEO/AEO) |
-| `src/data/caseStudy.ts` | Accounting OCR case study phases, before/after metrics, terminal script |
-| `src/data/projects.ts` | 6 production web assets (TNT, Enter & Post, Jangle, Natural Wonders, Acewall, Duncan Brooke) |
-| `src/data/experience.ts` | 6 enterprise career roles & SLA achievements |
-| `src/data/education.ts` | MCS, BSc, Cisco CCNA, ITIL & Cybersecurity credentials |
-| `src/data/navigation.ts` | Navigation links and paths |
+1. **Header (`Header.tsx`)**: Fixed milk-glass top navigation bar with `SZ // ARCHITECT` branding, live availability pill, center anchor navigation pills, and `Get in Touch` CTA.
+2. **Command Strip (`CommandStrip.tsx`)**: Sticky NOC telemetry sandbox bar with viewport simulator buttons (`Desktop 1440px`, `Tablet 834px`, `Mobile 390px`) and collapsible 3D & motion specs HUD.
+3. **Hero (`HeroSection.tsx`)**: Dual ambient radial lighting, availability badge, bold geometric typography with electric gradient text, mini telemetry status chip, dual CTAs, and 3D topology telemetry canvas frame.
+4. **Metrics (`MetricsSection.tsx`)**: 4-column bento counter grid (`8+ Years Experience`, `99.9% System Uptime`, `85% Less Data-Entry Time`, `5+ Production Portals`).
+5. **About (`AboutSection.tsx`)**: High-contrast glass container with 3D perspective portrait card, PK/UTC+5 time indicator, architectural profile narrative, and 6 technical stack chips.
+6. **Skills (`SkillsSection.tsx`)**: 6 interactive capability bento cards (`01 // NET` through `06 // AEO`) with custom icons, monospace codes, descriptions, and technology tags.
+7. **Case Study (`CaseStudySection.tsx`)**: Enterprise Accounting OCR & Ledger Automation with 85% reductive efficiency badge, 3-phase Before/Engine/After pipeline diagram, and Python syntax telemetry terminal.
+8. **Projects (`ProjectsSection.tsx`)**: Production web architecture showcase featuring an interactive category filter (`All (6)`, `Website`, `On-Page SEO`, `Off-Page SEO`) and 6 browser frame cards.
+9. **Experience (`ExperienceSection.tsx`)**: Chronological enterprise career track with vertical gradient timeline line, node bullet points, CURRENT badge, and banking SLA metrics.
+10. **Education & Credentials (`EducationSection.tsx`)**: 4 accreditations (MCS, BSc, Cisco CCNA, ITIL & Enterprise Cybersecurity).
+11. **Contact & Terminal (`ContactSection.tsx`)**: Direct NOC dispatch channels (Email, LinkedIn, Karachi NOC) and SSL 256-bit encrypted interactive session initiation form.
+12. **Footer (`Footer.tsx`)**: Copyright notice, NOC latency (`12ms`), active timezone (`UTC+5 // Active`), and social dispatch links.
 
 ---
 
-## Reusable UI Components (`src/components/ui/`)
+## Centralized Data Layer (`src/data/*.ts`)
 
-- `Button`: Primary (Electric Indigo), Secondary (Slate/White), Cyan (`#0891B2`), Outline, and Ghost with active scale micro-interactions.
-- `GlassCard`: Dual-tier glassmorphism (`control-glass` and `control-glass-high`) with blur, specular highlight, and hover elevation.
-- `TagPill`: Monospaced tag badges with live status pulsing dots.
-- `MetricCard`: Monospaced telemetry counter blocks with data target attributes.
-- `BrowserFrame`: Modern browser chrome with macOS window dots, domain pill, image/viewport container, and live links.
-- `PhoneFrame`: Mobile device mockup container with dynamic island and responsive viewport.
-- `TimelineItem`: Career track node with gradient line and bullet points.
-- `SectionHeading`: Space Grotesk headline, tracked category tag, and subtitle.
-- `NavPill`: Header navigation link with active state styling.
+All content is decoupled from components for instant editing:
+- `src/data/personal.ts` — Bio, contact info, coordinates, credentials
+- `src/data/metrics.ts` — 4 headline metric counters
+- `src/data/skills.ts` — 6 bento competency blocks
+- `src/data/caseStudy.ts` — Accounting OCR case study phases & code
+- `src/data/projects.ts` — 6 production web assets (TNT, Enter & Post, Jangle, Natural Wonders, Acewall, Duncan Brooke)
+- `src/data/experience.ts` — 6 enterprise career roles
+- `src/data/education.ts` — Academic degrees and Cisco certifications
+- `src/data/navigation.ts` — Top nav links
 
 ---
 
 ## Deployment to Vercel
 
-1. Push this repository to GitHub or GitLab:
-   ```bash
-   git add .
-   git commit -m "feat: complete Phase A - setup, design tokens, and reusable components"
-   git remote add origin <your-repo-url>
-   git push -u origin main
-   ```
-2. Import the project in [Vercel](https://vercel.com/new).
-3. Set environment variable `RESEND_API_KEY` (configured in Phase D for contact form dispatch).
-4. Click **Deploy**.
+```bash
+git remote add origin <your-repo-url>
+git push -u origin main
+```
+Import repository into Vercel and configure `RESEND_API_KEY`.
