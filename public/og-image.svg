@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060913" />
+      <stop offset="50%" stop-color="#0c1222" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="text-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="50%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#00F2FE" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Outer Blueprint Grid Lines -->
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <line x1="80" y1="0" x2="80" y2="630" />
+    <line x1="240" y1="0" x2="240" y2="630" />
+    <line x1="960" y1="0" x2="960" y2="630" />
+    <line x1="1120" y1="0" x2="1120" y2="630" />
+    <line x1="0" y1="80" x2="1200" y2="80" />
+    <line x1="0" y1="550" x2="1200" y2="550" />
+  </g>
+
+  <!-- Status Pill -->
+  <rect x="80" y="100" width="360" height="36" rx="18" fill="rgba(8,145,178,0.15)" stroke="#06B6D4" stroke-width="1" />
+  <circle cx="104" cy="118" r="5" fill="#00F5A0" />
+  <text x="120" y="123" fill="#38BDF8" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="bold" letter-spacing="1">
+    NOC // 99.9% UPTIME • KARACHI, PK
+  </text>
+
+  <!-- Main Headline -->
+  <text x="80" y="240" fill="#FFFFFF" font-size="76" font-family="'Space Grotesk', sans-serif" font-weight="800" letter-spacing="-2">
+    SAAD <tspan fill="url(#text-grad)">ZAFAR</tspan>
+  </text>
+
+  <text x="80" y="300" fill="#818CF8" font-size="28" font-family="'Space Grotesk', sans-serif" font-weight="600">
+    Senior IT Manager &amp; Enterprise Solutions Architect
+  </text>
+
+  <text x="80" y="360" fill="#94A3B8" font-size="20" font-family="'Inter', sans-serif">
+    Cisco Networks • Odoo ERP • In-House OCR Pipeline for QuickBooks • 6 Production Web Deployments
+  </text>
+
+  <!-- Metric Badges -->
+  <g transform="translate(80, 420)">
+    <rect x="0" y="0" width="220" height="90" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" />
+    <text x="20" y="42" fill="#00F2FE" font-size="32" font-family="'JetBrains Mono', monospace" font-weight="bold">8+ Yrs</text>
+    <text x="20" y="68" fill="#94A3B8" font-size="13" font-family="sans-serif">Enterprise Leadership</text>
+
+    <rect x="250" y="0" width="220" height="90" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" />
+    <text x="270" y="42" fill="#10B981" font-size="32" font-family="'JetBrains Mono', monospace" font-weight="bold">-85%</text>
+    <text x="270" y="68" fill="#94A3B8" font-size="13" font-family="sans-serif">Accounting OCR Time</text>
+
+    <rect x="500" y="0" width="220" height="90" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" />
+    <text x="520" y="42" fill="#818CF8" font-size="32" font-family="'JetBrains Mono', monospace" font-weight="bold">6 Sites</text>
+    <text x="520" y="68" fill="#94A3B8" font-size="13" font-family="sans-serif">Production SEO Dominance</text>
+  </g>
+</svg>

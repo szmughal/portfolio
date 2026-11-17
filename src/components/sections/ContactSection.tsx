@@ -1,27 +1,58 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { contactSchema, ContactFormData } from '@/lib/validations/contact';
 import { personalData } from '@/data/personal';
-import { Send, Mail, Linkedin, MapPin, Terminal, CheckCircle2, Lock } from 'lucide-react';
+import { Send, Mail, Linkedin, MapPin, Terminal, CheckCircle2, AlertCircle, Lock, Loader2 } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    scope: 'enterprise-role',
-    message: '',
+  const [toast, setToast] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      scope: 'enterprise-role',
+      message: '',
+      website_honeypot: '',
+    },
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', scope: 'enterprise-role', message: '' });
-    }, 1200);
+  const onSubmit = async (data: ContactFormData) => {
+    setToast(null);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const resJson = await response.json();
+
+      if (!response.ok) {
+        throw new Error(resJson.error || 'Failed to dispatch packet transmission.');
+      }
+
+      setToast({
+        type: 'success',
+        message: resJson.message || '>>> Packet received. Saad Zafar has been notified via priority relay. Expect response within 2-4 hours.',
+      });
+      reset();
+    } catch (err: unknown) {
+      const errMsg = err instanceof Error ? err.message : 'An error occurred during dispatch.';
+      setToast({
+        type: 'error',
+        message: errMsg,
+      });
+    }
   };
 
   return (
@@ -120,48 +151,59 @@ export const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            {/* Honeypot field (hidden from genuine users, visible only to bots) */}
+            <input
+              type="text"
+              {...register('website_honeypot')}
+              tabIndex={-1}
+              autoComplete="off"
+              className="hidden pointer-events-none opacity-0 h-0 w-0 absolute"
+              aria-hidden="true"
+            />
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-1">
                 <label className="font-mono text-[11px] text-slate-600 uppercase font-bold" htmlFor="name">
                   Full Name
                 </label>
                 <input
                   id="name"
                   type="text"
-                  required
                   placeholder="e.g. Alex Henderson"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none text-slate-900 text-sm transition-colors placeholder:text-slate-400 font-sans"
+                  {...register('name')}
+                  className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 text-slate-900 text-sm transition-colors placeholder:text-slate-400 font-sans"
                 />
+                {errors.name && (
+                  <span className="font-mono text-[11px] text-rose-600">{errors.name.message}</span>
+                )}
               </div>
 
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-1">
                 <label className="font-mono text-[11px] text-slate-600 uppercase font-bold" htmlFor="email">
                   Work Email
                 </label>
                 <input
                   id="email"
                   type="email"
-                  required
                   placeholder="alex@enterprise.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none text-slate-900 text-sm transition-colors placeholder:text-slate-400 font-sans"
+                  {...register('email')}
+                  className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 text-slate-900 text-sm transition-colors placeholder:text-slate-400 font-sans"
                 />
+                {errors.email && (
+                  <span className="font-mono text-[11px] text-rose-600">{errors.email.message}</span>
+                )}
               </div>
             </div>
 
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1">
               <label className="font-mono text-[11px] text-slate-600 uppercase font-bold" htmlFor="scope">
                 Project / Inquiry Scope
               </label>
               <select
                 id="scope"
-                value={formData.scope}
-                onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none text-slate-900 text-sm transition-colors font-sans"
+                {...register('scope')}
+                className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 text-slate-900 text-sm transition-colors font-sans"
               >
                 <option value="enterprise-role">Senior IT Manager / Architecture Role</option>
                 <option value="automation">Python Agentic OCR &amp; Workflow Automation</option>
@@ -169,21 +211,25 @@ export const ContactSection: React.FC = () => {
                 <option value="infrastructure">Disaster Recovery &amp; Network Infrastructure</option>
                 <option value="seo-web">Web Engineering &amp; Technical SEO / AEO</option>
               </select>
+              {errors.scope && (
+                <span className="font-mono text-[11px] text-rose-600">{errors.scope.message}</span>
+              )}
             </div>
 
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1">
               <label className="font-mono text-[11px] text-slate-600 uppercase font-bold" htmlFor="message">
                 Transmission Packet (Message)
               </label>
               <textarea
                 id="message"
                 rows={4}
-                required
                 placeholder="Describe your architecture requirements, timeline, and deliverables..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none text-slate-900 text-sm transition-colors placeholder:text-slate-400 resize-none font-sans"
+                {...register('message')}
+                className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 text-slate-900 text-sm transition-colors placeholder:text-slate-400 resize-none font-sans"
               />
+              {errors.message && (
+                <span className="font-mono text-[11px] text-rose-600">{errors.message.message}</span>
+              )}
             </div>
 
             <button
@@ -192,7 +238,10 @@ export const ContactSection: React.FC = () => {
               className="w-full py-3 rounded-xl font-mono text-sm text-white bg-indigo-600 hover:bg-indigo-700 font-semibold shadow-[0_4px_16px_rgba(79,70,229,0.35)] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
             >
               {isSubmitting ? (
-                <span>Transmitting Packet...</span>
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Transmitting Packet...</span>
+                </>
               ) : (
                 <>
                   <span>Dispatch Message to NOC</span>
@@ -201,12 +250,21 @@ export const ContactSection: React.FC = () => {
               )}
             </button>
 
-            {isSubmitted && (
-              <div className="p-3.5 rounded-xl bg-cyan-50 border border-cyan-300 text-cyan-800 font-mono text-xs text-center font-medium flex items-center justify-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-cyan-600 shrink-0" />
-                <span>
-                  &gt;&gt;&gt; Packet received. Saad Zafar has been notified via priority relay. Expect response within 2-4 hours.
-                </span>
+            {/* Toast Alerts matching Figma Glass styling */}
+            {toast && (
+              <div
+                className={`p-3.5 rounded-xl font-mono text-xs text-center font-medium flex items-center justify-center gap-2 transition-all ${
+                  toast.type === 'success'
+                    ? 'bg-cyan-50 border border-cyan-300 text-cyan-800'
+                    : 'bg-rose-50 border border-rose-300 text-rose-800'
+                }`}
+              >
+                {toast.type === 'success' ? (
+                  <CheckCircle2 className="w-4 h-4 text-cyan-600 shrink-0" />
+                ) : (
+                  <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                )}
+                <span>{toast.message}</span>
               </div>
             )}
           </form>
