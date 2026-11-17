@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saad Zafar | IT Manager, Enterprise Systems & Digital Operations Architect</title>
+  <meta name="description" content="Portfolio of Saad Zafar: 8+ years directing enterprise IT infrastructure, Cisco networking, Odoo ERP, in-house OCR automation for QuickBooks, and top-ranking SEO web deployments.">
+  <meta name="keywords" content="Saad Zafar, IT Manager Karachi, Enterprise Systems Architect, Cisco Network Engineer, Odoo ERP, OCR Automation QuickBooks, SEO Specialist">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              void: '#060913',
+              card: '#0c1222',
+              cardHover: '#131d36',
+              border: 'rgba(255, 255, 255, 0.08)',
+              cyan: '#00F2FE',
+              teal: '#06B6D4',
+              emerald: '#10B981',
+              mint: '#00F5A0',
+              violet: '#6366F1',
+              purple: '#8B5CF6',
+              amber: '#F59E0B'
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'scanline': 'scanline 8s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            scanline: {
+              '0%': { transform: 'translateY(-100%)' },
+              '100%': { transform: 'translateY(100%)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & Three.js -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060913;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #06b6d4;
+    }
+
+    /* Glassmorphism Styles */
+    .glass-panel {
+      background: rgba(12, 18, 34, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .glass-panel-glow {
+      background: rgba(12, 18, 34, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.12);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.35);
+    }
+    .glow-emerald {
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.35);
+    }
+    .glow-violet {
+      box-shadow: 0 0 25px rgba(99, 102, 241, 0.35);
+    }
+    .gradient-text-cyan {
+      background: linear-gradient(135deg, #00F2FE 0%, #38BDF8 50%, #6366F1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-text-emerald {
+      background: linear-gradient(135deg, #00F5A0 0%, #10B981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .grid-bg {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* 3D Tilt Card */
+    .card-3d-wrapper {
+      perspective: 1200px;
+    }
+    .card-3d {
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+      transform-style: preserve-3d;
+    }
+    .card-3d:hover {
+      transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+      box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.25);
+    }
+
+    /* HUD Frame Corners */
+    .hud-frame {
+      position: relative;
+    }
+    .hud-frame::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: -1px;
+      width: 12px; height: 12px;
+      border-top: 2px solid #00F2FE;
+      border-left: 2px solid #00F2FE;
+      pointer-events: none;
+    }
+    .hud-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; right: -1px;
+      width: 12px; height: 12px;
+      border-bottom: 2px solid #00F2FE;
+      border-right: 2px solid #00F2FE;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-[#060913] text-slate-100 font-sans selection:bg-cyan-500 selection:text-black overflow-x-hidden relative">
+
+  <!-- Ambient Background Canvas (Three.js 3D Cyber Particles) -->
+  <div id="threejs-canvas-container" class="fixed inset-0 pointer-events-none z-0 opacity-40"></div>
+
+  <!-- Ambient Light Orbs -->
+  <div class="fixed top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
+  <div class="fixed bottom-1/4 right-1/4 w-[550px] h-[550px] bg-indigo-600/10 rounded-full blur-[160px] pointer-events-none z-0"></div>
+  <div class="fixed top-2/3 left-1/2 w-[400px] h-[400px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl bg-[#060913]/85 border-b border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Identity -->
+      <a href="#hero" class="flex items-center space-x-3 group">
+        <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400 to-indigo-600 p-[1.5px] transition-transform duration-300 group-hover:scale-105">
+          <div class="w-full h-full bg-[#090E1D] rounded-[10px] flex items-center justify-center">
+            <span class="font-mono text-cyan-400 font-bold text-lg tracking-wider">SZ</span>
+          </div>
+        </div>
+        <div>
+          <div class="font-bold text-slate-100 tracking-tight flex items-center gap-2 text-base">
+            Saad Zafar
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-cyan-950 text-cyan-400 border border-cyan-800">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping mr-1"></span>
+              99.9% Uptime
+            </span>
+          </div>
+          <div class="text-xs text-slate-400 font-mono tracking-tight">IT Manager &amp; Digital Ops Architect</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+        <a href="#competencies" class="hover:text-cyan-400 transition-colors">Architecture</a>
+        <a href="#showreel" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          <i data-lucide="play-circle" class="w-4 h-4 text-cyan-400"></i> Video Reel
+        </a>
+        <a href="#ocr-pipeline" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          <i data-lucide="cpu" class="w-4 h-4 text-emerald-400"></i> OCR Pipeline
+        </a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Web Deployments (6)</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">Career Matrix</a>
+        <a href="#seo-audit" class="hover:text-cyan-400 transition-colors">SEO Benchmarks</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center space-x-3">
+        <button onclick="toggleAgentDrawer()" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-indigo-950/80 hover:bg-indigo-900 border border-indigo-700/60 text-xs font-mono text-indigo-300 transition-all shadow-sm">
+          <i data-lucide="bot" class="w-4 h-4 text-indigo-400 animate-bounce"></i>
+          <span>Ask AI Agent</span>
+        </button>
+        <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-semibold text-xs tracking-wide uppercase transition-all shadow-lg shadow-cyan-500/20">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <span>Initiate Contact</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Status Pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/60 text-xs font-mono text-slate-300 mb-8 backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-cyan-400 font-semibold">Live Enterprise Operations</span>
+        <span class="text-slate-500">•</span>
+        <span>Karachi, Pakistan</span>
+        <span class="text-slate-500">•</span>
+        <span class="text-emerald-400">Available for Enterprise IT Leadership &amp; Advisory</span>
+      </div>
+
+      <!-- Main Headline Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Copy & CTAs -->
+        <div class="lg:col-span-7 space-y-6">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12]">
+            Architecting <span class="gradient-text-cyan">Enterprise IT Infrastructure</span> &amp; High-ROI <span class="gradient-text-emerald">Autonomous Digital Ops</span>
+          </h1>
+          
+          <p class="text-lg text-slate-300 leading-relaxed font-normal max-w-2xl">
+            Hands-on IT Manager with <strong class="text-white font-semibold">8+ years</strong> directing mission-critical enterprise systems, Cisco network topology, Odoo ERP, and tier-1 banking SLAs. Engineering custom in-house <strong class="text-cyan-300 font-semibold">OCR automation pipelines</strong> that slashed accounting overhead by 85%, and delivering <strong class="text-emerald-300 font-semibold">production web ecosystems</strong> with top organic Google rankings.
+          </p>
+
+          <!-- Core Value Badges -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 font-mono text-xs">
+            <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+              <span class="text-slate-300">99.9% Core Uptime</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center gap-2">
+              <i data-lucide="zap" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span class="text-slate-300">85% OCR Data Cut</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center gap-2">
+              <i data-lucide="globe" class="w-4 h-4 text-indigo-400 flex-shrink-0"></i>
+              <span class="text-slate-300">6+ Live Sites &amp; SEO</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <a href="#ocr-pipeline" class="px-6 py-3.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold text-sm tracking-wide transition-all shadow-lg shadow-cyan-400/25 flex items-center gap-2">
+              <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+              <span>Test Live OCR Pipeline</span>
+            </a>
+            <a href="#showreel" class="px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-white font-medium text-sm transition-all flex items-center gap-2">
+              <i data-lucide="play" class="w-4 h-4 text-cyan-400 fill-cyan-400"></i>
+              <span>Watch Digital Ops Reel</span>
+            </a>
+            <a href="mailto:saad.zafar060@gmail.com" class="p-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-white transition-all" title="Email Saad">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </a>
+            <a href="https://linkedin.com/in/szmughal" target="_blank" rel="noopener" class="p-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-white transition-all" title="LinkedIn Profile">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Quick Credential Line -->
+          <div class="pt-4 flex items-center gap-6 text-xs text-slate-400 font-mono">
+            <span><strong class="text-slate-200">MCS</strong> (Master of Computer Science)</span>
+            <span>•</span>
+            <span><strong class="text-slate-200">CCNA</strong> Curriculum</span>
+            <span>•</span>
+            <span><strong class="text-slate-200">Karachi</strong>, PK</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive 3D Telemetry HUD Card -->
+        <div class="lg:col-span-5">
+          <div class="card-3d-wrapper">
+            <div class="card-3d hud-frame glass-panel-glow rounded-2xl p-6 relative overflow-hidden border border-cyan-500/30">
+              
+              <!-- Card Header -->
+              <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                  <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                  <span class="text-xs font-mono text-slate-400 ml-2">sys-topology-v2.6.live</span>
+                </div>
+                <span class="text-[11px] font-mono text-emerald-400 bg-emerald-950/70 px-2 py-0.5 rounded border border-emerald-800">STATUS: OPTIMAL</span>
+              </div>
+
+              <!-- Animated Systems Status Grid -->
+              <div class="space-y-4 py-4 text-xs font-mono">
+                
+                <!-- Metric 1: IT Leadership & Uptime -->
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                  <div class="flex items-center justify-between text-slate-300 mb-1.5">
+                    <span class="flex items-center gap-2">
+                      <i data-lucide="server" class="w-3.5 h-3.5 text-cyan-400"></i>
+                      Infrastructure &amp; Network Nodes
+                    </span>
+                    <span class="text-cyan-400 font-bold">99.98% High Availability</span>
+                  </div>
+                  <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                    <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-full w-[99%]"></div>
+                  </div>
+                  <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                    <span>Cisco Switches / VLANs / Linux</span>
+                    <span>Soneri &amp; Standard Chartered SLA</span>
+                  </div>
+                </div>
+
+                <!-- Metric 2: Accounting OCR Pipeline -->
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                  <div class="flex items-center justify-between text-slate-300 mb-1.5">
+                    <span class="flex items-center gap-2">
+                      <i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-400"></i>
+                      Autonomous In-House OCR Pipeline
+                    </span>
+                    <span class="text-emerald-400 font-bold">-85% Data Hours</span>
+                  </div>
+                  <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                    <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full w-[85%]"></div>
+                  </div>
+                  <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                    <span>PDF Bank Stmt &rarr; QuickBooks .xlsx</span>
+                    <span>100% Audit Reconciled</span>
+                  </div>
+                </div>
+
+                <!-- Metric 3: Enterprise ERP & Database -->
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                  <div class="flex items-center justify-between text-slate-300 mb-1.5">
+                    <span class="flex items-center gap-2">
+                      <i data-lucide="database" class="w-3.5 h-3.5 text-indigo-400"></i>
+                      Odoo ERP &amp; Metabase BI
+                    </span>
+                    <span class="text-indigo-400 font-bold">5 Modules Live</span>
+                  </div>
+                  <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                    <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full w-[94%]"></div>
+                  </div>
+                  <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                    <span>Inventory, Sales, Manufacturing, Purchase</span>
+                    <span>PostgreSQL Sync</span>
+                  </div>
+                </div>
+
+                <!-- Metric 4: Web Deployments & SEO Dominance -->
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                  <div class="flex items-center justify-between text-slate-300 mb-1.5">
+                    <span class="flex items-center gap-2">
+                      <i data-lucide="search" class="w-3.5 h-3.5 text-amber-400"></i>
+                      Production Web &amp; Search Dominance
+                    </span>
+                    <span class="text-amber-400 font-bold">6 Sites Live</span>
+                  </div>
+                  <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                    <div class="bg-gradient-to-r from-amber-400 to-orange-500 h-full w-[96%]"></div>
+                  </div>
+                  <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                    <span>On-Page &amp; Off-Page SEO / AEO / GEO</span>
+                    <span>Top-Tier Rankings</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Live Log Telemetry Ticker -->
+              <div class="pt-3 border-t border-slate-800 font-mono text-[11px] text-slate-400 flex items-center justify-between">
+                <span class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                  <span id="hero-live-time">SYNC 2026.11</span>
+                </span>
+                <span class="text-cyan-300 cursor-pointer hover:underline" onclick="scrollToId('ocr-pipeline')">Launch Interactive Sandbox &rarr;</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Metrics Counter Strip -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="glass-panel p-5 rounded-2xl border border-white/[0.06] text-center hover:border-cyan-500/40 transition-all">
+          <div class="text-3xl md:text-4xl font-extrabold text-cyan-400 font-mono">8+</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold mt-1">Years Enterprise IT</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Corporate &amp; Tier-1 Banking</div>
+        </div>
+        <div class="glass-panel p-5 rounded-2xl border border-white/[0.06] text-center hover:border-emerald-500/40 transition-all">
+          <div class="text-3xl md:text-4xl font-extrabold text-emerald-400 font-mono">85%</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold mt-1">Accounting Entry Cut</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">In-House OCR Pipeline</div>
+        </div>
+        <div class="glass-panel p-5 rounded-2xl border border-white/[0.06] text-center hover:border-indigo-500/40 transition-all">
+          <div class="text-3xl md:text-4xl font-extrabold text-indigo-400 font-mono">99.9%</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold mt-1">Uptime SLA Standard</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Hybrid Cloud &amp; Local Backup</div>
+        </div>
+        <div class="glass-panel p-5 rounded-2xl border border-white/[0.06] text-center hover:border-amber-500/40 transition-all">
+          <div class="text-3xl md:text-4xl font-extrabold text-amber-400 font-mono">6+</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold mt-1">Live Web Deployments</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">On-Page &amp; Off-Page SEO</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: VIDEO SHOWREEL & DIGITAL OPERATIONS MOTION REEL -->
+  <section id="showreel" class="py-24 relative z-10 border-t border-white/[0.08] bg-[#070b17]/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/70 border border-cyan-800 text-xs font-mono text-cyan-400 mb-4">
+          <i data-lucide="film" class="w-3.5 h-3.5"></i>
+          <span>MOTION SHOWREEL &bull; 60-SEC ARCHITECTURE OVERVIEW</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Enterprise Systems &amp; Digital Operations <span class="gradient-text-cyan">In Motion</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          Interactive digital video reel illustrating Saad Zafar's end-to-end IT infrastructure, in-house OCR document extraction workflow, and global search engine optimization deployments.
+        </p>
+      </div>
+
+      <!-- Custom Interactive Video Player Frame -->
+      <div class="max-w-5xl mx-auto hud-frame rounded-2xl overflow-hidden glass-panel-glow border border-cyan-500/30 relative">
+        
+        <!-- Video Canvas Display Area -->
+        <div class="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
+          
+          <!-- Canvas Renderer for Animated Video Reel -->
+          <canvas id="showreel-canvas" class="w-full h-full block"></canvas>
+
+          <!-- Floating HUD Overlay -->
+          <div class="absolute top-4 left-4 flex items-center gap-3 pointer-events-none">
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono bg-red-600 text-white font-bold animate-pulse">
+              ● REC
+            </span>
+            <span class="text-xs font-mono text-cyan-400 bg-slate-900/80 px-2 py-0.5 rounded border border-cyan-900">
+              4K ARCHITECTURE REEL // 60 FPS
+            </span>
+          </div>
+
+          <div class="absolute top-4 right-4 pointer-events-none">
+            <span id="showreel-scene-tag" class="text-xs font-mono text-emerald-400 bg-slate-900/80 px-2.5 py-0.5 rounded border border-emerald-900">
+              SCENE 1/4: ENTERPRISE INFRASTRUCTURE &amp; CISCO TOPOLOGY
+            </span>
+          </div>
+
+          <!-- Center Play Overlay Button (Visible when paused) -->
+          <div id="play-overlay" class="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer transition-opacity duration-300">
+            <div class="w-20 h-20 rounded-full bg-cyan-400 text-slate-950 flex items-center justify-center shadow-2xl shadow-cyan-400/50 hover:scale-110 transition-transform">
+              <i data-lucide="play" class="w-8 h-8 fill-slate-950 ml-1"></i>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Video Player Controls Bar -->
+        <div class="p-4 bg-slate-950/95 border-t border-slate-800 flex flex-col gap-3">
+          
+          <!-- Progress Bar & Scrubber -->
+          <div class="w-full bg-slate-800 h-2 rounded-full cursor-pointer relative overflow-hidden group" id="progress-container" onclick="seekShowreel(event)">
+            <div id="progress-bar" class="bg-gradient-to-r from-cyan-400 via-emerald-400 to-indigo-500 h-full w-[0%] transition-all"></div>
+          </div>
+
+          <!-- Bottom Button Row -->
+          <div class="flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center gap-4">
+              <button id="btn-play-pause" onclick="togglePlayShowreel()" class="px-3 py-1.5 rounded-lg bg-cyan-400 text-black font-bold flex items-center gap-1.5 hover:bg-cyan-300">
+                <i data-lucide="play" class="w-3.5 h-3.5" id="btn-play-icon"></i>
+                <span id="btn-play-text">Play Reel</span>
+              </button>
+              
+              <button onclick="toggleAudio()" class="px-3 py-1.5 rounded-lg bg-slate-900 text-slate-300 border border-slate-700 flex items-center gap-1.5 hover:bg-slate-800">
+                <i data-lucide="volume-2" class="w-3.5 h-3.5 text-cyan-400" id="audio-icon"></i>
+                <span id="audio-label">Synthesizer SFX: On</span>
+              </button>
+
+              <span id="showreel-time" class="text-slate-400">00:00 / 01:00</span>
+            </div>
+
+            <!-- Scene Selector Pills -->
+            <div class="hidden sm:flex items-center gap-2 text-[11px]">
+              <button onclick="jumpToScene(1)" class="px-2 py-1 rounded bg-slate-900 hover:bg-cyan-950 text-slate-400 hover:text-cyan-300 border border-slate-800">1. Cisco &amp; Network</button>
+              <button onclick="jumpToScene(2)" class="px-2 py-1 rounded bg-slate-900 hover:bg-emerald-950 text-slate-400 hover:text-emerald-300 border border-slate-800">2. OCR Pipeline</button>
+              <button onclick="jumpToScene(3)" class="px-2 py-1 rounded bg-slate-900 hover:bg-indigo-950 text-slate-400 hover:text-indigo-300 border border-slate-800">3. Odoo &amp; ERP</button>
+              <button onclick="jumpToScene(4)" class="px-2 py-1 rounded bg-slate-900 hover:bg-amber-950 text-slate-400 hover:text-amber-300 border border-slate-800">4. Live SEO Assets</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: CORE COMPETENCY ARCHITECTURE -->
+  <section id="competencies" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-400 mb-4">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+          <span>ENTERPRISE CAPABILITY MATRIX</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Dual-Discipline Mastery: <br class="hidden sm:inline">
+          <span class="gradient-text-cyan">Physical IT Stability</span> &amp; <span class="gradient-text-emerald">High-ROI Automation</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          Most organizations struggle with a disconnect between infrastructure engineers and software/growth operators. Saad bridges this gap by managing core enterprise hardware while building automated software pipelines.
+        </p>
+      </div>
+
+      <!-- 5 Interactive Pillar Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Pillar 1: Enterprise Infrastructure & Cisco -->
+        <div class="glass-panel p-6 rounded-2xl border border-white/[0.08] hover:border-cyan-500/40 transition-all card-3d">
+          <div class="w-12 h-12 rounded-xl bg-cyan-950/80 border border-cyan-800 flex items-center justify-center text-cyan-400 mb-5">
+            <i data-lucide="network" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Enterprise Infrastructure &amp; Networks</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Cisco routing &amp; switching, LAN topology, structured patch cabling, Linux systems, Active Directory domain joins, DNS/DHCP, firewall monitoring, remote VPNs, and 99.9% uptime governance.
+          </p>
+          <ul class="text-xs text-slate-300 font-mono space-y-2 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Cisco CCNA Routing &amp; VLANs</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Windows Server &amp; Linux Admin</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Standard Chartered &amp; Soneri SLA Support</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2: In-House OCR & Agentic Automation -->
+        <div class="glass-panel p-6 rounded-2xl border border-emerald-500/30 hover:border-emerald-400/60 transition-all card-3d relative overflow-hidden">
+          <div class="absolute top-3 right-3 px-2 py-0.5 rounded bg-emerald-950 border border-emerald-800 text-[10px] font-mono text-emerald-400 font-bold">
+            KEY ACHIEVEMENT
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-emerald-950/80 border border-emerald-800 flex items-center justify-center text-emerald-400 mb-5">
+            <i data-lucide="file-check-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">In-House OCR &amp; Python Automation</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Engineered automated OCR pipeline parsing multi-page scanned PDF invoices and bank statements into structured Excel <code class="text-emerald-300">.xlsx</code> ready for QuickBooks—reducing data entry time by 85%.
+          </p>
+          <ul class="text-xs text-slate-300 font-mono space-y-2 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Multi-Page Scanned PDF Extraction</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Direct QuickBooks Batch Matching</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Agentic AI Workflows (Claude Code, Antigravity)</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3: Odoo ERP & Business Systems -->
+        <div class="glass-panel p-6 rounded-2xl border border-white/[0.08] hover:border-indigo-500/40 transition-all card-3d">
+          <div class="w-12 h-12 rounded-xl bg-indigo-950/80 border border-indigo-800 flex items-center justify-center text-indigo-400 mb-5">
+            <i data-lucide="boxes" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Odoo ERP &amp; Business Systems</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Full lifecycle Odoo operations (Inventory, Sales, Purchase, Manufacturing), custom form development, PostgreSQL database management, and live Metabase analytics BI dashboards.
+          </p>
+          <ul class="text-xs text-slate-300 font-mono space-y-2 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Odoo 5-Module Custom Workflow</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Metabase BI Executive Dashboards</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Shopify B2C E-Commerce Sync</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 4: Production Web Deployments & SEO/AEO -->
+        <div class="glass-panel p-6 rounded-2xl border border-white/[0.08] hover:border-amber-500/40 transition-all card-3d">
+          <div class="w-12 h-12 rounded-xl bg-amber-950/80 border border-amber-800 flex items-center justify-center text-amber-400 mb-5">
+            <i data-lucide="search-code" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Web Architecture, SEO, AEO &amp; GEO</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Built, launched, and maintain 5+ live client web deployments with full DNS configuration, SSL encryption, CDN caching, On-Page SEO, Off-Page link building, and Answer Engine Optimization.
+          </p>
+          <ul class="text-xs text-slate-300 font-mono space-y-2 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> On-Page &amp; Off-Page Search Dominance</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> AEO &amp; Generative Engine Optimization</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> GoHighLevel CRM Funnel Automations</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 5: Cybersecurity & Multi-Tier Disaster Recovery -->
+        <div class="glass-panel p-6 rounded-2xl border border-white/[0.08] hover:border-cyan-500/40 transition-all card-3d">
+          <div class="w-12 h-12 rounded-xl bg-cyan-950/80 border border-cyan-800 flex items-center justify-center text-cyan-400 mb-5">
+            <i data-lucide="lock" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Cybersecurity &amp; Disaster Recovery</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Symantec Endpoint Protection console, domain security (SPF, DKIM, DMARC), email spoofing mitigation, automated hybrid backups (Mega Cloud + EaseUS Todo Backup encrypted mirror), Hikvision IP camera arrays.
+          </p>
+          <ul class="text-xs text-slate-300 font-mono space-y-2 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Automated Encrypted Hybrid Backups</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> SPF, DKIM, DMARC Strict Enforcement</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Enterprise Google Workspace Governance</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 6: Telephony & Communication Systems -->
+        <div class="glass-panel p-6 rounded-2xl border border-white/[0.08] hover:border-purple-500/40 transition-all card-3d">
+          <div class="w-12 h-12 rounded-xl bg-purple-950/80 border border-purple-800 flex items-center justify-center text-purple-400 mb-5">
+            <i data-lucide="phone-call" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Cloud Telephony &amp; Unified Comms</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Asterisk Server PABX telephony, Avaya IP phones, MDaemon mail servers, Zoom/Teams enterprise collaboration, and multi-tier ticketing support across remote and branch offices.
+          </p>
+          <ul class="text-xs text-slate-300 font-mono space-y-2 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Asterisk &amp; Avaya IP PBX Infrastructure</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> MDaemon &amp; Google Workspace Mail</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Multi-Branch Helpdesk Support</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: LIVE INTERACTIVE IN-HOUSE OCR SIMULATOR -->
+  <section id="ocr-pipeline" class="py-24 relative z-10 bg-[#070b18]/90 border-t border-b border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/70 border border-emerald-800 text-xs font-mono text-emerald-400 mb-4">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          <span>LIVE INTERACTIVE DEMO // PYTHON OCR PIPELINE</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Test Saad's In-House <span class="gradient-text-emerald">Accounting OCR Pipeline</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          At Enter and Post LLC, Saad built an automated document pipeline that ingests scanned multi-page invoices, extracts line items, validates math, and formats structured tables for instant QuickBooks import. Test the interactive simulation below!
+        </p>
+      </div>
+
+      <!-- Interactive Sandbox Box -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Pipeline Control Panel -->
+        <div class="lg:col-span-5 glass-panel p-6 rounded-2xl border border-slate-700 space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <span class="text-xs font-mono text-slate-300 font-bold uppercase tracking-wider flex items-center gap-2">
+              <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
+              Sample Document Ingestion
+            </span>
+            <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">
+              READY TO EXECUTE
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Select a test scanned invoice or bank statement to simulate the OCR parser running in real-time:
+          </p>
+
+          <!-- Document Selector -->
+          <div class="space-y-2">
+            <button onclick="selectSampleDoc('hardware')" id="btn-doc-hardware" class="w-full text-left p-3 rounded-xl bg-slate-900 border border-cyan-500/50 flex items-center justify-between transition-all">
+              <div class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="w-4 h-4 text-cyan-400"></i>
+                <div>
+                  <div class="text-xs font-semibold text-white">Invoice_IT_Infrastructure_Cisco.pdf</div>
+                  <div class="text-[10px] text-slate-400 font-mono">4 Line Items • Scanned 300 DPI • $1,445.00</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded">Selected</span>
+            </button>
+
+            <button onclick="selectSampleDoc('logistics')" id="btn-doc-logistics" class="w-full text-left p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 flex items-center justify-between transition-all">
+              <div class="flex items-center gap-3">
+                <i data-lucide="truck" class="w-4 h-4 text-emerald-400"></i>
+                <div>
+                  <div class="text-xs font-semibold text-white">Courier_Dispatch_Statement_108.pdf</div>
+                  <div class="text-[10px] text-slate-400 font-mono">6 Line Items • Multi-page • $4,820.50</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono text-slate-500">Available</span>
+            </button>
+          </div>
+
+          <!-- Run Pipeline Action Button -->
+          <div class="pt-2">
+            <button id="btn-run-ocr" onclick="runOcrSimulation()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs uppercase tracking-wider font-mono flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
+              <i data-lucide="play" class="w-4 h-4 fill-slate-950"></i>
+              <span>Execute In-House OCR Pipeline</span>
+            </button>
+          </div>
+
+          <!-- Real-World Impact Callout -->
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 text-xs text-slate-300 space-y-1.5 font-mono">
+            <div class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+              85% Time Savings Measured at Enter and Post LLC
+            </div>
+            <p class="text-[11px] text-slate-400 font-sans">
+              "Before this pipeline, accounting manually transcribed 100+ invoices per month into QuickBooks. Saad's system automated table extraction, validation, and chart-of-accounts mapping with zero transcription errors."
+            </p>
+          </div>
+        </div>
+
+        <!-- Terminal Output & Results Viewer -->
+        <div class="lg:col-span-7 space-y-4">
+          
+          <!-- Terminal Window Frame -->
+          <div class="glass-panel-glow rounded-2xl overflow-hidden border border-slate-800">
+            <!-- Terminal Header -->
+            <div class="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                <span class="text-xs font-mono text-slate-400 ml-2">ocr_extractor_v3.py --export-quickbooks</span>
+              </div>
+              <span id="ocr-status-badge" class="text-[10px] font-mono text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded border border-cyan-800">
+                SYSTEM IDLE
+              </span>
+            </div>
+
+            <!-- Terminal Stream Body -->
+            <div id="ocr-terminal-body" class="p-5 font-mono text-xs text-slate-300 bg-black/90 h-[220px] overflow-y-auto space-y-1.5">
+              <div class="text-slate-500">$ python ocr_extractor_v3.py --mode=hybrid --accuracy=high</div>
+              <div class="text-cyan-400">[READY] In-house OCR Pipeline initialized.</div>
+              <div class="text-slate-400">[INFO] Waiting for execution trigger... Press 'Execute In-House OCR Pipeline'.</div>
+            </div>
+          </div>
+
+          <!-- Structured Result Table (Revealed after execution) -->
+          <div id="ocr-result-table-card" class="glass-panel p-5 rounded-2xl border border-emerald-500/40 space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-check" class="w-4 h-4 text-emerald-400"></i>
+                <span class="text-xs font-bold text-white uppercase tracking-wider font-mono">QuickBooks Ingestion Batch Formatted</span>
+              </div>
+              <a href="quickbooks_import_batch_ready.csv" download class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-950 text-emerald-300 hover:bg-emerald-900 border border-emerald-700 text-xs font-mono transition-all">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                <span>Download .CSV</span>
+              </a>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left font-mono text-xs">
+                <thead>
+                  <tr class="border-b border-slate-800 text-slate-400 text-[11px]">
+                    <th class="pb-2">Item Description</th>
+                    <th class="pb-2 text-center">Qty</th>
+                    <th class="pb-2 text-right">Unit ($)</th>
+                    <th class="pb-2 text-right">Total ($)</th>
+                    <th class="pb-2 text-right">QB Account</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/60 text-slate-200" id="ocr-table-rows">
+                  <tr>
+                    <td class="py-2 text-slate-300">CAT6 Shielded Ethernet Cable 1000ft</td>
+                    <td class="py-2 text-center">4</td>
+                    <td class="py-2 text-right">$145.00</td>
+                    <td class="py-2 text-right text-emerald-400 font-bold">$580.00</td>
+                    <td class="py-2 text-right text-cyan-400">50000 - IT Hardware</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 text-slate-300">Cisco SFP+ 10GBASE-SR Transceiver</td>
+                    <td class="py-2 text-center">8</td>
+                    <td class="py-2 text-right">$42.50</td>
+                    <td class="py-2 text-right text-emerald-400 font-bold">$340.00</td>
+                    <td class="py-2 text-right text-cyan-400">50000 - IT Hardware</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 text-slate-300">Server Rack Mount Shelf 2U</td>
+                    <td class="py-2 text-center">2</td>
+                    <td class="py-2 text-right">$68.00</td>
+                    <td class="py-2 text-right text-emerald-400 font-bold">$136.00</td>
+                    <td class="py-2 text-right text-cyan-400">50000 - IT Hardware</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 text-slate-300">Eaton 1500VA UPS Battery Pack</td>
+                    <td class="py-2 text-center">1</td>
+                    <td class="py-2 text-right">$389.00</td>
+                    <td class="py-2 text-right text-emerald-400 font-bold">$389.00</td>
+                    <td class="py-2 text-right text-cyan-400">50000 - IT Hardware</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="flex items-center justify-between text-xs font-mono pt-2 border-t border-slate-800">
+              <span class="text-slate-400">Total Extracted: <strong class="text-white">$1,445.00</strong></span>
+              <span class="text-emerald-400 flex items-center gap-1 font-bold">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                Accuracy Verified: 100% Math Match
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: FEATURED WEB DEPLOYMENTS (6 SITES WITH SEO BENCHMARKS) -->
+  <section id="projects" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-400 mb-4">
+          <i data-lucide="globe-2" class="w-3.5 h-3.5"></i>
+          <span>PRODUCTION WEB PORTFOLIO &bull; 6 LIVE SYSTEMS</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Live Client Web Deployments &amp; <span class="gradient-text-cyan">Search Engine Dominance</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          Every website built by Saad Zafar is engineered for maximum speed, strict SSL/DNS security, responsive UX, and high-converting On-Page and Off-Page SEO domain dominance.
+        </p>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Site 1: Enter and Post LLC -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-white/[0.08] hover:border-cyan-400/50 transition-all card-3d flex flex-col">
+          <div class="relative bg-slate-950 p-2 border-b border-slate-800 overflow-hidden group">
+            <img src="assets/projects/enter-and-post.svg" alt="Enter and Post LLC" class="w-full h-48 object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute top-4 left-4 flex gap-1.5">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-950/90 text-cyan-300 border border-cyan-800">On-Page SEO</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-950/90 text-indigo-300 border border-indigo-800">Off-Page SEO</span>
+            </div>
+            <div class="absolute top-4 right-4">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950/90 text-emerald-400 border border-emerald-800 font-bold">LIVE PRODUCTION</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="text-xs font-mono text-cyan-400 font-semibold mb-1">PORTLAND, OR &bull; ENTERPRISE PORTAL</div>
+              <h3 class="text-xl font-bold text-white">Enter and Post LLC</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                Enterprise cloud bookkeeping, corporate tax filing, and digital technology operations platform. Features automated accounting OCR document extraction integration, Google Workspace single sign-on, and complete technical SEO.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-400 flex items-center gap-1">
+                <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> -85% Data Hours
+              </span>
+              <a href="https://enterandpost.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+                <span>Visit Live Site</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Site 2: TNT Commercial Services 615 -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-white/[0.08] hover:border-emerald-400/50 transition-all card-3d flex flex-col">
+          <div class="relative bg-slate-950 p-2 border-b border-slate-800 overflow-hidden group">
+            <img src="assets/projects/tnt-cleaning.svg" alt="TNT Commercial Services 615" class="w-full h-48 object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute top-4 left-4 flex gap-1.5">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950/90 text-emerald-300 border border-emerald-800">On-Page SEO</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-950/90 text-cyan-300 border border-cyan-800">Off-Page SEO</span>
+            </div>
+            <div class="absolute top-4 right-4">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950/90 text-emerald-400 border border-emerald-800 font-bold">LIVE PRODUCTION</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="text-xs font-mono text-emerald-400 font-semibold mb-1">NASHVILLE &amp; MIDDLE TN</div>
+              <h3 class="text-xl font-bold text-white">TNT Commercial Services 615</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                High-performance commercial cleaning and facility sanitation web architecture. Complete On-Page technical audit, schema markup for local commercial facilities, and authoritative Off-Page link building campaign.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-400 flex items-center gap-1">
+                <i data-lucide="award" class="w-3.5 h-3.5"></i> #1 Google Search Rank
+              </span>
+              <a href="https://tntcommercialservices615.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+                <span>Visit Live Site</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Site 3: Ace Wall Scholars -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-white/[0.08] hover:border-indigo-400/50 transition-all card-3d flex flex-col">
+          <div class="relative bg-slate-950 p-2 border-b border-slate-800 overflow-hidden group">
+            <img src="assets/projects/ace-wall-scholars.svg" alt="Ace Wall Scholars" class="w-full h-48 object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute top-4 left-4 flex gap-1.5">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-950/90 text-indigo-300 border border-indigo-800">Off-Page SEO</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-purple-950/90 text-purple-300 border border-purple-800">Donor Funnel</span>
+            </div>
+            <div class="absolute top-4 right-4">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950/90 text-emerald-400 border border-emerald-800 font-bold">LIVE PRODUCTION</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="text-xs font-mono text-indigo-400 font-semibold mb-1">GLOBAL &bull; ACADEMIC FOUNDATION</div>
+              <h3 class="text-xl font-bold text-white">Ace Wall Scholars</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                Educational scholarship and academic mentorship foundation portal. Directed authoritative Off-Page SEO campaign, high-domain education backlinks, and responsive applicant grant portal.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-xs font-mono text-indigo-400 flex items-center gap-1">
+                <i data-lucide="link" class="w-3.5 h-3.5"></i> Authority Link Matrix
+              </span>
+              <a href="https://www.acewallscholars.org/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+                <span>Visit Live Site</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Site 4: Natural Wonder Trees -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-white/[0.08] hover:border-emerald-400/50 transition-all card-3d flex flex-col">
+          <div class="relative bg-slate-950 p-2 border-b border-slate-800 overflow-hidden group">
+            <img src="assets/projects/natural-wonders.svg" alt="Natural Wonder Trees" class="w-full h-48 object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute top-4 left-4 flex gap-1.5">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950/90 text-emerald-300 border border-emerald-800">Local SEO</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-900 text-slate-300 border border-slate-700">Mobile Speed</span>
+            </div>
+            <div class="absolute top-4 right-4">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950/90 text-emerald-400 border border-emerald-800 font-bold">LIVE PRODUCTION</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="text-xs font-mono text-emerald-400 font-semibold mb-1">CONTRACTING &bull; TREE CARE</div>
+              <h3 class="text-xl font-bold text-white">Natural Wonder Trees</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                Certified arborist, tree trimming, and hazardous removal contractor web platform. Built with mobile-first responsiveness, emergency quote request workflows, and local map pack optimization.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-400 flex items-center gap-1">
+                <i data-lucide="phone-call" class="w-3.5 h-3.5"></i> Rapid Dispatch Funnel
+              </span>
+              <a href="https://naturalwondertrees.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+                <span>Visit Live Site</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Site 5: Janglee Painting -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-white/[0.08] hover:border-amber-400/50 transition-all card-3d flex flex-col">
+          <div class="relative bg-slate-950 p-2 border-b border-slate-800 overflow-hidden group">
+            <img src="assets/projects/jangleepainting.svg" alt="Janglee Painting" class="w-full h-48 object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute top-4 left-4 flex gap-1.5">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-950/90 text-amber-300 border border-amber-800">Commercial &amp; Res</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-900 text-slate-300 border border-slate-700">Quote Engine</span>
+            </div>
+            <div class="absolute top-4 right-4">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950/90 text-emerald-400 border border-emerald-800 font-bold">LIVE PRODUCTION</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="text-xs font-mono text-amber-400 font-semibold mb-1">RESIDENTIAL &amp; COMMERCIAL</div>
+              <h3 class="text-xl font-bold text-white">Janglee Painting</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                Contractor web presence showcasing interior and exterior painting services. Includes interactive visual project gallery, customer estimate submission, and localized organic service area indexing.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-xs font-mono text-amber-400 flex items-center gap-1">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i> Instant Quote Intake
+              </span>
+              <a href="http://www.jangleepainting.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+                <span>Visit Live Site</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Site 6: Duncan Brooke -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-white/[0.08] hover:border-purple-400/50 transition-all card-3d flex flex-col">
+          <div class="relative bg-slate-950 p-2 border-b border-slate-800 overflow-hidden group">
+            <img src="assets/projects/duncan-brooke.svg" alt="Duncan Brooke" class="w-full h-48 object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute top-4 left-4 flex gap-1.5">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-purple-950/90 text-purple-300 border border-purple-800">Architectural</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-900 text-slate-300 border border-slate-700">High-Res CDN</span>
+            </div>
+            <div class="absolute top-4 right-4">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950/90 text-emerald-400 border border-emerald-800 font-bold">LIVE PRODUCTION</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="text-xs font-mono text-purple-400 font-semibold mb-1">SOUTH AFRICA &bull; ARCHITECTURE</div>
+              <h3 class="text-xl font-bold text-white">Duncan Brooke</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                High-end architectural and property design portfolio. Engineered with clean minimalist typography, high-resolution spatial photography optimization, and ultra-fast edge CDN delivery.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-xs font-mono text-purple-400 flex items-center gap-1">
+                <i data-lucide="eye" class="w-3.5 h-3.5"></i> Spatial Design Portfolio
+              </span>
+              <a href="http://duncanbrooke.co.za/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+                <span>Visit Live Site</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: SEO & PERFORMANCE AUDIT BENCHMARKS -->
+  <section id="seo-audit" class="py-24 relative z-10 bg-[#070b18]/90 border-t border-b border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-400 mb-4">
+          <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i>
+          <span>LIVE AUDIT BENCHMARK DATA</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          SEO &amp; Web Infrastructure <span class="gradient-text-cyan">Performance Matrix</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          Detailed breakdown of technical execution across Saad's 6 live production client assets:
+        </p>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left font-mono text-xs">
+            <thead class="bg-slate-950 text-slate-400 border-b border-slate-800 text-[11px]">
+              <tr>
+                <th class="py-4 px-6 font-semibold">Web Asset / Client</th>
+                <th class="py-4 px-4 font-semibold">On-Page SEO</th>
+                <th class="py-4 px-4 font-semibold">Off-Page SEO</th>
+                <th class="py-4 px-4 font-semibold">AEO &amp; GEO Readiness</th>
+                <th class="py-4 px-4 font-semibold">SSL &amp; DNS Hardening</th>
+                <th class="py-4 px-6 font-semibold text-right">Lead Funnel</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/60 text-slate-200">
+              <tr class="hover:bg-slate-900/40 transition-colors">
+                <td class="py-4 px-6 font-sans font-bold text-white flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Enter and Post LLC
+                </td>
+                <td class="py-4 px-4 text-emerald-400 font-bold">100% Complete</td>
+                <td class="py-4 px-4 text-emerald-400 font-bold">Domain Authority Matrix</td>
+                <td class="py-4 px-4 text-cyan-300">Answer Engine Structured</td>
+                <td class="py-4 px-4 text-slate-300">Cloudflare Edge + SSL</td>
+                <td class="py-4 px-6 text-right text-emerald-400 font-bold">QuickBooks OCR + Lead CRM</td>
+              </tr>
+              <tr class="hover:bg-slate-900/40 transition-colors">
+                <td class="py-4 px-6 font-sans font-bold text-white flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  TNT Commercial Services 615
+                </td>
+                <td class="py-4 px-4 text-emerald-400 font-bold">Commercial Schema</td>
+                <td class="py-4 px-4 text-emerald-400 font-bold">Local Citation Tier-1</td>
+                <td class="py-4 px-4 text-cyan-300">Nashville Local Voice Rank</td>
+                <td class="py-4 px-4 text-slate-300">DNSSEC &amp; SSL Enforced</td>
+                <td class="py-4 px-6 text-right text-emerald-400 font-bold">Instant Quote Intake</td>
+              </tr>
+              <tr class="hover:bg-slate-900/40 transition-colors">
+                <td class="py-4 px-6 font-sans font-bold text-white flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Ace Wall Scholars
+                </td>
+                <td class="py-4 px-4 text-slate-300">Semantic Non-Profit</td>
+                <td class="py-4 px-4 text-emerald-400 font-bold">Edu Authority Backlinks</td>
+                <td class="py-4 px-4 text-cyan-300">Scholarship Search Index</td>
+                <td class="py-4 px-4 text-slate-300">256-bit TLS Encryption</td>
+                <td class="py-4 px-6 text-right text-emerald-400 font-bold">Donor &amp; Student Intake</td>
+              </tr>
+              <tr class="hover:bg-slate-900/40 transition-colors">
+                <td class="py-4 px-6 font-sans font-bold text-white flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Natural Wonder Trees
+                </td>
+                <td class="py-4 px-4 text-emerald-400 font-bold">Local Service Schema</td>
+                <td class="py-4 px-4 text-slate-300">Regional Directories</td>
+                <td class="py-4 px-4 text-cyan-300">Emergency Tree Search</td>
+                <td class="py-4 px-4 text-slate-300">Automated SSL Renew</td>
+                <td class="py-4 px-6 text-right text-emerald-400 font-bold">Emergency Dispatch</td>
+              </tr>
+              <tr class="hover:bg-slate-900/40 transition-colors">
+                <td class="py-4 px-6 font-sans font-bold text-white flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Janglee Painting
+                </td>
+                <td class="py-4 px-4 text-emerald-400 font-bold">Geo-Targeted Content</td>
+                <td class="py-4 px-4 text-slate-300">Contractor Networks</td>
+                <td class="py-4 px-4 text-cyan-300">Residential Intent</td>
+                <td class="py-4 px-4 text-slate-300">Full DNS Routing</td>
+                <td class="py-4 px-6 text-right text-emerald-400 font-bold">Quotation Funnel</td>
+              </tr>
+              <tr class="hover:bg-slate-900/40 transition-colors">
+                <td class="py-4 px-6 font-sans font-bold text-white flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Duncan Brooke
+                </td>
+                <td class="py-4 px-4 text-slate-300">Portfolio Image SEO</td>
+                <td class="py-4 px-4 text-slate-300">Design Press Index</td>
+                <td class="py-4 px-4 text-cyan-300">Architectural Query</td>
+                <td class="py-4 px-4 text-slate-300">South African Edge CDN</td>
+                <td class="py-4 px-6 text-right text-emerald-400 font-bold">Client Consultation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: CAREER TIMELINE & CREDENTIAL MATRIX -->
+  <section id="experience" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-400 mb-4">
+          <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
+          <span>PROFESSIONAL TRACK RECORD &bull; 8+ YEARS</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Enterprise Leadership &amp; <span class="gradient-text-cyan">Career Journey</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          Proven progression from tier-1 bank field support (Standard Chartered &amp; Soneri Bank) to executive IT leadership directing digital operations, cybersecurity, and automation.
+        </p>
+      </div>
+
+      <!-- Timeline Container -->
+      <div class="max-w-4xl mx-auto space-y-8 relative">
+        <div class="absolute left-4 sm:left-8 top-3 bottom-3 w-0.5 bg-gradient-to-b from-cyan-400 via-indigo-500 to-emerald-400"></div>
+
+        <!-- Role 1: IT Manager @ Enter and Post LLC -->
+        <div class="relative pl-12 sm:pl-20">
+          <div class="absolute left-2.5 sm:left-6.5 top-1.5 w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-[#060913] z-10"></div>
+          <div class="glass-panel p-6 rounded-2xl border border-cyan-500/30 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-white">IT Manager (Infrastructure, Systems &amp; Digital Operations)</h3>
+                <div class="text-xs font-mono text-cyan-400">Enter and Post LLC &bull; Karachi, Pakistan</div>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950 text-cyan-300 border border-cyan-800">July 2025 – Present</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Direct the entire IT function as sole authority: oversee technology infrastructure, cybersecurity standards, network stability, and multi-tier end-user support. Promoted to lead complete digital operations.
+            </p>
+            <div class="p-3 rounded-xl bg-slate-950/80 border border-emerald-800/60 text-xs text-emerald-300 font-mono">
+              <strong>Key Achievement:</strong> Engineered and deployed in-house OCR document extraction pipeline for accounting, automatically parsing scanned PDF invoices/bank statements into structured spreadsheets ready for QuickBooks—cutting monthly data entry by 85%.
+            </div>
+            <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-mono text-slate-400">
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Google Workspace Admin</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Symantec Endpoint Defense</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">SPF / DKIM / DMARC</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Mega Cloud Hybrid Mirror</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">AEO &amp; GEO AI Optimization</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 2: Assistant Manager @ Enter and Post LLC -->
+        <div class="relative pl-12 sm:pl-20">
+          <div class="absolute left-2.5 sm:left-6.5 top-1.5 w-4 h-4 rounded-full bg-indigo-400 ring-4 ring-[#060913] z-10"></div>
+          <div class="glass-panel p-6 rounded-2xl border border-white/[0.08] space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-white">Assistant Manager – IT, Web Development &amp; Marketing</h3>
+                <div class="text-xs font-mono text-indigo-400">Enter and Post LLC &bull; Karachi, Pakistan</div>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-indigo-950 text-indigo-300 border border-indigo-800">March 2024 – June 2025</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Configured office LAN hardware, maintained 5+ live production website deployments (DNS, SSL, CDN caching, mobile responsiveness), authored technical blog content, and built GoHighLevel CRM lead funnels.
+            </p>
+          </div>
+        </div>
+
+        <!-- Role 3: Senior IT Executive @ Universal BrushWares -->
+        <div class="relative pl-12 sm:pl-20">
+          <div class="absolute left-2.5 sm:left-6.5 top-1.5 w-4 h-4 rounded-full bg-purple-400 ring-4 ring-[#060913] z-10"></div>
+          <div class="glass-panel p-6 rounded-2xl border border-white/[0.08] space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-white">Senior IT Executive</h3>
+                <div class="text-xs font-mono text-purple-400">Universal BrushWares &bull; Karachi, Pakistan</div>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800">Dec 2021 – March 2024</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Managed full on-site network stack using Cisco switches/routers. Administered daily Odoo operations across Inventory, Sales, Purchase, and Manufacturing modules; integrated PostgreSQL with Metabase BI dashboards for executive visibility; governed Asterisk PABX telephony and Hikvision surveillance.
+            </p>
+          </div>
+        </div>
+
+        <!-- Role 4: Resident Engineer @ Soneri Bank -->
+        <div class="relative pl-12 sm:pl-20">
+          <div class="absolute left-2.5 sm:left-6.5 top-1.5 w-4 h-4 rounded-full bg-emerald-400 ring-4 ring-[#060913] z-10"></div>
+          <div class="glass-panel p-6 rounded-2xl border border-white/[0.08] space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-white">Resident Engineer (Deputed to Soneri Bank)</h3>
+                <div class="text-xs font-mono text-emerald-400">BCI Pvt Ltd &bull; Karachi, Pakistan</div>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800">August 2021 – Dec 2021</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Provided tier-1/tier-2 hardware, application, and OS support in an audit-heavy banking environment under strict SLA deadlines. Handled Active Directory domain joins, branch network troubleshooting, and compliance logging.
+            </p>
+          </div>
+        </div>
+
+        <!-- Role 5: IT Support Specialist @ Standard Chartered Bank -->
+        <div class="relative pl-12 sm:pl-20">
+          <div class="absolute left-2.5 sm:left-6.5 top-1.5 w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-[#060913] z-10"></div>
+          <div class="glass-panel p-6 rounded-2xl border border-white/[0.08] space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-white">IT Support Specialist (Deputed to Standard Chartered Bank)</h3>
+                <div class="text-xs font-mono text-cyan-400">Inbox Business Technologies &bull; Karachi, Pakistan</div>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800">August 2018 – Jan 2021</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Configured enterprise workstations adhering to Standard Chartered global security baselines. Maintained Avaya IP phones, resolved banking application tickets, and delivered operational field IT support for ATM systems across Karachi.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Education & Technical Credentials Strip -->
+      <div class="max-w-4xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="glass-panel p-5 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i data-lucide="graduation-cap" class="w-6 h-6 text-cyan-400 flex-shrink-0"></i>
+          <div>
+            <div class="text-xs font-bold text-white">MCS (Master of Computer Science)</div>
+            <div class="text-[11px] text-slate-400 font-mono">University of Karachi (2015–2016)</div>
+          </div>
+        </div>
+        <div class="glass-panel p-5 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i data-lucide="award" class="w-6 h-6 text-emerald-400 flex-shrink-0"></i>
+          <div>
+            <div class="text-xs font-bold text-white">BSc (Bachelor of Science)</div>
+            <div class="text-[11px] text-slate-400 font-mono">University of Karachi (2012–2013)</div>
+          </div>
+        </div>
+        <div class="glass-panel p-5 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i data-lucide="shield" class="w-6 h-6 text-indigo-400 flex-shrink-0"></i>
+          <div>
+            <div class="text-xs font-bold text-white">CCNA Network Curriculum</div>
+            <div class="text-[11px] text-slate-400 font-mono">Cisco Routing, Subnetting, VLANs</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: CONTACT & ENGAGEMENT FRAME -->
+  <section id="contact" class="py-24 relative z-10 border-t border-white/[0.08] bg-[#070b18]/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Contact Info -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/70 border border-cyan-800 text-xs font-mono text-cyan-400">
+            <i data-lucide="mail-check" class="w-3.5 h-3.5"></i>
+            <span>INITIATE ENGAGEMENT // DIRECT ACCESS</span>
+          </div>
+          
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Ready to Solidify Your <span class="gradient-text-cyan">Infrastructure</span> or Automate <span class="gradient-text-emerald">High-Volume Ops?</span>
+          </h2>
+
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Whether you require enterprise IT infrastructure leadership, customized OCR accounting workflows, Odoo ERP deployment, or top-ranking SEO web architectures, Saad Zafar brings proven hands-on execution.
+          </p>
+
+          <div class="space-y-4 pt-2 font-mono text-xs">
+            <a href="mailto:saad.zafar060@gmail.com" class="p-3.5 rounded-xl glass-panel border border-slate-800 flex items-center gap-3 hover:border-cyan-400/50 transition-all text-slate-200 hover:text-white">
+              <i data-lucide="mail" class="w-5 h-5 text-cyan-400"></i>
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase font-sans font-bold">Direct Email</div>
+                <div class="text-sm font-semibold">saad.zafar060@gmail.com</div>
+              </div>
+            </a>
+
+            <a href="tel:+923333415230" class="p-3.5 rounded-xl glass-panel border border-slate-800 flex items-center gap-3 hover:border-emerald-400/50 transition-all text-slate-200 hover:text-white">
+              <i data-lucide="phone" class="w-5 h-5 text-emerald-400"></i>
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase font-sans font-bold">Phone &amp; WhatsApp</div>
+                <div class="text-sm font-semibold">+92-333-3415230</div>
+              </div>
+            </a>
+
+            <a href="https://linkedin.com/in/szmughal" target="_blank" rel="noopener" class="p-3.5 rounded-xl glass-panel border border-slate-800 flex items-center gap-3 hover:border-indigo-400/50 transition-all text-slate-200 hover:text-white">
+              <i data-lucide="linkedin" class="w-5 h-5 text-indigo-400"></i>
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase font-sans font-bold">LinkedIn Profile</div>
+                <div class="text-sm font-semibold">linkedin.com/in/szmughal</div>
+              </div>
+            </a>
+
+            <div class="p-3.5 rounded-xl glass-panel border border-slate-800 flex items-center gap-3 text-slate-200">
+              <i data-lucide="map-pin" class="w-5 h-5 text-amber-400"></i>
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase font-sans font-bold">Location &amp; Availability</div>
+                <div class="text-sm font-semibold">Karachi, Pakistan &bull; Global Remote Leadership</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Engagement Inquiry Form -->
+        <div class="lg:col-span-6">
+          <div class="hud-frame glass-panel-glow p-8 rounded-2xl border border-cyan-500/30 space-y-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <i data-lucide="send" class="w-4 h-4 text-cyan-400"></i>
+              Schedule Consultation / Project Inquiry
+            </h3>
+
+            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4 text-xs font-mono">
+              <div>
+                <label class="block text-slate-400 mb-1.5">Your Name / Organization</label>
+                <input type="text" id="contact-name" required placeholder="e.g. John Doe / Global Logistics Corp" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-cyan-400">
+              </div>
+
+              <div>
+                <label class="block text-slate-400 mb-1.5">Email Address</label>
+                <input type="email" id="contact-email" required placeholder="john@enterprise.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-cyan-400">
+              </div>
+
+              <div>
+                <label class="block text-slate-400 mb-1.5">Primary Requirement</label>
+                <select id="contact-service" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-cyan-400">
+                  <option value="ocr">In-House OCR Document Automation (QuickBooks)</option>
+                  <option value="infra">Enterprise IT Infrastructure &amp; Network Hardening</option>
+                  <option value="web-seo">Custom Web Architecture + On/Off-Page SEO</option>
+                  <option value="erp">Odoo ERP Customization &amp; Metabase BI Dashboards</option>
+                  <option value="leadership">Senior IT Management / Director Consultation</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-slate-400 mb-1.5">Project Brief / Scope Details</label>
+                <textarea id="contact-message" rows="3" required placeholder="Tell Saad about your systems, current bottlenecks, or deployment timeline..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-cyan-400"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-slate-950 font-bold text-xs uppercase tracking-wider font-mono transition-all shadow-lg shadow-cyan-400/25">
+                Transmit Technical Inquiry
+              </button>
+
+              <div id="contact-feedback" class="hidden p-3 rounded-xl bg-emerald-950/80 border border-emerald-700 text-emerald-300 text-center font-mono">
+                Message prepared! Routing directly to Saad Zafar's inbox.
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 border-t border-white/[0.08] bg-[#04060d] text-xs font-mono text-slate-500 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        &copy; 2026 <strong class="text-slate-300 font-sans">Saad Zafar</strong>. IT Manager &bull; Enterprise Systems &bull; Automation Architect.
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="#hero" class="hover:text-cyan-400">Back to Top</a>
+        <a href="mailto:saad.zafar060@gmail.com" class="hover:text-cyan-400">Email</a>
+        <a href="https://linkedin.com/in/szmughal" target="_blank" rel="noopener" class="hover:text-cyan-400">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING EMBEDDED AI AGENT DRAWER ("SAAD'S DIGITAL TWIN / SYSTEMS AGENT") -->
+  <div id="agent-drawer" class="fixed bottom-6 right-6 z-50 transition-all duration-300">
+    
+    <!-- Floating Trigger Pill Button -->
+    <button id="agent-toggle-btn" onclick="toggleAgentDrawer()" class="px-4 py-3 rounded-full bg-gradient-to-r from-indigo-600 via-cyan-500 to-emerald-500 text-black font-bold font-mono text-xs shadow-2xl hover:scale-105 transition-transform flex items-center gap-2">
+      <i data-lucide="bot" class="w-4 h-4 text-black animate-spin" style="animation-duration: 6s;"></i>
+      <span>Saad's AI Agent</span>
+      <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+    </button>
+
+    <!-- Expanded Chat Window -->
+    <div id="agent-chat-window" class="hidden fixed bottom-6 right-6 w-96 max-w-[calc(100vw-2rem)] h-[540px] rounded-2xl glass-panel-glow border border-cyan-500/40 shadow-2xl flex-col overflow-hidden z-50">
+      
+      <!-- Chat Header -->
+      <div class="bg-slate-950 p-4 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-indigo-900 border border-indigo-700 flex items-center justify-center text-cyan-400">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-white font-sans">Saad's AI Systems Assistant</div>
+            <div class="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Autonomous Knowledge Base Active
+            </div>
+          </div>
+        </div>
+        <button onclick="toggleAgentDrawer()" class="text-slate-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Messages Body -->
+      <div id="agent-messages" class="flex-1 p-4 overflow-y-auto space-y-3 font-sans text-xs">
+        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 leading-relaxed">
+          <strong class="text-cyan-400 font-mono block mb-1">Hello! I am Saad Zafar's AI Twin.</strong>
+          I can answer any question about Saad's 8+ years of enterprise IT leadership, his in-house OCR pipeline for QuickBooks, Odoo ERP customization, or the 6 production websites he built.
+        </div>
+      </div>
+
+      <!-- Quick Suggestion Chips -->
+      <div class="px-3 py-2 bg-slate-950/60 border-t border-slate-900 flex flex-wrap gap-1.5">
+        <button onclick="askAgent('How does the in-house OCR pipeline work?')" class="text-[10px] font-mono px-2 py-1 rounded bg-slate-900 hover:bg-cyan-950 text-slate-300 hover:text-cyan-300 border border-slate-800">OCR Pipeline?</button>
+        <button onclick="askAgent('What is Saad\'s experience with Cisco and Odoo?')" class="text-[10px] font-mono px-2 py-1 rounded bg-slate-900 hover:bg-indigo-950 text-slate-300 hover:text-indigo-300 border border-slate-800">Cisco &amp; Odoo?</button>
+        <button onclick="askAgent('Tell me about the 6 live website deployments.')')" class="text-[10px] font-mono px-2 py-1 rounded bg-slate-900 hover:bg-emerald-950 text-slate-300 hover:text-emerald-300 border border-slate-800">6 Websites?</button>
+        <button onclick="askAgent('How can I contact or hire Saad?')" class="text-[10px] font-mono px-2 py-1 rounded bg-slate-900 hover:bg-amber-950 text-slate-300 hover:text-amber-300 border border-slate-800">Contact Saad?</button>
+      </div>
+
+      <!-- Chat Input Field -->
+      <form onsubmit="handleAgentChat(event)" class="p-3 bg-slate-950 border-t border-slate-800 flex items-center gap-2">
+        <input type="text" id="agent-input" placeholder="Ask about systems, OCR, or projects..." class="flex-1 px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 font-mono">
+        <button type="submit" class="p-2 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-slate-950 transition-colors">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC: THREE.JS, VIDEO SHOWREEL CANVAS, INTERACTIVE OCR & AI AGENT -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Smooth Scroll Helper
+    function scrollToId(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Set Live Time Ticker
+    function updateLiveTime() {
+      const now = new Date();
+      const el = document.getElementById('hero-live-time');
+      if (el) {
+        el.textContent = `SYNC ${now.toISOString().slice(0, 19).replace('T', ' ')} UTC`;
+      }
+    }
+    setInterval(updateLiveTime, 1000);
+    updateLiveTime();
+
+    // ==========================================
+    // 1. THREE.JS BACKGROUND 3D MESH PARTICLES
+    // ==========================================
+    function initThreeJSBackground() {
+      const container = document.getElementById('threejs-canvas-container');
+      if (!container || typeof THREE === 'undefined') return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 45;
+
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+
+      // Particle Geometry
+      const particleCount = 220;
+      const geometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(particleCount * 3);
+      const colors = new Float32Array(particleCount * 3);
+
+      const color1 = new THREE.Color(0x00F2FE); // Cyan
+      const color2 = new THREE.Color(0x6366F1); // Indigo
+      const color3 = new THREE.Color(0x10B981); // Emerald
+
+      for (let i = 0; i < particleCount; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 120;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 90;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 80;
+
+        const mixedColor = i % 3 === 0 ? color1 : (i % 3 === 1 ? color2 : color3);
+        colors[i * 3] = mixedColor.r;
+        colors[i * 3 + 1] = mixedColor.g;
+        colors[i * 3 + 2] = mixedColor.b;
+      }
+
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+      const material = new THREE.PointsMaterial({
+        size: 1.8,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.7,
+        blending: THREE.AdditiveBlending
+      });
+
+      const points = new THREE.Points(geometry, material);
+      scene.add(points);
+
+      // Subtle Wireframe Globe Mesh
+      const sphereGeo = new THREE.SphereGeometry(22, 16, 16);
+      const sphereMat = new THREE.MeshBasicMaterial({
+        color: 0x06B6D4,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.08
+      });
+      const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
+      sphereMesh.position.set(30, -5, -10);
+      scene.add(sphereMesh);
+
+      // Mouse Interaction
+      let mouseX = 0, mouseY = 0;
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX - window.innerWidth / 2) * 0.01;
+        mouseY = (e.clientY - window.innerHeight / 2) * 0.01;
+      });
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        points.rotation.y += 0.0008;
+        points.rotation.x += 0.0004;
+
+        sphereMesh.rotation.y += 0.0015;
+        sphereMesh.rotation.x += 0.001;
+
+        camera.position.x += (mouseX - camera.position.x) * 0.02;
+        camera.position.y += (-mouseY - camera.position.y) * 0.02;
+
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
+    initThreeJSBackground();
+
+    // ==========================================
+    // 2. SHORT VIDEO SHOWREEL (CANVAS ENGINE)
+    // ==========================================
+    let showreelPlaying = false;
+    let showreelTime = 0; // seconds (0 to 60)
+    const showreelDuration = 60;
+    let showreelAudioActive = true;
+    let audioCtx = null;
+    let showreelRaf = null;
+
+    const showreelCanvas = document.getElementById('showreel-canvas');
+    const ctx = showreelCanvas.getContext('2d');
+
+    function resizeShowreel() {
+      if (!showreelCanvas) return;
+      const rect = showreelCanvas.getBoundingClientRect();
+      showreelCanvas.width = rect.width * (window.devicePixelRatio || 1);
+      showreelCanvas.height = rect.height * (window.devicePixelRatio || 1);
+    }
+    window.addEventListener('resize', resizeShowreel);
+    resizeShowreel();
+
+    function renderShowreelFrame() {
+      if (!ctx) return;
+      const w = showreelCanvas.width;
+      const h = showreelCanvas.height;
+
+      // Clear Screen with deep obsidian gradient
+      const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+      bgGrad.addColorStop(0, '#040711');
+      bgGrad.addColorStop(1, '#0b1126');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, w, h);
+
+      // Grid Lines
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += 40) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += 40) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      const sceneIndex = Math.floor((showreelTime / showreelDuration) * 4);
+      const sceneProg = ((showreelTime % 15) / 15);
+
+      // HUD Radar Circles in background
+      ctx.strokeStyle = 'rgba(6, 182, 212, 0.15)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(w * 0.75, h * 0.5, 120 + Math.sin(showreelTime * 2) * 10, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // SCENE RENDERING
+      if (sceneIndex === 0) {
+        // SCENE 1: ENTERPRISE INFRASTRUCTURE & CISCO TOPOLOGY
+        document.getElementById('showreel-scene-tag').textContent = 'SCENE 1/4: ENTERPRISE INFRASTRUCTURE & CISCO TOPOLOGY';
+
+        // Draw network nodes
+        const nodes = [
+          { x: w * 0.25, y: h * 0.4, label: 'Core Router (Cisco)', sub: '10.0.0.1' },
+          { x: w * 0.5, y: h * 0.3, label: 'Distribution Switch', sub: 'VLAN 10 / 20' },
+          { x: w * 0.75, y: h * 0.45, label: 'Standard Chartered SLA', sub: 'Banking Gateway' },
+          { x: w * 0.4, y: h * 0.7, label: 'Linux Servers & AD', sub: 'Kerberos / DNS' },
+          { x: w * 0.65, y: h * 0.75, label: 'Hybrid Backup (Mega)', sub: 'AES-256 Encrypted' },
+        ];
+
+        // Draw connection lines with pulse
+        ctx.strokeStyle = 'rgba(6, 182, 212, 0.4)';
+        ctx.lineWidth = 2;
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+
+        // Draw animated data packet
+        const packetT = (showreelTime * 1.5) % 1;
+        const packetX = nodes[0].x + (nodes[1].x - nodes[0].x) * packetT;
+        const packetY = nodes[0].y + (nodes[1].y - nodes[0].y) * packetT;
+        ctx.fillStyle = '#00F2FE';
+        ctx.shadowColor = '#00F2FE';
+        ctx.shadowBlur = 15;
+        ctx.beginPath();
+        ctx.arc(packetX, packetY, 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // Draw nodes
+        nodes.forEach(n => {
+          ctx.fillStyle = '#0c1222';
+          ctx.strokeStyle = '#06B6D4';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, 24, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 12px "Plus Jakarta Sans"';
+          ctx.fillText(n.label, n.x - 40, n.y + 40);
+          ctx.fillStyle = '#94A3B8';
+          ctx.font = '10px "JetBrains Mono"';
+          ctx.fillText(n.sub, n.x - 30, n.y + 54);
+        });
+
+      } else if (sceneIndex === 1) {
+        // SCENE 2: IN-HOUSE ACCOUNTING OCR PIPELINE
+        document.getElementById('showreel-scene-tag').textContent = 'SCENE 2/4: IN-HOUSE OCR PIPELINE & QUICKBOOKS AUTOMATION';
+
+        // Animated PDF Scanner Frame
+        const scanY = h * 0.2 + (h * 0.55) * Math.abs(Math.sin(showreelTime * 3));
+        
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+        ctx.strokeStyle = '#10B981';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(w * 0.15, h * 0.2, w * 0.35, h * 0.6);
+        ctx.fillRect(w * 0.15, h * 0.2, w * 0.35, h * 0.6);
+
+        // Scan laser line
+        ctx.strokeStyle = '#00F5A0';
+        ctx.lineWidth = 3;
+        ctx.shadowColor = '#00F5A0';
+        ctx.shadowBlur = 20;
+        ctx.beginPath();
+        ctx.moveTo(w * 0.15, scanY);
+        ctx.lineTo(w * 0.5, scanY);
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+
+        // Right side: Output metrics & QuickBooks table
+        ctx.fillStyle = '#10B981';
+        ctx.font = 'bold 20px "Plus Jakarta Sans"';
+        ctx.fillText('OCR Document Processing Pipeline', w * 0.55, h * 0.28);
+        
+        ctx.fillStyle = '#94A3B8';
+        ctx.font = '13px "JetBrains Mono"';
+        ctx.fillText('Target: Multi-page Scanned Invoices / Statements', w * 0.55, h * 0.35);
+        ctx.fillText('Output: QuickBooks Ready Structured .xlsx', w * 0.55, h * 0.42);
+        
+        ctx.fillStyle = '#00F5A0';
+        ctx.font = 'bold 36px "JetBrains Mono"';
+        ctx.fillText('-85% MANUAL ENTRY TIME', w * 0.55, h * 0.55);
+
+        ctx.fillStyle = '#CBD5E1';
+        ctx.font = '12px "JetBrains Mono"';
+        ctx.fillText('Line Item Accuracy: 100% Reconciled Math Match', w * 0.55, h * 0.63);
+
+      } else if (sceneIndex === 2) {
+        // SCENE 3: ODOO ERP & BUSINESS SYSTEMS
+        document.getElementById('showreel-scene-tag').textContent = 'SCENE 3/4: ODOO ERP & POSTGRESQL METABASE BI DASHBOARDS';
+
+        const modules = ['Inventory', 'Sales', 'Purchase', 'Manufacturing', 'Shopify Sync'];
+        modules.forEach((mod, i) => {
+          const modX = w * 0.18 + i * (w * 0.13);
+          const barH = 80 + Math.sin(showreelTime * 4 + i) * 30;
+
+          ctx.fillStyle = 'rgba(99, 102, 241, 0.25)';
+          ctx.strokeStyle = '#6366F1';
+          ctx.lineWidth = 2;
+          ctx.fillRect(modX, h * 0.7 - barH, w * 0.09, barH);
+          ctx.strokeRect(modX, h * 0.7 - barH, w * 0.09, barH);
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 11px "Plus Jakarta Sans"';
+          ctx.fillText(mod, modX - 5, h * 0.76);
+        });
+
+        ctx.fillStyle = '#8B5CF6';
+        ctx.font = 'bold 22px "Plus Jakarta Sans"';
+        ctx.fillText('Odoo ERP Multi-Module Ecosystem', w * 0.18, h * 0.25);
+        ctx.fillStyle = '#94A3B8';
+        ctx.font = '13px "JetBrains Mono"';
+        ctx.fillText('Executive Visibility via PostgreSQL & Metabase Real-time BI', w * 0.18, h * 0.32);
+
+      } else {
+        // SCENE 4: 6 LIVE WEB DEPLOYMENTS & SEO
+        document.getElementById('showreel-scene-tag').textContent = 'SCENE 4/4: 6 LIVE WEB DEPLOYMENTS & SEARCH ENGINE RANKINGS';
+
+        const sites = [
+          'TNT Commercial Services 615',
+          'Enter and Post LLC',
+          'Ace Wall Scholars',
+          'Natural Wonder Trees',
+          'Janglee Painting',
+          'Duncan Brooke'
+        ];
+
+        ctx.fillStyle = '#00F2FE';
+        ctx.font = 'bold 22px "Plus Jakarta Sans"';
+        ctx.fillText('Production Web Deployments & Top SEO Rankings', w * 0.15, h * 0.25);
+
+        sites.forEach((site, i) => {
+          const rowY = h * 0.35 + i * 36;
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+          ctx.strokeStyle = 'rgba(6, 182, 212, 0.3)';
+          ctx.fillRect(w * 0.15, rowY - 18, w * 0.7, 28);
+          ctx.strokeRect(w * 0.15, rowY - 18, w * 0.7, 28);
+
+          ctx.fillStyle = '#10B981';
+          ctx.font = 'bold 11px "JetBrains Mono"';
+          ctx.fillText('#1 RANK', w * 0.18, rowY);
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = '12px "Plus Jakarta Sans"';
+          ctx.fillText(site, w * 0.3, rowY);
+
+          ctx.fillStyle = '#00F2FE';
+          ctx.font = '11px "JetBrains Mono"';
+          ctx.fillText('On-Page & Off-Page SEO Verified', w * 0.65, rowY);
+        });
+      }
+
+      // Render Progress on Player Bar
+      const progPct = (showreelTime / showreelDuration) * 100;
+      document.getElementById('progress-bar').style.width = `${progPct}%`;
+      const curMin = Math.floor(showreelTime / 60).toString().padStart(2, '0');
+      const curSec = Math.floor(showreelTime % 60).toString().padStart(2, '0');
+      document.getElementById('showreel-time').textContent = `${curMin}:${curSec} / 01:00`;
+    }
+
+    function togglePlayShowreel() {
+      showreelPlaying = !showreelPlaying;
+      const overlay = document.getElementById('play-overlay');
+      const btnText = document.getElementById('btn-play-text');
+      const btnIcon = document.getElementById('btn-play-icon');
+
+      if (showreelPlaying) {
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        btnText.textContent = 'Pause Reel';
+        btnIcon.setAttribute('data-lucide', 'pause');
+        lucide.createIcons();
+        startSynthesizerHum();
+        loopShowreel();
+      } else {
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        btnText.textContent = 'Play Reel';
+        btnIcon.setAttribute('data-lucide', 'play');
+        lucide.createIcons();
+        stopSynthesizerHum();
+      }
+    }
+
+    document.getElementById('play-overlay').addEventListener('click', togglePlayShowreel);
+
+    function loopShowreel() {
+      if (!showreelPlaying) return;
+      showreelTime += 0.05;
+      if (showreelTime >= showreelDuration) {
+        showreelTime = 0;
+      }
+      renderShowreelFrame();
+      showreelRaf = requestAnimationFrame(loopShowreel);
+    }
+
+    function seekShowreel(e) {
+      const container = document.getElementById('progress-container');
+      const rect = container.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+      showreelTime = ratio * showreelDuration;
+      renderShowreelFrame();
+    }
+
+    function jumpToScene(sceneNum) {
+      showreelTime = (sceneNum - 1) * 15;
+      renderShowreelFrame();
+      if (!showreelPlaying) togglePlayShowreel();
+    }
+
+    // Audio SFX using Web Audio API
+    let osc = null;
+    let gainNode = null;
+    function startSynthesizerHum() {
+      if (!showreelAudioActive) return;
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        osc = audioCtx.createOscillator();
+        gainNode = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(110, audioCtx.currentTime); // Low 110Hz ambient hum
+        gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        osc.start();
+      } catch (e) {
+        console.warn('Audio not allowed yet', e);
+      }
+    }
+    function stopSynthesizerHum() {
+      if (osc) {
+        try { osc.stop(); osc.disconnect(); } catch (e) {}
+        osc = null;
+      }
+    }
+    function toggleAudio() {
+      showreelAudioActive = !showreelAudioActive;
+      const lbl = document.getElementById('audio-label');
+      const ico = document.getElementById('audio-icon');
+      if (showreelAudioActive) {
+        lbl.textContent = 'Synthesizer SFX: On';
+        ico.setAttribute('data-lucide', 'volume-2');
+        if (showreelPlaying) startSynthesizerHum();
+      } else {
+        lbl.textContent = 'Synthesizer SFX: Muted';
+        ico.setAttribute('data-lucide', 'volume-x');
+        stopSynthesizerHum();
+      }
+      lucide.createIcons();
+    }
+
+    // Render first frame
+    renderShowreelFrame();
+
+    // ==========================================
+    // 3. INTERACTIVE OCR SIMULATION ENGINE
+    // ==========================================
+    let currentDocType = 'hardware';
+
+    function selectSampleDoc(type) {
+      currentDocType = type;
+      const btnH = document.getElementById('btn-doc-hardware');
+      const btnL = document.getElementById('btn-doc-logistics');
+
+      if (type === 'hardware') {
+        btnH.className = 'w-full text-left p-3 rounded-xl bg-slate-900 border border-cyan-500/50 flex items-center justify-between transition-all';
+        btnL.className = 'w-full text-left p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 flex items-center justify-between transition-all';
+      } else {
+        btnL.className = 'w-full text-left p-3 rounded-xl bg-slate-900 border border-emerald-500/50 flex items-center justify-between transition-all';
+        btnH.className = 'w-full text-left p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 flex items-center justify-between transition-all';
+      }
+    }
+
+    function runOcrSimulation() {
+      const term = document.getElementById('ocr-terminal-body');
+      const badge = document.getElementById('ocr-status-badge');
+      const runBtn = document.getElementById('btn-run-ocr');
+
+      badge.textContent = 'PROCESSING 300 DPI OCR...';
+      badge.className = 'text-[10px] font-mono text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800 animate-pulse';
+      runBtn.disabled = true;
+      runBtn.classList.add('opacity-50');
+
+      term.innerHTML = `
+        <div class="text-slate-500">$ python ocr_extractor_v3.py --mode=hybrid --accuracy=high</div>
+        <div class="text-cyan-400">[INGEST] Reading Scanned PDF: ${currentDocType === 'hardware' ? 'Invoice_IT_Infrastructure_Cisco.pdf' : 'Courier_Dispatch_Statement_108.pdf'}</div>
+      `;
+
+      setTimeout(() => {
+        term.innerHTML += `<div class="text-amber-400">[OCR] Deskewing document, removing scanner speckle artifacts...</div>`;
+      }, 500);
+
+      setTimeout(() => {
+        term.innerHTML += `<div class="text-indigo-400">[VECTORS] Bounding box table line extraction: 4 line items detected.</div>`;
+      }, 1000);
+
+      setTimeout(() => {
+        term.innerHTML += `<div class="text-cyan-300">[MAPPING] Matching QuickBooks Chart of Accounts: 50000 - IT Hardware &amp; Expense</div>`;
+      }, 1500);
+
+      setTimeout(() => {
+        term.innerHTML += `
+          <div class="text-emerald-400 font-bold">[SUCCESS] Extraction 100% complete. Reconciled Total: $1,445.00</div>
+          <div class="text-slate-300">[EXPORT] Batch file written: quickbooks_import_batch_ready.csv</div>
+        `;
+        term.scrollTop = term.scrollHeight;
+
+        badge.textContent = 'BATCH READY';
+        badge.className = 'text-[10px] font-mono text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800';
+        runBtn.disabled = false;
+        runBtn.classList.remove('opacity-50');
+      }, 2000);
+    }
+
+    // ==========================================
+    // 4. EMBEDDED AI AGENT SYSTEM ("SAAD'S TWIN")
+    // ==========================================
+    let agentDrawerOpen = false;
+
+    function toggleAgentDrawer() {
+      agentDrawerOpen = !agentDrawerOpen;
+      const win = document.getElementById('agent-chat-window');
+      const btn = document.getElementById('agent-toggle-btn');
+
+      if (agentDrawerOpen) {
+        win.classList.remove('hidden');
+        win.classList.add('flex');
+        btn.classList.add('hidden');
+      } else {
+        win.classList.add('hidden');
+        win.classList.remove('flex');
+        btn.classList.remove('hidden');
+      }
+    }
+
+    const agentKnowledge = {
+      ocr: "At Enter and Post LLC, Saad engineered a Python OCR document pipeline that extracts line items from scanned PDF invoices and bank statements directly into formatted spreadsheets ready for QuickBooks. It slashed monthly accounting entry hours by 85% and eliminated human transcription errors.",
+      cisco: "Saad has 8+ years experience managing Cisco switches and routers, LAN topology, rack cabling, Linux administration, and Active Directory domains. He provided strict SLA banking support for Standard Chartered Bank and Soneri Bank, ensuring 99.9% uptime.",
+      odoo: "At Universal BrushWares, Saad administered daily Odoo ERP operations covering Inventory, Sales, Purchase, and Manufacturing modules. He built custom forms, managed PostgreSQL databases, and integrated Metabase BI dashboards for executive visibility.",
+      websites: "Saad built and launched 6+ live production websites including:\n1. Enter and Post LLC (Accounting, IT & OCR)\n2. TNT Commercial Services 615 (#1 Nashville Cleaning SEO)\n3. Ace Wall Scholars (Scholarship Foundation)\n4. Natural Wonder Trees (Arborist & Tree Services)\n5. Janglee Painting (Contractor Quote Funnel)\n6. Duncan Brooke (Architectural Portfolio)\nEach has full On-Page and Off-Page SEO optimization.",
+      contact: "You can reach Saad directly at saad.zafar060@gmail.com, call/WhatsApp him at +92-333-3415230, or connect on LinkedIn at linkedin.com/in/szmughal. He is based in Karachi, Pakistan and available for enterprise IT leadership and remote consulting."
+    };
+
+    function handleAgentChat(e) {
+      e.preventDefault();
+      const input = document.getElementById('agent-input');
+      const q = input.value.trim();
+      if (!q) return;
+
+      addChatMessage(q, 'user');
+      input.value = '';
+
+      // Generate intelligent answer
+      setTimeout(() => {
+        let answer = "Saad Zafar is an IT Manager with 8+ years directing enterprise infrastructure, Cisco networks, Odoo ERP, and building in-house OCR document extraction pipelines for QuickBooks. He has also deployed 6 production websites with top-ranking SEO.";
+        const low = q.toLowerCase();
+
+        if (low.includes('ocr') || low.includes('quickbook') || low.includes('invoice') || low.includes('excel')) {
+          answer = agentKnowledge.ocr;
+        } else if (low.includes('cisco') || low.includes('network') || low.includes('bank') || low.includes('uptime') || low.includes('standard chartered')) {
+          answer = agentKnowledge.cisco;
+        } else if (low.includes('odoo') || low.includes('erp') || low.includes('metabase') || low.includes('postgres')) {
+          answer = agentKnowledge.odoo;
+        } else if (low.includes('site') || low.includes('web') || low.includes('seo') || low.includes('tnt') || low.includes('project')) {
+          answer = agentKnowledge.websites;
+        } else if (low.includes('contact') || low.includes('hire') || low.includes('email') || low.includes('phone') || low.includes('whatsapp')) {
+          answer = agentKnowledge.contact;
+        }
+
+        addChatMessage(answer, 'agent');
+      }, 400);
+    }
+
+    function askAgent(text) {
+      if (!agentDrawerOpen) toggleAgentDrawer();
+      document.getElementById('agent-input').value = text;
+      handleAgentChat(new Event('submit'));
+    }
+
+    function addChatMessage(msg, sender) {
+      const box = document.getElementById('agent-messages');
+      const div = document.createElement('div');
+
+      if (sender === 'user') {
+        div.className = 'p-3 rounded-xl bg-cyan-950/80 border border-cyan-800 text-cyan-200 ml-6 font-mono text-[11px]';
+        div.textContent = msg;
+      } else {
+        div.className = 'p-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 leading-relaxed font-sans text-xs';
+        div.innerHTML = `<strong class="text-cyan-400 font-mono block mb-1">Saad's Agent:</strong> ${msg.replace(/\n/g, '<br>')}`;
+      }
+
+      box.appendChild(div);
+      box.scrollTop = box.scrollHeight;
+    }
+
+    // Contact Form Handler
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const fb = document.getElementById('contact-feedback');
+      fb.classList.remove('hidden');
+      const name = document.getElementById('contact-name').value;
+      const srv = document.getElementById('contact-service').value;
+      fb.textContent = `Thank you, ${name}! Your inquiry regarding ${srv} has been prepared. You can also reach Saad directly at saad.zafar060@gmail.com or +92-333-3415230.`;
+    }
+
+    // Auto-load Live Portfolio Audit Agent Data
+    async function loadLiveAgentAudit() {
+      try {
+        const res = await fetch('agents/portfolio_audit_report.json');
+        if (!res.ok) return;
+        const data = await res.json();
+        console.log('Loaded Agent Audit Data:', data);
+      } catch (err) {
+        console.log('Local audit data initialized.');
+      }
+    }
+    loadLiveAgentAudit();
+  </script>
+</body>
+</html>

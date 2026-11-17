@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+}
+
+/* Blueprint dot-grid background from Figma Stitch */
+.blueprint-bg {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(rgba(99, 102, 241, 0.12) 1px, transparent 1px),
+    radial-gradient(rgba(14, 165, 233, 0.08) 1px, #f8fafc 1px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+/* Control Glass styles matching Figma */
+.control-glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(79, 70, 229, 0.07), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+}
+
+.control-glass-high {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  box-shadow: 0 16px 36px -8px rgba(79, 70, 229, 0.1), 0 6px 12px -3px rgba(15, 23, 42, 0.06);
+}
+
+/* Subtle Specular Inset Highlight for machine-milled look */
+.glass-specular {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

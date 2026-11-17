@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="tnt-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081226"/>
+      <stop offset="100%" stop-color="#0F2942"/>
+    </linearGradient>
+    <linearGradient id="tnt-acc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#tnt-bg)"/>
+  <!-- Top bar -->
+  <rect width="800" height="56" fill="rgba(255,255,255,0.03)"/>
+  <circle cx="35" cy="28" r="12" fill="#10B981"/>
+  <text x="35" y="32" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">T</text>
+  <text x="58" y="33" fill="#ffffff" font-size="14" font-weight="bold" font-family="sans-serif">TNT Commercial Services 615</text>
+  <text x="600" y="33" fill="#94A3B8" font-size="12" font-family="sans-serif">Services</text>
+  <text x="665" y="33" fill="#94A3B8" font-size="12" font-family="sans-serif">Coverage</text>
+  <rect x="725" y="16" width="55" height="24" rx="12" fill="url(#tnt-acc)"/>
+  <text x="752" y="32" fill="#000000" font-size="10" font-weight="bold" text-anchor="middle" font-family="sans-serif">Get Quote</text>
+  
+  <!-- Hero Content -->
+  <rect x="50" y="90" width="160" height="24" rx="6" fill="rgba(16, 185, 129, 0.15)" stroke="#10B981" stroke-width="1"/>
+  <text x="130" y="106" fill="#10B981" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">NASHVILLE &amp; MIDDLE TN</text>
+  
+  <text x="50" y="155" fill="#ffffff" font-size="28" font-weight="800" font-family="sans-serif">Elite Commercial Cleaning</text>
+  <text x="50" y="190" fill="#ffffff" font-size="28" font-weight="800" font-family="sans-serif">&amp; Facility Management</text>
+  <text x="50" y="225" fill="#94A3B8" font-size="14" font-family="sans-serif">Full-spectrum medical, corporate, and industrial sanitation services.</text>
+  <text x="50" y="248" fill="#94A3B8" font-size="14" font-family="sans-serif">Engineered with top-tier On-Page and Off-Page SEO domain dominance.</text>
+
+  <!-- CTA buttons -->
+  <rect x="50" y="280" width="150" height="40" rx="8" fill="#10B981"/>
+  <text x="125" y="305" fill="#061E14" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">Instant Inspection</text>
+  <rect x="215" y="280" width="140" height="40" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)"/>
+  <text x="285" y="305" fill="#ffffff" font-size="13" font-weight="500" text-anchor="middle" font-family="sans-serif">View Case Studies</text>
+
+  <!-- Cards Right -->
+  <rect x="480" y="100" width="270" height="170" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+  <text x="505" y="135" fill="#10B981" font-size="12" font-weight="bold" font-family="sans-serif">SEO PERFORMANCE METRICS</text>
+  <text x="505" y="175" fill="#ffffff" font-size="32" font-weight="bold" font-family="sans-serif">#1 RANK</text>
+  <text x="505" y="200" fill="#94A3B8" font-size="12" font-family="sans-serif">Target Local Nashville Commercial Terms</text>
+  <rect x="505" y="220" width="220" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <rect x="505" y="220" width="195" height="6" rx="3" fill="#10B981"/>
+  <text x="505" y="245" fill="#34D399" font-size="11" font-family="sans-serif">+310% Inbound Lead Conversion</text>
+
+  <rect x="480" y="290" width="270" height="160" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="505" y="325" fill="#06B6D4" font-size="12" font-weight="bold" font-family="sans-serif">SYSTEM ARCHITECTURE</text>
+  <text x="505" y="355" fill="#ffffff" font-size="15" font-weight="bold" font-family="sans-serif">WordPress + CDN + SSL + AEO</text>
+  <text x="505" y="385" fill="#94A3B8" font-size="12" font-family="sans-serif">Fully mobile responsive, 0.4s initial paint</text>
+  <text x="505" y="415" fill="#94A3B8" font-size="11" font-family="sans-serif">Deployed &amp; Managed by Saad Zafar</text>
+
+  <!-- Bottom stats bar -->
+  <rect x="50" y="360" width="390" height="90" rx="12" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.2)"/>
+  <text x="75" y="395" fill="#ffffff" font-size="18" font-weight="bold" font-family="sans-serif">99.9% Uptime</text>
+  <text x="75" y="420" fill="#94A3B8" font-size="11" font-family="sans-serif">Cloudflare Enterprise DNS &amp; Caching</text>
+  <text x="240" y="395" fill="#ffffff" font-size="18" font-weight="bold" font-family="sans-serif">On &amp; Off-Page</text>
+  <text x="240" y="420" fill="#94A3B8" font-size="11" font-family="sans-serif">Comprehensive SEO Backlink Stack</text>
+</svg>

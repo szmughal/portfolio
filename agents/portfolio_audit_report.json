@@ -1,0 +1,82 @@
+{
+  "agent": "SaadZafarPortfolioAgent",
+  "generated_at": "2026-11-17T20:24:53.044237+00:00",
+  "total_monitored_sites": 6,
+  "audit_results": [
+    {
+      "id": "enter_and_post",
+      "name": "Enter and Post LLC",
+      "url": "https://enterandpost.com/",
+      "status": "HEALTHY",
+      "status_code": 200,
+      "response_time_ms": 542.27,
+      "ssl_active": true,
+      "error": null,
+      "timestamp": "2026-11-17T20:24:47.562147+00:00"
+    },
+    {
+      "id": "tnt_commercial",
+      "name": "TNT Commercial Services 615",
+      "url": "https://tntcommercialservices615.com/",
+      "status": "HEALTHY",
+      "status_code": 200,
+      "response_time_ms": 1037.63,
+      "ssl_active": true,
+      "error": null,
+      "timestamp": "2026-11-17T20:24:48.104422+00:00"
+    },
+    {
+      "id": "ace_wall_scholars",
+      "name": "Ace Wall Scholars",
+      "url": "https://www.acewallscholars.org/",
+      "status": "HEALTHY",
+      "status_code": 200,
+      "response_time_ms": 457.76,
+      "ssl_active": true,
+      "error": null,
+      "timestamp": "2026-11-17T20:24:49.142945+00:00"
+    },
+    {
+      "id": "natural_wonders",
+      "name": "Natural Wonder Trees",
+      "url": "https://naturalwondertrees.com/",
+      "status": "HEALTHY",
+      "status_code": 200,
+      "response_time_ms": 565.58,
+      "ssl_active": true,
+      "error": null,
+      "timestamp": "2026-11-17T20:24:49.600709+00:00"
+    },
+    {
+      "id": "janglee_painting",
+      "name": "Janglee Painting",
+      "url": "http://www.jangleepainting.com/",
+      "status": "HEALTHY",
+      "status_code": 200,
+      "response_time_ms": 1264.63,
+      "ssl_active": false,
+      "error": null,
+      "timestamp": "2026-11-17T20:24:50.166793+00:00"
+    },
+    {
+      "id": "duncan_brooke",
+      "name": "Duncan Brooke",
+      "url": "http://duncanbrooke.co.za/",
+      "status": "HEALTHY",
+      "status_code": 200,
+      "response_time_ms": 1611.53,
+      "ssl_active": false,
+      "error": null,
+      "timestamp": "2026-11-17T20:24:51.432705+00:00"
+    }
+  ],
+  "ocr_pipeline_status": {
+    "pipeline": "in-house-ocr-pipeline.py",
+    "target_system": "QuickBooks Enterprise / Online",
+    "processed_documents": 104,
+    "precision_score": "100%",
+    "time_reduction": "85%",
+    "reconciled_total_usd": 1445.0,
+    "batch_status": "READY_FOR_IMPORT"
+  }
+}
