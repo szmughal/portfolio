@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { projectsData, ProjectCategory } from '@/data/projects';
 import { BrowserFrame } from '@/components/ui/BrowserFrame';
+import { TiltCard } from '@/components/motion/TiltCard';
 import { Globe } from 'lucide-react';
 
 export const ProjectsSection: React.FC = () => {
@@ -54,22 +55,24 @@ export const ProjectsSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 6 Hyper-Realistic Browser Chrome Project Cards */}
+      {/* 6 Hyper-Realistic Browser Chrome Project Cards with 3D Tilt */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {filteredProjects.map((project) => (
-          <BrowserFrame
-            key={project.id}
-            urlDomain={project.domain}
-            externalHref={project.url}
-            title={project.name}
-            description={project.description}
-            tags={project.tags}
-            imageSrc={project.imageUrl}
-            imageAlt={project.imageAlt}
-            accentColor={project.accentColor}
-          />
+          <TiltCard key={project.id} maxTilt={5} className="project-card">
+            <BrowserFrame
+              urlDomain={project.domain}
+              externalHref={project.url}
+              title={project.name}
+              description={project.description}
+              tags={project.tags}
+              imageSrc={project.imageUrl}
+              imageAlt={project.imageAlt}
+              accentColor={project.accentColor}
+            />
+          </TiltCard>
         ))}
       </div>
     </section>
   );
 };
+

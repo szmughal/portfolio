@@ -3,6 +3,7 @@
 import React from 'react';
 import { personalData } from '@/data/personal';
 import { TagPill } from '@/components/ui/TagPill';
+import { TiltCard } from '@/components/motion/TiltCard';
 import { Compass, Terminal, Cpu, Shield, Bot, Router, Search } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
@@ -22,36 +23,41 @@ export const AboutSection: React.FC = () => {
     >
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
         
-        {/* Left Column: Portrait Card with Telemetry Frame */}
+        {/* Left Column: Portrait Card with Telemetry Frame & 3D Tilt */}
         <div className="w-full lg:w-5/12 flex justify-center">
-          <div
-            id="portrait-card"
-            className="relative w-full max-w-[380px] rounded-2xl p-1 bg-gradient-to-br from-indigo-200 via-slate-100 to-cyan-200 shadow-[0_16px_36px_rgba(79,70,229,0.12)] group transition-transform duration-300 ease-out"
+          <TiltCard
+            maxTilt={7}
+            className="w-full max-w-[380px]"
           >
-            <div className="relative rounded-2xl overflow-hidden bg-slate-100">
-              <img
-                src={personalData.portraitUrl}
-                alt={personalData.portraitAlt}
-                className="w-full h-[400px] sm:h-[440px] object-cover object-top transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none" />
+            <div
+              id="portrait-card"
+              className="relative w-full rounded-2xl p-1 bg-gradient-to-br from-indigo-200 via-slate-100 to-cyan-200 shadow-[0_16px_36px_rgba(79,70,229,0.12)] group transition-all duration-300"
+            >
+              <div className="relative rounded-2xl overflow-hidden bg-slate-100">
+                <img
+                  src={personalData.portraitUrl}
+                  alt={personalData.portraitAlt}
+                  className="w-full h-[400px] sm:h-[440px] object-cover object-top transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none" />
 
-              {/* Bottom Telemetry Floating Pill */}
-              <div className="absolute bottom-4 inset-x-4 p-4 rounded-xl bg-white/90 backdrop-blur-xl border border-slate-200/90 shadow-md flex flex-col gap-1">
-                <div className="flex items-center justify-between">
-                  <span className="font-headline text-base font-bold text-slate-900">
-                    Saad Zafar
-                  </span>
-                  <span className="font-mono text-xs text-cyan-800 bg-cyan-50 px-2 py-0.5 rounded border border-cyan-200 font-bold">
-                    PK // UTC+5
+                {/* Bottom Telemetry Floating Pill */}
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-xl bg-white/90 backdrop-blur-xl border border-slate-200/90 shadow-md flex flex-col gap-1">
+                  <div className="flex items-center justify-between">
+                    <span className="font-headline text-base font-bold text-slate-900">
+                      Saad Zafar
+                    </span>
+                    <span className="font-mono text-xs text-cyan-800 bg-cyan-50 px-2 py-0.5 rounded border border-cyan-200 font-bold">
+                      PK // UTC+5
+                    </span>
+                  </div>
+                  <span className="font-mono text-xs text-slate-600 font-medium">
+                    Infrastructure &amp; Enterprise IT Leader
                   </span>
                 </div>
-                <span className="font-mono text-xs text-slate-600 font-medium">
-                  Infrastructure &amp; Enterprise IT Leader
-                </span>
               </div>
             </div>
-          </div>
+          </TiltCard>
         </div>
 
         {/* Right Column: Editorial Bio & Architectural Philosophy */}

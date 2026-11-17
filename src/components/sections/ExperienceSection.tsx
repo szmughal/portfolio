@@ -21,9 +21,15 @@ export const ExperienceSection: React.FC = () => {
         </h2>
       </div>
 
-      {/* Timeline Container with Vertical Gradient Line */}
+      {/* Timeline Container with Vertical Gradient Line that draws on scroll */}
       <div className="relative pl-6 sm:pl-10 space-y-6 sm:space-y-8">
-        <div className="absolute left-2.5 sm:left-4 top-4 bottom-4 w-0.5 bg-gradient-to-b from-cyan-500 via-indigo-500 to-slate-200 pointer-events-none" />
+        {/* Track Line */}
+        <div className="absolute left-2.5 sm:left-4 top-4 bottom-4 w-0.5 bg-slate-200/80 pointer-events-none" />
+        {/* Animated Drawing Indicator Line */}
+        <div
+          id="timeline-line"
+          className="absolute left-2.5 sm:left-4 top-4 bottom-4 w-0.5 bg-gradient-to-b from-cyan-500 via-indigo-500 to-emerald-400 pointer-events-none origin-top will-change-transform"
+        />
 
         {experienceData.map((exp) => (
           <TimelineItem

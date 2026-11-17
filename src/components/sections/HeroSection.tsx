@@ -1,9 +1,44 @@
 'use client';
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { personalData } from '@/data/personal';
 import { Button } from '@/components/ui/Button';
 import { MapPin, CheckCircle, ArrowUpRight, ArrowDownRight, ChevronDown } from 'lucide-react';
+
+// Static Lightweight Fallback Component
+const Static3DFallback = () => (
+  <div className="relative flex items-center justify-center">
+    <div className="w-56 h-56 rounded-full border border-indigo-300/40 animate-[spin_20s_linear_infinite]" />
+    <div className="absolute w-44 h-44 rounded-full border border-dashed border-cyan-400/50 animate-[spin_15s_linear_infinite_reverse]" />
+    <div className="absolute w-32 h-32 rounded-full border border-indigo-400/60" />
+
+    {/* Core Server Node */}
+    <div className="absolute w-14 h-14 rounded-2xl bg-indigo-600/90 text-white flex items-center justify-center shadow-lg shadow-indigo-500/30 font-mono text-xs font-bold">
+      SZ::CORE
+    </div>
+
+    {/* Satellite Nodes */}
+    <div className="absolute -top-2 left-6 px-2 py-0.5 rounded bg-white border border-cyan-300 text-[10px] font-mono text-cyan-800 shadow-xs">
+      Cisco_Edge
+    </div>
+    <div className="absolute -bottom-2 right-4 px-2 py-0.5 rounded bg-white border border-indigo-300 text-[10px] font-mono text-indigo-800 shadow-xs">
+      OCR_Pipe::85%
+    </div>
+    <div className="absolute top-1/2 -left-6 px-2 py-0.5 rounded bg-white border border-amber-300 text-[10px] font-mono text-amber-800 shadow-xs">
+      Odoo_ERP
+    </div>
+    <div className="absolute top-1/2 -right-6 px-2 py-0.5 rounded bg-white border border-emerald-300 text-[10px] font-mono text-emerald-800 shadow-xs">
+      99.9%_SLA
+    </div>
+  </div>
+);
+
+// Lazy-load R3F 3D Scene with ssr: false
+const Hero3DCanvas = dynamic(() => import('@/components/3d/Hero3DCanvas'), {
+  ssr: false,
+  loading: () => <Static3DFallback />,
+});
 
 export const HeroSection: React.FC = () => {
   return (
@@ -103,39 +138,15 @@ export const HeroSection: React.FC = () => {
               <span className="text-cyan-700 font-semibold">LIVE_STREAM // 60FPS</span>
             </div>
 
-            {/* 3D Scene Viewport / Fallback */}
+            {/* 3D Scene Viewport */}
             <div
               id="hero-3d-container"
               className="w-full h-[360px] sm:h-[400px] flex items-center justify-center relative bg-gradient-to-b from-indigo-50/20 to-cyan-50/30 overflow-hidden"
             >
-              {/* Static Geometric Schematic Representation (replaces with R3F canvas in Phase C) */}
-              <div className="relative flex items-center justify-center">
-                <div className="w-56 h-56 rounded-full border border-indigo-300/40 animate-[spin_20s_linear_infinite]" />
-                <div className="absolute w-44 h-44 rounded-full border border-dashed border-cyan-400/50 animate-[spin_15s_linear_infinite_reverse]" />
-                <div className="absolute w-32 h-32 rounded-full border border-indigo-400/60" />
-
-                {/* Core Server Node */}
-                <div className="absolute w-14 h-14 rounded-2xl bg-indigo-600/90 text-white flex items-center justify-center shadow-lg shadow-indigo-500/30 font-mono text-xs font-bold">
-                  SZ::CORE
-                </div>
-
-                {/* Satellite Satellite Nodes */}
-                <div className="absolute -top-2 left-6 px-2 py-0.5 rounded bg-white border border-cyan-300 text-[10px] font-mono text-cyan-800 shadow-xs">
-                  Cisco_Edge
-                </div>
-                <div className="absolute -bottom-2 right-4 px-2 py-0.5 rounded bg-white border border-indigo-300 text-[10px] font-mono text-indigo-800 shadow-xs">
-                  OCR_Pipe::85%
-                </div>
-                <div className="absolute top-1/2 -left-6 px-2 py-0.5 rounded bg-white border border-amber-300 text-[10px] font-mono text-amber-800 shadow-xs">
-                  Odoo_ERP
-                </div>
-                <div className="absolute top-1/2 -right-6 px-2 py-0.5 rounded bg-white border border-emerald-300 text-[10px] font-mono text-emerald-800 shadow-xs">
-                  99.9%_SLA
-                </div>
-              </div>
+              <Hero3DCanvas />
 
               {/* Bottom Interactive Prompt Pill */}
-              <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-md text-slate-600 text-[11px] font-mono border border-slate-200 shadow-xs pointer-events-none">
+              <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-md text-slate-600 text-[11px] font-mono border border-slate-200 shadow-xs pointer-events-none z-10">
                 Interactive: Orbit, Drag &amp; Inspect Node
               </div>
             </div>
