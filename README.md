@@ -60,7 +60,7 @@ npm run start
 ## Editing Portfolio Content (`src/data/*.ts`)
 
 All text, CV roles, metrics, credentials, and project showcases live in `/src/data/`:
-- `src/data/personal.ts` — Name, title, bio, trusted organizations, contact links, `/saad-portrait.jpg`
+- `src/data/personal.ts` — Name, title, bio, trusted organizations, contact links, `/saad-zafar-headshot.jpg`
 - `src/data/metrics.ts` — 4 executive KPI counters (`8+`, `99.9%`, `85%`, `6`)
 - `src/data/skills.ts` — 6 asymmetric Bento capabilities (`01 // INFRA` through `06 // WEB`)
 - `src/data/caseStudy.ts` — Enter and Post LLC QuickBooks OCR extraction case study & sample CSV rows

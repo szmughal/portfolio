@@ -73,7 +73,7 @@ const personJsonLd = {
   alternateName: 'Saad Zafar Mughal',
   jobTitle: 'IT Manager | Infrastructure, Enterprise Systems & Automation',
   url: siteUrl,
-  image: `${siteUrl}/saad-portrait.jpg`,
+  image: `${siteUrl}/saad-zafar-headshot.jpg`,
   email: 'saad.zafar060@gmail.com',
   telephone: '+92-333-3415230',
   address: {

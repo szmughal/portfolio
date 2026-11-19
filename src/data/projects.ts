@@ -21,10 +21,10 @@ export const projectsData: ProjectItem[] = [
     url: "https://tntcommercialservices615.com/",
     tags: ["Website", "On-Page SEO", "Off-Page SEO"],
     description:
-      "Commercial cleaning and facility management site built with local commercial service schema, On-Page SEO optimization, and Off-Page authority link building.",
-    imageUrl: "/projects/tnt-cleaning.svg",
+      "Commercial cleaning website serving Nashville and Middle Tennessee, built with full On-Page SEO structure, local service pages, and Off-Page authority link building.",
+    imageUrl: "/projects/tnt-commercial.png",
     imageAlt:
-      "Website preview for TNT Commercial Services 615 showing commercial cleaning services, Nashville service coverage, and inspection booking flow",
+      "Live homepage screenshot of TNT Commercial Services 615 showing commercial cleaning solutions across Middle Tennessee",
     categories: ["website", "on-page", "off-page"],
     accentColor: "emerald",
   },
@@ -35,10 +35,10 @@ export const projectsData: ProjectItem[] = [
     url: "https://enterandpost.com/",
     tags: ["Website", "On-Page SEO", "Off-Page SEO"],
     description:
-      "Bookkeeping, tax, and digital operations web platform engineered with full On-Page and Off-Page SEO, AEO/GEO structuring, and GoHighLevel CRM integration.",
-    imageUrl: "/projects/enter-and-post.svg",
+      "Portland, OR bookkeeping, tax, staffing, and modern technology platform engineered with full On-Page and Off-Page SEO, AEO/GEO optimization, and consultation funnels.",
+    imageUrl: "/projects/enter-and-post.png",
     imageAlt:
-      "Website preview for Enter and Post LLC displaying cloud bookkeeping, tax advisory, and automated OCR operations workflow",
+      "Live homepage screenshot of Enter and Post LLC showing bookkeeping, tax, staffing, and modern technology services",
     categories: ["website", "on-page", "off-page"],
     accentColor: "cobalt",
   },
@@ -49,10 +49,10 @@ export const projectsData: ProjectItem[] = [
     url: "http://www.jangleepainting.com/",
     tags: ["Website"],
     description:
-      "Responsive residential and commercial painting website designed around clean project showcases, service area pages, and direct estimate requests.",
-    imageUrl: "/projects/janglee-painting.svg",
+      "Residential and commercial interior/exterior painting contractor website for Jang Lee Painting LLC with service showcases, offers, and renovation booking.",
+    imageUrl: "/projects/janglee-painting.png",
     imageAlt:
-      "Website preview for Jangle Painting showcasing residential and commercial painting services and quotation intake",
+      "Live homepage screenshot of Jang Lee Painting LLC showcasing interior and exterior renovation services",
     categories: ["website"],
     accentColor: "slate",
   },
@@ -63,10 +63,10 @@ export const projectsData: ProjectItem[] = [
     url: "https://naturalwondertrees.com/",
     tags: ["Website"],
     description:
-      "Arborist and tree care web deployment tuned for mobile responsiveness, fast CDN caching, SSL security, and frictionless service scheduling.",
-    imageUrl: "/projects/natural-wonders.svg",
+      "Portland and Tualatin tree care and landscape management site for Natural Wonders Tree Service LLC featuring service breakdowns, photo gallery, and instant quote requests.",
+    imageUrl: "/projects/natural-wonders.png",
     imageAlt:
-      "Website preview for Natural Wonder Trees featuring arborist services, tree care breakdown, and service booking UI",
+      "Live homepage screenshot of Natural Wonders Tree Service LLC showing navigation, phone contact, and hero banner",
     categories: ["website"],
     accentColor: "emerald",
   },
@@ -77,10 +77,10 @@ export const projectsData: ProjectItem[] = [
     url: "https://www.acewallscholars.org/",
     tags: ["Website", "Off-Page SEO"],
     description:
-      "Educational scholarship foundation portal supported by targeted Off-Page SEO outreach, academic authority backlinks, and clear student application flows.",
-    imageUrl: "/projects/ace-wall-scholars.svg",
+      "Virginia and online K-12/test-prep tutoring and mentoring platform supported by targeted Off-Page SEO authority outreach, donation flows, and student appointment scheduling.",
+    imageUrl: "/projects/ace-wall-scholars.png",
     imageAlt:
-      "Website preview for Acewall Scholars educational foundation showing scholarship programs and student mentorship tracks",
+      "Live homepage screenshot of Acewall Scholars tutoring and academic mentoring organization",
     categories: ["website", "off-page"],
     accentColor: "cobalt",
   },
@@ -91,10 +91,10 @@ export const projectsData: ProjectItem[] = [
     url: "http://duncanbrooke.co.za/",
     tags: ["Website"],
     description:
-      "Minimal architectural and professional portfolio engineered with clean editorial typography, responsive media grids, and reliable DNS/SSL routing.",
-    imageUrl: "/projects/duncan-brooke.svg",
+      "Personalised accounting, tax management, payroll, and financial advisory website for DuncanBrooke Accounting Services in Alberton, South Africa.",
+    imageUrl: "/projects/duncan-brooke.png",
     imageAlt:
-      "Website preview for Duncan Brooke featuring minimalist portfolio layout and architectural project showcase",
+      "Live homepage screenshot of DuncanBrooke Accounting Services in Alberton, South Africa",
     categories: ["website"],
     accentColor: "slate",
   },

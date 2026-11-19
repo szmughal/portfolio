@@ -23,41 +23,37 @@ export const AboutSection: React.FC = () => {
       <GlassCard variant="high" className="p-6 sm:p-10 lg:p-12 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Column: Local Portrait Card with 3D Tilt (5 cols) */}
+          {/* Left Column: Real Corporate Headshot Card with 3D Tilt (5 cols) */}
           <div className="lg:col-span-5 flex justify-center">
             <TiltCard maxTilt={5} className="w-full max-w-[360px]">
               <div
                 id="portrait-card"
-                className="relative w-full rounded-2xl p-1.5 bg-white border border-slate-200 shadow-raised overflow-hidden"
+                className="relative w-full rounded-2xl bg-white border border-slate-200 shadow-raised overflow-hidden"
               >
-                <div className="relative rounded-xl overflow-hidden bg-slate-100 aspect-[4/5]">
+                <div className="relative w-full overflow-hidden bg-slate-100 aspect-[935/1024]">
                   <Image
                     src={personalData.portraitUrl}
                     alt={personalData.portraitAlt}
-                    width={760}
-                    height={950}
+                    width={935}
+                    height={1024}
                     priority
                     className="w-full h-full object-cover object-top"
                   />
-                  <div
-                    className="absolute inset-0 bg-gradient-to-t from-[#0B1120]/80 via-[#0B1120]/10 to-transparent pointer-events-none"
-                    aria-hidden="true"
-                  />
+                </div>
 
-                  {/* Bottom Telemetry Floating Caption */}
-                  <div className="absolute bottom-3 inset-x-3 p-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-md flex flex-col gap-0.5">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="font-headline text-base font-bold text-[#0F172A]">
-                        Saad Zafar
-                      </span>
-                      <span className="font-mono text-[11px] text-[#0369A1] bg-[#F0F9FF] px-2 py-0.5 rounded border border-[#BAE6FD] font-semibold">
-                        PK // UTC+5
-                      </span>
-                    </div>
-                    <span className="font-mono text-xs text-[#475569]">
-                      IT Manager &amp; Systems Architect
+                {/* Clean Caption Strip Below Headshot */}
+                <div className="p-4 bg-white border-t border-slate-100 flex flex-col gap-0.5">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-headline text-base font-bold text-[#0F172A]">
+                      Saad Zafar
+                    </span>
+                    <span className="font-mono text-[11px] text-[#0369A1] bg-[#F0F9FF] px-2 py-0.5 rounded border border-[#BAE6FD] font-semibold">
+                      PK // UTC+5
                     </span>
                   </div>
+                  <span className="font-mono text-xs text-[#475569]">
+                    IT Manager &amp; Systems Architect
+                  </span>
                 </div>
               </div>
             </TiltCard>

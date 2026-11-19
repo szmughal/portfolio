@@ -35,7 +35,7 @@ export const personalData: PersonalInfo = {
   github: "https://github.com/szmughal",
   phone: "+92-333-3415230",
   coordinates: "Karachi, Pakistan • PKT (UTC+5)",
-  portraitUrl: "/saad-portrait.jpg",
+  portraitUrl: "/saad-zafar-headshot.jpg",
   portraitAlt:
     "Portrait of Saad Zafar, IT Manager and Enterprise Systems Architect based in Karachi, Pakistan",
   bioHeading: "Bridging Core Infrastructure Stability with High-ROI Digital Automation",

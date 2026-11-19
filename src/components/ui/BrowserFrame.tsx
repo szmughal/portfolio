@@ -65,14 +65,15 @@ export const BrowserFrame = React.forwardRef<HTMLDivElement, BrowserFrameProps>(
           </div>
 
           {/* Screenshot / Visual Viewport */}
-          <div className="relative overflow-hidden aspect-[16/10] bg-slate-100 border-b border-slate-100">
+          <div className="relative overflow-hidden aspect-[16/10] bg-white border-b border-slate-100">
             {imageSrc ? (
               <Image
                 src={imageSrc}
                 alt={imageAlt}
-                width={800}
-                height={500}
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                width={1280}
+                height={800}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="w-full h-full object-contain object-top group-hover:scale-[1.02] transition-transform duration-500"
               />
             ) : (
               children
