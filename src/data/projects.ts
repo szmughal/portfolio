@@ -10,7 +10,7 @@ export interface ProjectItem {
   imageUrl: string;
   imageAlt: string;
   categories: ProjectCategory[];
-  accentColor?: 'indigo' | 'cyan' | 'amber';
+  accentColor?: 'cobalt' | 'emerald' | 'slate';
 }
 
 export const projectsData: ProjectItem[] = [
@@ -21,12 +21,12 @@ export const projectsData: ProjectItem[] = [
     url: "https://tntcommercialservices615.com/",
     tags: ["Website", "On-Page SEO", "Off-Page SEO"],
     description:
-      "High-converting commercial facilities platform engineered with programmatic JSON-LD local schema and comprehensive backlink authority indexing.",
+      "Commercial cleaning and facility management site built with local commercial service schema, On-Page SEO optimization, and Off-Page authority link building.",
     imageUrl: "/projects/tnt-cleaning.svg",
     imageAlt:
-      "High tech dark themed website mockup for TNT Commercial Services 615 showing clean dashboard UI, corporate janitorial scheduling analytics, and interactive quotation engine with emerald and cyan highlights",
+      "Website preview for TNT Commercial Services 615 showing commercial cleaning services, Nashville service coverage, and inspection booking flow",
     categories: ["website", "on-page", "off-page"],
-    accentColor: "cyan",
+    accentColor: "emerald",
   },
   {
     id: "enter-and-post",
@@ -35,12 +35,12 @@ export const projectsData: ProjectItem[] = [
     url: "https://enterandpost.com/",
     tags: ["Website", "On-Page SEO", "Off-Page SEO"],
     description:
-      "Logistics & interstate freight dispatch portal integrated with automated tracking webhooks and multi-region technical SEO clustering.",
+      "Bookkeeping, tax, and digital operations web platform engineered with full On-Page and Off-Page SEO, AEO/GEO structuring, and GoHighLevel CRM integration.",
     imageUrl: "/projects/enter-and-post.svg",
     imageAlt:
-      "Modern logistics freight management portal interface for Enter and Post LLC displaying active shipment routes on an interactive world map, tracking metrics, and freight dispatch portal with dark obsidian styling",
+      "Website preview for Enter and Post LLC displaying cloud bookkeeping, tax advisory, and automated OCR operations workflow",
     categories: ["website", "on-page", "off-page"],
-    accentColor: "indigo",
+    accentColor: "cobalt",
   },
   {
     id: "janglee-painting",
@@ -49,12 +49,12 @@ export const projectsData: ProjectItem[] = [
     url: "http://www.jangleepainting.com/",
     tags: ["Website"],
     description:
-      "Modern responsive contractor showcase with instant dynamic lead quote calculation engine and optimized image delivery pipeline.",
-    imageUrl: "/projects/jangleepainting.svg",
+      "Responsive residential and commercial painting website designed around clean project showcases, service area pages, and direct estimate requests.",
+    imageUrl: "/projects/janglee-painting.svg",
     imageAlt:
-      "Bespoke website design for Jangle Painting residential and commercial contractors featuring vivid color swatch selectors, interactive quote calculators, and fast micro-animations on a sleek dark canvas",
+      "Website preview for Jangle Painting showcasing residential and commercial painting services and quotation intake",
     categories: ["website"],
-    accentColor: "amber",
+    accentColor: "slate",
   },
   {
     id: "natural-wonders",
@@ -63,12 +63,12 @@ export const projectsData: ProjectItem[] = [
     url: "https://naturalwondertrees.com/",
     tags: ["Website"],
     description:
-      "Eco-friendly tree care services site optimized for 100/100 Google Core Web Vitals, mobile tap targets, and frictionless scheduling.",
+      "Arborist and tree care web deployment tuned for mobile responsiveness, fast CDN caching, SSL security, and frictionless service scheduling.",
     imageUrl: "/projects/natural-wonders.svg",
     imageAlt:
-      "Clean corporate arboricultural and eco-friendly forestry website UI for Natural Wonder Trees with high-resolution greenery imagery, service breakdown, and automated booking calendar with lightning quick page transitions",
+      "Website preview for Natural Wonder Trees featuring arborist services, tree care breakdown, and service booking UI",
     categories: ["website"],
-    accentColor: "cyan",
+    accentColor: "emerald",
   },
   {
     id: "ace-wall-scholars",
@@ -77,12 +77,12 @@ export const projectsData: ProjectItem[] = [
     url: "https://www.acewallscholars.org/",
     tags: ["Website", "Off-Page SEO"],
     description:
-      "Educational non-profit academy platform with academic authority link profile engineering and structured learning management integrations.",
+      "Educational scholarship foundation portal supported by targeted Off-Page SEO outreach, academic authority backlinks, and clear student application flows.",
     imageUrl: "/projects/ace-wall-scholars.svg",
     imageAlt:
-      "Educational academy web portal mockup for Acewall Scholars displaying student learning management dashboard, scholarship matriculation tracking, and academic course catalogs on an obsidian background with violet accents",
+      "Website preview for Acewall Scholars educational foundation showing scholarship programs and student mentorship tracks",
     categories: ["website", "off-page"],
-    accentColor: "indigo",
+    accentColor: "cobalt",
   },
   {
     id: "duncan-brooke",
@@ -91,11 +91,11 @@ export const projectsData: ProjectItem[] = [
     url: "http://duncanbrooke.co.za/",
     tags: ["Website"],
     description:
-      "High-aesthetic executive portfolio with bespoke serif/sans contrast typography and lightning-fast global CDN edge deployment.",
+      "Minimal architectural and professional portfolio engineered with clean editorial typography, responsive media grids, and reliable DNS/SSL routing.",
     imageUrl: "/projects/duncan-brooke.svg",
     imageAlt:
-      "High-fashion and luxury art portfolio website interface for Duncan Brooke with dramatic typographic layouts, monochromatic minimal photography, subtle edge illumination, and micro-hover interactions",
+      "Website preview for Duncan Brooke featuring minimalist portfolio layout and architectural project showcase",
     categories: ["website"],
-    accentColor: "cyan",
+    accentColor: "slate",
   },
 ];

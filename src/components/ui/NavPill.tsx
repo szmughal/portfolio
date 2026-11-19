@@ -20,11 +20,12 @@ export const NavPill: React.FC<NavPillProps> = ({
     <a
       href={href}
       onClick={onClick}
+      aria-current={isActive ? 'page' : undefined}
       className={cn(
-        'px-3 py-1 font-mono text-xs transition-all duration-200 rounded-lg font-medium select-none',
+        'px-3 py-1.5 font-mono text-xs transition-colors duration-150 rounded-md font-medium select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0369A1] focus-visible:ring-offset-1',
         isActive
-          ? 'bg-indigo-600 text-white shadow-xs'
-          : 'text-slate-600 hover:bg-indigo-50 hover:text-indigo-600',
+          ? 'bg-[#0F172A] text-white shadow-xs'
+          : 'text-[#475569] hover:bg-slate-100 hover:text-[#0F172A]',
         className
       )}
     >

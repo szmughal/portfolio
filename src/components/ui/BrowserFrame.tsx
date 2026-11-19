@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Lock, ExternalLink } from 'lucide-react';
 import { TagPill } from './TagPill';
@@ -11,7 +12,7 @@ export interface BrowserFrameProps extends React.HTMLAttributes<HTMLDivElement> 
   tags?: string[];
   imageSrc?: string;
   imageAlt?: string;
-  accentColor?: 'indigo' | 'cyan' | 'amber';
+  accentColor?: 'cobalt' | 'emerald' | 'slate';
 }
 
 export const BrowserFrame = React.forwardRef<HTMLDivElement, BrowserFrameProps>(
@@ -25,92 +26,89 @@ export const BrowserFrame = React.forwardRef<HTMLDivElement, BrowserFrameProps>(
       tags = [],
       imageSrc,
       imageAlt = 'Project screenshot',
-      accentColor = 'cyan',
+      accentColor = 'cobalt',
       children,
       ...props
     },
     ref
   ) => {
     const borderHover = {
-      indigo: 'hover:border-indigo-400',
-      cyan: 'hover:border-cyan-400',
-      amber: 'hover:border-amber-400',
-    }[accentColor];
-
-    const btnHover = {
-      indigo: 'hover:bg-indigo-600 hover:text-white hover:border-indigo-600',
-      cyan: 'hover:bg-cyan-600 hover:text-white hover:border-cyan-600',
-      amber: 'hover:bg-amber-600 hover:text-white hover:border-amber-600',
+      cobalt: 'hover:border-[#0369A1]/50',
+      emerald: 'hover:border-[#059669]/50',
+      slate: 'hover:border-slate-400',
     }[accentColor];
 
     return (
-      <div
+      <article
         ref={ref}
         className={cn(
-          'group rounded-2xl bg-white/88 backdrop-blur-[16px] border border-slate-200/90 overflow-hidden shadow-xs transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col justify-between',
+          'group rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-resting transition-all duration-300 hover:shadow-raised flex flex-col justify-between h-full',
           borderHover,
           className
         )}
         {...props}
       >
         <div>
-          {/* Browser Chrome Header */}
-          <div className="px-4 py-2.5 bg-slate-100/90 border-b border-slate-200 flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+          {/* Clean Swiss Browser Chrome Header */}
+          <div className="px-4 py-2.5 bg-[#F8FAFC] border-b border-slate-200 flex items-center justify-between gap-2">
+            <div className="flex items-center gap-1.5" aria-hidden="true">
+              <span className="w-2.5 h-2.5 rounded-full bg-slate-300 group-hover:bg-rose-400 transition-colors" />
+              <span className="w-2.5 h-2.5 rounded-full bg-slate-300 group-hover:bg-amber-400 transition-colors" />
+              <span className="w-2.5 h-2.5 rounded-full bg-slate-300 group-hover:bg-emerald-500 transition-colors" />
             </div>
 
-            <div className="px-3 py-0.5 rounded bg-white border border-slate-200 text-[11px] font-mono text-slate-600 truncate max-w-[200px] shadow-xs">
+            <div className="px-3 py-0.5 rounded-md bg-white border border-slate-200 text-[11px] font-mono text-[#475569] truncate max-w-[200px]">
               {urlDomain}
             </div>
 
-            <Lock className="w-3.5 h-3.5 text-slate-400" />
+            <Lock className="w-3.5 h-3.5 text-slate-400 shrink-0" aria-hidden="true" />
           </div>
 
           {/* Screenshot / Visual Viewport */}
-          <div className="relative overflow-hidden aspect-[16/10] bg-slate-100">
+          <div className="relative overflow-hidden aspect-[16/10] bg-slate-100 border-b border-slate-100">
             {imageSrc ? (
-              <img
+              <Image
                 src={imageSrc}
                 alt={imageAlt}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                width={800}
+                height={500}
+                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
               />
             ) : (
               children
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent pointer-events-none" />
           </div>
 
           {/* Content Block */}
           {(title || description) && (
-            <div className="p-4 flex flex-col gap-1.5">
+            <div className="p-5 flex flex-col gap-2">
               {title && (
-                <h3 className="font-headline text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                <h3 className="font-headline text-lg font-bold text-[#0F172A] group-hover:text-[#0369A1] transition-colors">
                   {title}
                 </h3>
               )}
               {description && (
-                <p className="text-xs text-slate-600 leading-relaxed">{description}</p>
+                <p className="text-[13px] sm:text-sm text-[#475569] leading-relaxed">
+                  {description}
+                </p>
               )}
             </div>
           )}
         </div>
 
-        {/* Footer Badges & CTA */}
-        <div className="p-4 pt-0 flex flex-col gap-3 border-t border-slate-100 mt-2">
+        {/* Footer Badges & Accessible CTA */}
+        <div className="p-5 pt-0 flex flex-col gap-3.5 mt-auto">
           {tags.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 pt-3">
+            <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
               {tags.map((tag) => (
                 <TagPill
                   key={tag}
                   variant={
                     tag.toLowerCase().includes('on-page')
-                      ? 'cyan'
+                      ? 'cobalt'
                       : tag.toLowerCase().includes('off-page')
-                      ? 'amber'
-                      : 'indigo'
+                      ? 'emerald'
+                      : 'slate'
                   }
                   size="sm"
                 >
@@ -125,17 +123,15 @@ export const BrowserFrame = React.forwardRef<HTMLDivElement, BrowserFrameProps>(
               href={externalHref}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(
-                'w-full py-2 rounded-lg bg-slate-100 text-slate-800 font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition-all border border-slate-200/80',
-                btnHover
-              )}
+              aria-label={`Visit ${title || urlDomain} live website (opens in a new tab)`}
+              className="w-full min-h-[44px] py-2.5 px-4 rounded-lg bg-[#F8FAFC] hover:bg-[#0369A1] text-[#0F172A] hover:text-white font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-colors border border-slate-200 hover:border-[#0369A1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0369A1] focus-visible:ring-offset-2"
             >
               <span>Visit live site</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
             </a>
           )}
         </div>
-      </div>
+      </article>
     );
   }
 );

@@ -4,37 +4,21 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { personalData } from '@/data/personal';
 import { Button } from '@/components/ui/Button';
-import { MapPin, CheckCircle, ArrowUpRight, ArrowDownRight, ChevronDown } from 'lucide-react';
+import { TagPill } from '@/components/ui/TagPill';
+import { MapPin, ShieldCheck, ArrowUpRight, ArrowRight, ChevronDown } from 'lucide-react';
 
-// Static Lightweight Fallback Component
 const Static3DFallback = () => (
-  <div className="relative flex items-center justify-center">
-    <div className="w-56 h-56 rounded-full border border-indigo-300/40 animate-[spin_20s_linear_infinite]" />
-    <div className="absolute w-44 h-44 rounded-full border border-dashed border-cyan-400/50 animate-[spin_15s_linear_infinite_reverse]" />
-    <div className="absolute w-32 h-32 rounded-full border border-indigo-400/60" />
-
-    {/* Core Server Node */}
-    <div className="absolute w-14 h-14 rounded-2xl bg-indigo-600/90 text-white flex items-center justify-center shadow-lg shadow-indigo-500/30 font-mono text-xs font-bold">
-      SZ::CORE
-    </div>
-
-    {/* Satellite Nodes */}
-    <div className="absolute -top-2 left-6 px-2 py-0.5 rounded bg-white border border-cyan-300 text-[10px] font-mono text-cyan-800 shadow-xs">
-      Cisco_Edge
-    </div>
-    <div className="absolute -bottom-2 right-4 px-2 py-0.5 rounded bg-white border border-indigo-300 text-[10px] font-mono text-indigo-800 shadow-xs">
-      OCR_Pipe::85%
-    </div>
-    <div className="absolute top-1/2 -left-6 px-2 py-0.5 rounded bg-white border border-amber-300 text-[10px] font-mono text-amber-800 shadow-xs">
-      Odoo_ERP
-    </div>
-    <div className="absolute top-1/2 -right-6 px-2 py-0.5 rounded bg-white border border-emerald-300 text-[10px] font-mono text-emerald-800 shadow-xs">
-      99.9%_SLA
+  <div className="relative flex items-center justify-center w-full h-full select-none" aria-hidden="true">
+    <div className="relative w-52 h-52 flex items-center justify-center">
+      <div className="absolute inset-0 rounded-full border border-sky-400/25" />
+      <div className="absolute inset-6 rounded-full border border-dashed border-emerald-400/35" />
+      <div className="relative z-10 w-12 h-12 rounded-xl bg-[#0369A1] border border-sky-400/40 text-white flex items-center justify-center font-mono text-xs font-bold shadow-lg shadow-sky-500/20">
+        SZ
+      </div>
     </div>
   </div>
 );
 
-// Lazy-load R3F 3D Scene with ssr: false
 const Hero3DCanvas = dynamic(() => import('@/components/3d/Hero3DCanvas'), {
   ssr: false,
   loading: () => <Static3DFallback />,
@@ -42,113 +26,109 @@ const Hero3DCanvas = dynamic(() => import('@/components/3d/Hero3DCanvas'), {
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative pt-8 sm:pt-12 pb-16 sm:pb-24 flex flex-col gap-12" id="hero">
-      
-      {/* Ambient Radial Lighting (matching Figma light mode) */}
-      <div className="absolute -top-32 -left-24 w-[480px] h-[480px] rounded-full bg-gradient-to-br from-indigo-200/40 via-cyan-100/30 to-transparent blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/3 -right-16 w-[520px] h-[520px] rounded-full bg-gradient-to-bl from-cyan-200/35 via-indigo-100/25 to-transparent blur-[120px] pointer-events-none" />
-
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+    <section className="relative pt-6 sm:pt-10 pb-8 sm:pb-12 flex flex-col gap-12" id="hero">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         
-        {/* Left Column: Lead Editorial */}
-        <div className="w-full lg:w-7/12 flex flex-col items-start gap-5 z-10">
+        {/* Left Column: Editorial Authority Copy (7 cols) */}
+        <div className="lg:col-span-7 flex flex-col items-start gap-6">
           
-          {/* Floating Availability Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-cyan-400/60 backdrop-blur-xl shadow-[0_2px_12px_rgba(8,145,178,0.15)] hover:border-cyan-500 transition-all cursor-pointer group">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-500 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-600 shadow-[0_0_8px_rgba(8,145,178,0.6)]" />
-            </span>
-            <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-cyan-800 font-bold group-hover:tracking-widest transition-all">
-              {personalData.badge}
-            </span>
-          </div>
+          <TagPill variant="emerald" pulseDot>
+            {personalData.badge}
+          </TagPill>
 
-          {/* Headline & Title */}
-          <div className="flex flex-col gap-1">
-            <h1 className="font-headline text-[50px] sm:text-[72px] lg:text-[84px] leading-[0.92] tracking-tighter font-bold uppercase text-slate-900">
+          <div className="flex flex-col gap-2">
+            <h1 className="font-headline text-5xl sm:text-6xl lg:text-[72px] leading-[0.98] tracking-[-0.03em] font-bold text-[#0F172A]">
               {personalData.name}{' '}
-              <span className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-600 bg-clip-text text-transparent">
-                {personalData.surname}
-              </span>
+              <span className="text-[#0369A1]">{personalData.surname}</span>
             </h1>
-            <p className="font-headline text-lg sm:text-2xl text-indigo-700 tracking-tight mt-2 font-semibold">
+            <p className="font-headline text-lg sm:text-2xl text-[#334155] tracking-tight font-semibold mt-1">
               {personalData.title}
             </p>
           </div>
 
-          {/* Value Proposition */}
-          <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
+          <p className="text-base sm:text-lg text-[#475569] max-w-[60ch] leading-relaxed">
             {personalData.leadParagraph}
           </p>
 
-          {/* Mini Telemetry Chip */}
-          <div className="flex flex-wrap items-center gap-3 bg-white/90 border border-slate-200 hover:border-cyan-400/60 px-4 py-2 rounded-xl backdrop-blur-xl shadow-xs transition-all">
-            <div className="flex items-center gap-1.5 text-cyan-700 font-mono text-xs font-semibold">
-              <MapPin className="w-4 h-4 text-cyan-600 animate-pulse" />
+          {/* Compact Location & SLA Metadata */}
+          <div className="flex flex-wrap items-center gap-3 bg-white border border-slate-200 px-4 py-2.5 rounded-xl shadow-xs">
+            <div className="flex items-center gap-1.5 text-[#0F172A] font-mono text-xs font-medium">
+              <MapPin className="w-4 h-4 text-[#0369A1]" aria-hidden="true" />
               <span>{personalData.location}</span>
             </div>
-            <span className="text-slate-300">•</span>
-            <div className="flex items-center gap-1.5 text-slate-800 font-mono text-xs font-semibold">
-              <CheckCircle className="w-4 h-4 text-indigo-600" />
+            <span className="text-slate-300" aria-hidden="true">•</span>
+            <div className="flex items-center gap-1.5 text-[#0F172A] font-mono text-xs font-medium">
+              <ShieldCheck className="w-4 h-4 text-[#059669]" aria-hidden="true" />
               <span>{personalData.slaUptime}</span>
             </div>
-            <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-50 text-cyan-700 border border-cyan-200 font-bold">
-              {personalData.status}
-            </span>
           </div>
 
-          {/* Dual CTAs */}
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
+          {/* Primary & Secondary 44px+ CTAs */}
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
             <Button
               href="#work"
               variant="primary"
               size="lg"
               iconRight={<ArrowUpRight className="w-4 h-4" />}
             >
-              View Production Work
+              Explore Projects
             </Button>
 
             <Button
               href="#contact"
-              variant="cyan"
+              variant="secondary"
               size="lg"
-              iconRight={<ArrowDownRight className="w-4 h-4" />}
+              iconRight={<ArrowRight className="w-4 h-4" />}
             >
-              Contact Me / Terminal
+              Start a Conversation
             </Button>
           </div>
+
+          {/* Institutional Trust Strip */}
+          <div className="w-full pt-4 mt-2 border-t border-slate-200/80">
+            <p className="font-mono text-[11px] uppercase tracking-wider text-[#475569] font-semibold mb-2">
+              Enterprise &amp; Banking Experience Across
+            </p>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 font-mono text-xs text-[#334155] font-medium">
+              {personalData.trustedOrgs.map((org, idx) => (
+                <React.Fragment key={org}>
+                  <span>{org}</span>
+                  {idx < personalData.trustedOrgs.length - 1 && (
+                    <span className="text-slate-300" aria-hidden="true">/</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Right Column: 3D Telemetry Frame */}
-        <div className="w-full lg:w-5/12 relative flex items-center justify-center">
-          <div className="relative w-full aspect-square max-w-[480px] rounded-2xl bg-white/85 border border-slate-200/90 backdrop-blur-xl p-1 shadow-[0_16px_40px_rgba(79,70,229,0.08)] overflow-hidden group">
+        {/* Right Column: Elevated Obsidian 3D Telemetry Card (5 cols) */}
+        <div className="lg:col-span-5 w-full flex items-center justify-center">
+          <div className="relative w-full aspect-square max-w-[460px] rounded-2xl bg-[#0B1120] border border-slate-800 shadow-overlay overflow-hidden flex flex-col">
             
-            {/* Glowing Top Accent Edge */}
-            <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-indigo-500 via-cyan-400 to-indigo-600 shadow-[0_1px_8px_rgba(14,165,233,0.4)]" />
-
-            {/* Live Telemetry Top Bar */}
-            <div className="flex items-center justify-between px-4 py-2 border-b border-slate-200/80 font-mono text-xs bg-slate-50/80">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-cyan-500 animate-ping" />
-                <span className="text-slate-700 uppercase tracking-wider font-semibold">
-                  Topology // 3D Core
+            {/* Obsidian Header Bar */}
+            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-800/90 bg-slate-950/60 font-mono text-xs">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-sky-400" aria-hidden="true" />
+                <span className="text-slate-200 uppercase tracking-wider font-semibold">
+                  TOPOLOGY // ENTERPRISE CORE
                 </span>
               </div>
-              <span className="text-cyan-700 font-semibold">LIVE_STREAM // 60FPS</span>
+              <span className="text-emerald-400 font-semibold">99.9% SLA</span>
             </div>
 
-            {/* 3D Scene Viewport */}
+            {/* 3D R3F Canvas Viewport */}
             <div
               id="hero-3d-container"
-              className="w-full h-[360px] sm:h-[400px] flex items-center justify-center relative bg-gradient-to-b from-indigo-50/20 to-cyan-50/30 overflow-hidden"
+              className="flex-1 w-full relative bg-[radial-gradient(circle_at_center,rgba(3,105,161,0.16),transparent_70%)]"
             >
               <Hero3DCanvas />
+            </div>
 
-              {/* Bottom Interactive Prompt Pill */}
-              <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-md text-slate-600 text-[11px] font-mono border border-slate-200 shadow-xs pointer-events-none z-10">
-                Interactive: Orbit, Drag &amp; Inspect Node
-              </div>
+            {/* Subtle Node Legend Bar */}
+            <div className="px-4 py-2.5 border-t border-slate-800/90 bg-slate-950/70 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Cisco • Linux • Odoo • OCR</span>
+              <span className="text-sky-400 hidden sm:inline">Interactive 3D Topology</span>
             </div>
 
           </div>
@@ -156,19 +136,19 @@ export const HeroSection: React.FC = () => {
 
       </div>
 
-      {/* Scroll Prompt */}
-      <div className="w-full flex justify-center pt-4">
+      {/* Scroll Indicator */}
+      <div className="w-full flex justify-center pt-2">
         <a
           href="#metrics"
-          className="group flex flex-col items-center gap-1 text-slate-500 hover:text-indigo-600 transition-colors"
+          aria-label="Scroll down to key performance metrics"
+          className="group inline-flex flex-col items-center gap-1 min-h-[44px] px-4 py-2 rounded-lg text-[#475569] hover:text-[#0369A1] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0369A1]"
         >
-          <span className="font-mono uppercase tracking-widest text-[10px] font-semibold">
-            SCROLL TO INITIALIZE SYSTEM
+          <span className="font-mono uppercase tracking-widest text-[11px] font-semibold">
+            Scroll to Metrics
           </span>
-          <ChevronDown className="w-5 h-5 animate-bounce text-indigo-600" />
+          <ChevronDown className="w-4 h-4 text-[#0369A1] group-hover:translate-y-0.5 transition-transform" aria-hidden="true" />
         </a>
       </div>
-
     </section>
   );
 };

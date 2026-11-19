@@ -6,32 +6,34 @@ import { cn } from '@/lib/utils';
 export interface TimelineItemProps {
   role: string;
   company: string;
+  location?: string;
   period: string;
   isCurrent?: boolean;
   bulletPoints: string[];
-  accentColor?: 'cyan' | 'indigo' | 'slate';
+  accentColor?: 'cobalt' | 'emerald' | 'slate';
   className?: string;
 }
 
 export const TimelineItem: React.FC<TimelineItemProps> = ({
   role,
   company,
+  location,
   period,
   isCurrent = false,
   bulletPoints,
-  accentColor = 'indigo',
+  accentColor = 'cobalt',
   className,
 }) => {
   const nodeStyles = {
-    cyan: 'bg-cyan-600 shadow-[0_0_10px_rgba(8,145,178,0.5)] ring-4 ring-white',
-    indigo: 'bg-indigo-600 ring-4 ring-white',
-    slate: 'bg-slate-400 ring-4 ring-white',
+    emerald: 'bg-[#059669] ring-4 ring-[#F8FAFC]',
+    cobalt: 'bg-[#0369A1] ring-4 ring-[#F8FAFC]',
+    slate: 'bg-slate-400 ring-4 ring-[#F8FAFC]',
   }[accentColor];
 
   const companyStyles = {
-    cyan: 'text-cyan-700',
-    indigo: 'text-indigo-700',
-    slate: 'text-slate-800',
+    emerald: 'text-[#047857]',
+    cobalt: 'text-[#0369A1]',
+    slate: 'text-[#334155]',
   }[accentColor];
 
   return (
@@ -39,39 +41,50 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
       {/* Node Dot */}
       <div
         className={cn(
-          'absolute -left-[27px] sm:-left-[35px] top-6 w-3.5 h-3.5 rounded-full z-10 transition-transform duration-300 group-hover:scale-125',
+          'absolute -left-[27px] sm:-left-[35px] top-6 w-3.5 h-3.5 rounded-full z-10 transition-transform duration-200 group-hover:scale-125',
           nodeStyles
         )}
+        aria-hidden="true"
       />
 
-      {/* Content Glass Card */}
+      {/* Content Card */}
       <GlassCard
         className={cn(
-          'p-5 sm:p-6 transition-all duration-300 hover:shadow-md',
-          isCurrent && 'border-cyan-300/90'
+          'p-5 sm:p-6 transition-all duration-200 hover:shadow-raised',
+          isCurrent && 'border-[#A7F3D0]'
         )}
       >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-slate-100">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
           <div>
-            <h3 className="font-headline text-base sm:text-lg font-bold text-slate-900">
+            <h3 className="font-headline text-base sm:text-lg font-bold text-[#0F172A]">
               {role}
             </h3>
-            <span className={cn('font-mono text-xs font-semibold', companyStyles)}>
-              {company}
-            </span>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-0.5">
+              <span className={cn('font-mono text-xs font-semibold', companyStyles)}>
+                {company}
+              </span>
+              {location && (
+                <>
+                  <span className="text-slate-300" aria-hidden="true">•</span>
+                  <span className="font-mono text-xs text-[#475569]">{location}</span>
+                </>
+              )}
+            </div>
           </div>
 
-          <div className="flex items-center gap-2 mt-1 sm:mt-0">
+          <div className="flex items-center gap-2.5 mt-1 sm:mt-0 shrink-0">
             {isCurrent && (
-              <TagPill variant="cyan" size="sm" pulseDot>
+              <TagPill variant="emerald" size="sm" pulseDot>
                 CURRENT
               </TagPill>
             )}
-            <span className="font-mono text-xs text-slate-500 font-medium">{period}</span>
+            <span className="font-mono text-xs tabular-nums text-[#475569] font-medium">
+              {period}
+            </span>
           </div>
         </div>
 
-        <ul className="mt-4 space-y-2 text-xs sm:text-sm text-slate-600 list-disc list-inside leading-relaxed">
+        <ul className="mt-4 space-y-2 text-sm text-[#334155] list-disc list-inside leading-relaxed">
           {bulletPoints.map((point, index) => (
             <li key={index} className="marker:text-slate-400">
               {point}

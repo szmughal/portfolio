@@ -3,6 +3,7 @@
 import React from 'react';
 import { educationData } from '@/data/education';
 import { GlassCard } from '@/components/ui/GlassCard';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import { GraduationCap, Award, BookOpen, Router, ShieldCheck, LucideIcon } from 'lucide-react';
 
 const iconMap: Record<string, LucideIcon> = {
@@ -14,65 +15,57 @@ const iconMap: Record<string, LucideIcon> = {
 
 export const EducationSection: React.FC = () => {
   return (
-    <section className="flex flex-col gap-8 sm:gap-10" id="credentials">
-      {/* Section Header */}
-      <div>
-        <div className="flex items-center gap-2">
-          <GraduationCap className="w-5 h-5 text-cyan-700" />
-          <span className="font-mono text-[11px] uppercase text-cyan-700 tracking-widest font-bold">
-            ACCREDITATIONS &amp; DEGREES
-          </span>
-        </div>
-        <h2 className="font-headline text-2xl sm:text-3xl lg:text-4xl text-slate-900 font-bold mt-1">
-          Education &amp; Technical Credentials
-        </h2>
-      </div>
+    <section className="flex flex-col" id="credentials" aria-labelledby="credentials-heading">
+      <SectionHeading
+        tag="ACCREDITATIONS & DEGREES"
+        title={<span id="credentials-heading">Education &amp; Technical Credentials</span>}
+        description="Academic computer science foundation paired with hands-on Cisco networking training."
+        icon={<GraduationCap className="w-4 h-4" />}
+        accentColor="cobalt"
+      />
 
-      {/* 4 Credential Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {educationData.map((edu) => {
           const IconComponent = iconMap[edu.icon] || Award;
 
           const colorTheme = {
-            indigo: {
-              icon: 'text-indigo-600',
-              badge: 'text-indigo-700',
-              hoverBorder: 'hover:border-indigo-400',
+            cobalt: {
+              icon: 'text-[#0369A1]',
+              badge: 'text-[#0369A1]',
             },
-            cyan: {
-              icon: 'text-cyan-700',
-              badge: 'text-cyan-700',
-              hoverBorder: 'hover:border-cyan-400',
+            emerald: {
+              icon: 'text-[#059669]',
+              badge: 'text-[#047857]',
             },
-            amber: {
-              icon: 'text-amber-700',
-              badge: 'text-amber-700',
-              hoverBorder: 'hover:border-amber-400',
+            slate: {
+              icon: 'text-[#0F172A]',
+              badge: 'text-[#475569]',
             },
           }[edu.accentColor];
 
           return (
             <GlassCard
               key={edu.id}
-              className={`p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 ${colorTheme.hoverBorder}`}
+              hoverEffect
+              className="bento-card p-6 flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <IconComponent className={`w-7 h-7 ${colorTheme.icon}`} />
-                  <span className="font-mono text-[11px] uppercase font-bold text-slate-500">
+                <div className="flex items-center justify-between mb-4">
+                  <IconComponent className={`w-6 h-6 ${colorTheme.icon}`} aria-hidden="true" />
+                  <span className="font-mono text-[11px] uppercase font-semibold text-[#475569]">
                     {edu.badge}
                   </span>
                 </div>
 
-                <h3 className="font-headline text-base sm:text-lg text-slate-900 font-bold leading-snug">
+                <h3 className="font-headline text-base sm:text-lg text-[#0F172A] font-bold leading-snug">
                   {edu.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#475569] mt-2.5 leading-relaxed">
                   {edu.description}
                 </p>
               </div>
 
-              <div className={`mt-6 pt-3 border-t border-slate-100 font-mono text-[11px] font-medium ${colorTheme.badge}`}>
+              <div className={`mt-6 pt-3 border-t border-slate-100 font-mono text-[11px] font-semibold ${colorTheme.badge}`}>
                 {edu.institution} • {edu.location}
               </div>
             </GlassCard>

@@ -3,32 +3,30 @@
 import React from 'react';
 import { experienceData } from '@/data/experience';
 import { TimelineItem } from '@/components/ui/TimelineItem';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import { History } from 'lucide-react';
 
 export const ExperienceSection: React.FC = () => {
   return (
-    <section className="flex flex-col gap-8 sm:gap-10" id="experience">
-      {/* Section Header */}
-      <div>
-        <div className="flex items-center gap-2">
-          <History className="w-5 h-5 text-indigo-600" />
-          <span className="font-mono text-[11px] uppercase text-indigo-600 tracking-widest font-bold">
-            CHRONOLOGY // LEADERSHIP
-          </span>
-        </div>
-        <h2 className="font-headline text-2xl sm:text-3xl lg:text-4xl text-slate-900 font-bold mt-1">
-          Enterprise Career Track
-        </h2>
-      </div>
+    <section className="flex flex-col" id="experience" aria-labelledby="experience-heading">
+      <SectionHeading
+        tag="CHRONOLOGY // LEADERSHIP"
+        title={<span id="experience-heading">Enterprise Career Track</span>}
+        description="Eight years of progression from tier-1 banking field infrastructure support to sole-authority IT operations leadership."
+        icon={<History className="w-4 h-4" />}
+        accentColor="cobalt"
+      />
 
-      {/* Timeline Container with Vertical Gradient Line that draws on scroll */}
-      <div className="relative pl-6 sm:pl-10 space-y-6 sm:space-y-8">
-        {/* Track Line */}
-        <div className="absolute left-2.5 sm:left-4 top-4 bottom-4 w-0.5 bg-slate-200/80 pointer-events-none" />
-        {/* Animated Drawing Indicator Line */}
+      {/* Timeline Container with Scroll-Drawing Vertical Line */}
+      <div className="relative pl-6 sm:pl-10 space-y-6">
+        <div
+          className="absolute left-2.5 sm:left-4 top-4 bottom-4 w-0.5 bg-slate-200 pointer-events-none"
+          aria-hidden="true"
+        />
         <div
           id="timeline-line"
-          className="absolute left-2.5 sm:left-4 top-4 bottom-4 w-0.5 bg-gradient-to-b from-cyan-500 via-indigo-500 to-emerald-400 pointer-events-none origin-top will-change-transform"
+          className="absolute left-2.5 sm:left-4 top-4 bottom-4 w-0.5 bg-gradient-to-b from-[#059669] via-[#0369A1] to-slate-400 pointer-events-none origin-top will-change-transform"
+          aria-hidden="true"
         />
 
         {experienceData.map((exp) => (
@@ -36,6 +34,7 @@ export const ExperienceSection: React.FC = () => {
             key={exp.id}
             role={exp.role}
             company={exp.company}
+            location={exp.location}
             period={exp.period}
             isCurrent={exp.isCurrent}
             bulletPoints={exp.bulletPoints}

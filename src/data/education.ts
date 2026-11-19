@@ -6,52 +6,52 @@ export interface EducationItem {
   location: string;
   description: string;
   icon: string;
-  accentColor: 'indigo' | 'cyan' | 'amber';
+  accentColor: 'cobalt' | 'emerald' | 'slate';
 }
 
 export const educationData: EducationItem[] = [
   {
     id: "mcs",
-    badge: "Postgraduate",
+    badge: "2015 — 2016",
     title: "Master of Computer Science (MCS)",
     institution: "University of Karachi",
     location: "Karachi, PK",
     description:
-      "Advanced Distributed Systems, Database Architecture, and Telecommunications Engineering.",
+      "Graduate study in computer systems architecture, database engineering, networking, and enterprise software design.",
     icon: "workspace_premium",
-    accentColor: "indigo",
+    accentColor: "cobalt",
   },
   {
     id: "bsc",
-    badge: "Undergraduate",
+    badge: "2012 — 2013",
     title: "Bachelor of Science (BSc)",
-    institution: "Academic Foundation",
+    institution: "University of Karachi",
     location: "Karachi, PK",
     description:
-      "Computer Science & Applied Mathematics fundamentals, algorithm complexity, and statistics.",
+      "Undergraduate foundation in computer science, applied mathematics, and analytical problem solving.",
     icon: "history_edu",
-    accentColor: "cyan",
+    accentColor: "slate",
   },
   {
     id: "ccna",
-    badge: "Cisco Systems",
-    title: "Cisco Certified Network Associate (CCNA)",
-    institution: "Cisco ID Verification Validated",
-    location: "Global",
+    badge: "Networking",
+    title: "Cisco Certified Network Associate (CCNA) Curriculum",
+    institution: "Core Routing & Switching",
+    location: "Verified Training",
     description:
-      "Enterprise Routing & Switching, IP Services, OSPF, BGP Routing Tables, and Network Security.",
+      "Hands-on routing, switching, IPv4/IPv6 subnetting, VLAN segmentation, and enterprise perimeter network security.",
     icon: "router",
-    accentColor: "amber",
+    accentColor: "emerald",
   },
   {
-    id: "itil-sec",
-    badge: "Service & Sec",
-    title: "ITIL & Enterprise Cybersecurity",
-    institution: "Continuous Professional Accreditation",
-    location: "Global",
+    id: "languages",
+    badge: "Communication",
+    title: "Executive Bilingual Operations",
+    institution: "English & Urdu",
+    location: "Global Remote Ready",
     description:
-      "IT Service Management (ITSM), Incident Control, Change Advisory, and Zero-Trust Hardening.",
+      "English (Professional Working Proficiency) and Urdu (Native) for cross-border engineering, leadership, and documentation.",
     icon: "verified_user",
-    accentColor: "indigo",
+    accentColor: "slate",
   },
 ];

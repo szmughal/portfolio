@@ -6,10 +6,15 @@ import { MetricCard } from '@/components/ui/MetricCard';
 
 export const MetricsSection: React.FC = () => {
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="metrics">
+    <section
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+      id="metrics"
+      aria-label="Key career performance metrics"
+    >
       {metricsData.map((metric) => (
         <MetricCard
           key={metric.id}
+          className="bento-card"
           tag={metric.tag}
           value={metric.value}
           targetNumber={metric.targetNumber}

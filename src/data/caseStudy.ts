@@ -7,9 +7,18 @@ export interface CaseStudyPhase {
   isEngineCore?: boolean;
 }
 
+export interface SampleExtractionRow {
+  description: string;
+  quantity: number;
+  unitPrice: number;
+  lineTotal: number;
+  account: string;
+}
+
 export interface CaseStudyData {
   badge: string;
   title: string;
+  subtitle: string;
   efficiencyHighlight: {
     percentage: string;
     label: string;
@@ -19,57 +28,81 @@ export interface CaseStudyData {
   terminal: {
     filename: string;
     status: string;
-    code: string;
   };
+  csvDownloadPath: string;
+  sampleExtractionRows: SampleExtractionRow[];
 }
 
 export const caseStudyData: CaseStudyData = {
-  badge: "MISSION CASE STUDY // AUTOMATION",
-  title: "Enterprise Accounting OCR & Ledger Automation",
+  badge: "KEY ACHIEVEMENT // ENTER AND POST LLC",
+  title: "Accounting OCR Document Extraction Pipeline",
+  subtitle:
+    "Engineered and deployed an in-house OCR pipeline that parses multi-page scanned PDF invoices and bank statements into structured Excel (.xlsx/.csv) batches ready for QuickBooks—eliminating manual transcription errors.",
   efficiencyHighlight: {
     percentage: "85%",
-    label: "Reductive Efficiency",
-    sublabel: "From 45 mins → 6.2 mins / batch",
+    label: "Time Reduction",
+    sublabel: "From 45 min → 6.2 min / batch",
   },
   phases: [
     {
-      phase: "PHASE 01 // INPUT",
-      title: "Raw Scans & PDFs",
+      phase: "01 // INPUT",
+      title: "Scanned PDFs & Statements",
       description:
-        "Legacy manual data entry: accountants manually typed vendor line-items, tax numbers, and dates from varied receipt layouts.",
-      metrics: "Latency: ~45 min / batch • Error Rate: 7.2%",
+        "Multi-page vendor invoices and bank statements previously required line-by-line manual transcription by the accounting team.",
+      metrics: "Manual baseline: ~45 min / batch",
       icon: "receipt_long",
     },
     {
-      phase: "PHASE 02 // PARSER",
-      title: "Agentic Python OCR",
+      phase: "02 // OCR ENGINE",
+      title: "In-House Python Pipeline",
       description:
-        "Custom Python pipeline utilizing OpenCV image preprocessing, Tesseract layout analysis, regex taxonomy parser, and fuzzy table boundary matching.",
-      metrics: "Confidence Score: 99.4% • Concurrent Workers",
+        "Image deskewing, table boundary detection, optical text parsing, and automated chart-of-accounts rule matching.",
+      metrics: "Line-item totals cross-checked",
       icon: "neurology",
       isEngineCore: true,
     },
     {
-      phase: "PHASE 03 // DISPATCH",
-      title: "Structured API Ingest",
+      phase: "03 // EXPORT",
+      title: "QuickBooks-Ready Workbooks",
       description:
-        "Auto-formatted QuickBooks-ready Excel payload and direct REST API push to enterprise ERP with automated journal ledger balancing.",
-      metrics: "Zero Discrepancies • 100% Tax Audit Trace",
+        "Exports clean, structured .xlsx and .csv batches mapped directly to QuickBooks expense accounts with zero manual re-keying.",
+      metrics: "85% time saved • Reconciled totals",
       icon: "verified",
     },
   ],
   terminal: {
     filename: "ocr_pipeline_worker.py",
-    status: "STATUS: EXECUTING",
-    code: `import cv2, pytesseract, re, json
-# Preprocess invoice scan: adaptive thresholding & deskewing
-def extract_invoice_telemetry(doc_stream):
-    preprocessed = cv2.bilateralFilter(cv2.cvtColor(doc_stream, cv2.COLOR_BGR2GRAY), 9, 75, 75)
-    ocr_payload = pytesseract.image_to_data(preprocessed, output_type=pytesseract.Output.DICT)
-    
-    # Regex schema matching line-items and tax vouchers
-    ledger_items = parse_tax_table(ocr_payload, regex=r"(\\d{2}/\\d{2}/\\d{4})\\s+([A-Z0-9\\s]+)\\s+(\\$?\\d+\\.\\d{2})")
-    return erp_client.post("/v1/accounting/direct-sync", json={"batch_id": "SZ-8849", "records": ledger_items})
->>> [OK 200] 142 records ingested into Odoo/QuickBooks in 1.48s. Drift: 0.00%`,
+    status: "STATUS: PRODUCTION",
   },
+  csvDownloadPath: "/quickbooks_import_batch_ready.csv",
+  sampleExtractionRows: [
+    {
+      description: "CAT6 SHIELDED ETHERNET CABLE 1000FT",
+      quantity: 4,
+      unitPrice: 145.0,
+      lineTotal: 580.0,
+      account: "50000 - IT Hardware & Infrastructure Expense",
+    },
+    {
+      description: "CISCO SFP+ 10GBASE-SR TRANSCEIVER",
+      quantity: 8,
+      unitPrice: 42.5,
+      lineTotal: 340.0,
+      account: "50000 - IT Hardware & Infrastructure Expense",
+    },
+    {
+      description: "SERVER RACK MOUNT SHELF 2U",
+      quantity: 2,
+      unitPrice: 68.0,
+      lineTotal: 136.0,
+      account: "50000 - IT Hardware & Infrastructure Expense",
+    },
+    {
+      description: "EATON 1500VA UPS BATTERY PACK",
+      quantity: 1,
+      unitPrice: 389.0,
+      lineTotal: 389.0,
+      account: "50000 - IT Hardware & Infrastructure Expense",
+    },
+  ],
 };

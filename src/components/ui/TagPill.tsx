@@ -1,8 +1,19 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 
+export type TagPillVariant =
+  | 'cobalt'
+  | 'emerald'
+  | 'slate'
+  | 'obsidian'
+  | 'rose'
+  // Backwards-compatible aliases
+  | 'indigo'
+  | 'cyan'
+  | 'amber';
+
 export interface TagPillProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: 'indigo' | 'cyan' | 'amber' | 'emerald' | 'slate' | 'rose';
+  variant?: TagPillVariant;
   size?: 'sm' | 'md';
   pulseDot?: boolean;
   icon?: React.ReactNode;
@@ -17,33 +28,37 @@ export const TagPill: React.FC<TagPillProps> = ({
   children,
   ...props
 }) => {
-  const variants = {
-    indigo: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-    cyan: 'bg-cyan-50 text-cyan-800 border-cyan-200',
-    amber: 'bg-amber-50 text-amber-800 border-amber-200',
-    emerald: 'bg-emerald-50 text-emerald-800 border-emerald-200',
-    slate: 'bg-slate-100 text-slate-700 border-slate-200',
-    rose: 'bg-rose-50 text-rose-700 border-rose-200',
+  const variants: Record<TagPillVariant, string> = {
+    cobalt: 'bg-[#F0F9FF] text-[#0369A1] border-[#BAE6FD]',
+    emerald: 'bg-[#ECFDF5] text-[#047857] border-[#A7F3D0]',
+    slate: 'bg-slate-100 text-[#334155] border-slate-200',
+    obsidian: 'bg-[#0B1120] text-slate-100 border-slate-700',
+    rose: 'bg-[#FEF2F2] text-[#B91C1C] border-[#FECACA]',
+    indigo: 'bg-[#F0F9FF] text-[#0369A1] border-[#BAE6FD]',
+    cyan: 'bg-[#F0F9FF] text-[#0369A1] border-[#BAE6FD]',
+    amber: 'bg-slate-100 text-[#334155] border-slate-300',
   };
 
-  const dotColors = {
-    indigo: 'bg-indigo-500',
-    cyan: 'bg-cyan-500',
-    amber: 'bg-amber-500',
-    emerald: 'bg-emerald-500',
+  const dotColors: Record<TagPillVariant, string> = {
+    cobalt: 'bg-[#0369A1]',
+    emerald: 'bg-[#059669]',
     slate: 'bg-slate-500',
-    rose: 'bg-rose-500',
+    obsidian: 'bg-sky-400',
+    rose: 'bg-[#DC2626]',
+    indigo: 'bg-[#0369A1]',
+    cyan: 'bg-[#0369A1]',
+    amber: 'bg-[#0369A1]',
   };
 
   const sizes = {
-    sm: 'text-[10px] px-2 py-0.5 rounded gap-1 tracking-wider',
-    md: 'text-[11px] px-2.5 py-1 rounded-lg gap-1.5',
+    sm: 'text-[11px] px-2.5 py-0.5 rounded-md gap-1.5 tracking-wide',
+    md: 'text-xs px-3 py-1 rounded-lg gap-1.5',
   };
 
   return (
     <span
       className={cn(
-        'inline-flex items-center font-mono font-medium border select-none transition-colors',
+        'inline-flex items-center font-mono font-medium border select-none whitespace-nowrap transition-colors',
         variants[variant],
         sizes[size],
         className
@@ -51,7 +66,7 @@ export const TagPill: React.FC<TagPillProps> = ({
       {...props}
     >
       {pulseDot && (
-        <span className="relative flex h-2 w-2 mr-0.5">
+        <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
           <span
             className={cn(
               'animate-ping absolute inline-flex h-full w-full rounded-full opacity-75',
@@ -66,7 +81,11 @@ export const TagPill: React.FC<TagPillProps> = ({
           />
         </span>
       )}
-      {icon && <span className="inline-flex shrink-0">{icon}</span>}
+      {icon && (
+        <span className="inline-flex shrink-0" aria-hidden="true">
+          {icon}
+        </span>
+      )}
       {children}
     </span>
   );

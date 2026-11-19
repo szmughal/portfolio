@@ -2,7 +2,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 export interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'high' | 'subtle';
+  variant?: 'default' | 'high' | 'obsidian' | 'subtle';
   hoverEffect?: boolean;
   bordered?: boolean;
 }
@@ -20,22 +20,24 @@ export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
     ref
   ) => {
     const variants = {
-      default:
-        'bg-white/88 backdrop-blur-[16px] shadow-[0_10px_30px_-10px_rgba(79,70,229,0.07),0_4px_6px_-2px_rgba(15,23,42,0.04)]',
-      high:
-        'bg-white/96 backdrop-blur-[20px] shadow-[0_16px_36px_-8px_rgba(79,70,229,0.1),0_6px_12px_-3px_rgba(15,23,42,0.06)]',
-      subtle:
-        'bg-white/70 backdrop-blur-[12px] shadow-xs',
+      default: 'bg-white shadow-resting text-[#0F172A]',
+      high: 'bg-white shadow-raised text-[#0F172A]',
+      obsidian: 'bg-[#0B1120] shadow-overlay text-[#F8FAFC]',
+      subtle: 'bg-white/85 backdrop-blur-md shadow-xs text-[#0F172A]',
     };
 
     const borderStyle = bordered
-      ? variant === 'high'
-        ? 'border border-slate-300/80'
+      ? variant === 'obsidian'
+        ? 'border border-slate-800'
+        : variant === 'high'
+        ? 'border border-slate-200'
         : 'border border-slate-200/90'
       : '';
 
     const hoverStyle = hoverEffect
-      ? 'transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400 hover:shadow-lg'
+      ? variant === 'obsidian'
+        ? 'transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-700'
+        : 'transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-raised'
       : '';
 
     return (

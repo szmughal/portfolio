@@ -11,35 +11,61 @@ if (typeof window !== 'undefined') {
 
 export const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   useEffect(() => {
-    // Check prefers-reduced-motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      return;
-    }
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let lenis: Lenis | null = null;
+    let tickerFn: ((time: number) => void) | null = null;
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
+    const initLenis = () => {
+      if (motionQuery.matches || lenis) return;
 
-    // Synchronize Lenis with GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
+      lenis = new Lenis({
+        duration: 1.15,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+      });
 
-    const updateTicker = (time: number) => {
-      lenis.raf(time * 1000);
+      lenis.on('scroll', ScrollTrigger.update);
+
+      tickerFn = (time: number) => {
+        lenis?.raf(time * 1000);
+      };
+
+      gsap.ticker.add(tickerFn);
+      gsap.ticker.lagSmoothing(0);
     };
 
-    gsap.ticker.add(updateTicker);
-    gsap.ticker.lagSmoothing(0);
+    const destroyLenis = () => {
+      if (tickerFn) {
+        gsap.ticker.remove(tickerFn);
+        tickerFn = null;
+      }
+      if (lenis) {
+        lenis.destroy();
+        lenis = null;
+      }
+    };
+
+    const handleMotionChange = (e: MediaQueryListEvent) => {
+      if (e.matches) {
+        destroyLenis();
+      } else {
+        initLenis();
+      }
+    };
+
+    if (!motionQuery.matches) {
+      initLenis();
+    }
+
+    motionQuery.addEventListener('change', handleMotionChange);
 
     return () => {
-      gsap.ticker.remove(updateTicker);
-      lenis.destroy();
+      motionQuery.removeEventListener('change', handleMotionChange);
+      destroyLenis();
     };
   }, []);
 

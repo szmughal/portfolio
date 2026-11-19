@@ -9,46 +9,53 @@ export interface PersonalInfo {
   status: string;
   email: string;
   linkedin: string;
-  github?: string;
-  phone?: string;
+  github: string;
+  phone: string;
   coordinates: string;
   portraitUrl: string;
   portraitAlt: string;
   bioHeading: string;
   bioParagraphs: string[];
+  trustedOrgs: string[];
   techTags: Array<{ label: string; icon: string; category: string }>;
 }
 
 export const personalData: PersonalInfo = {
   name: "SAAD",
   surname: "ZAFAR",
-  title: "Senior IT Manager & Enterprise Solutions Architect",
-  badge: "AVAILABLE FOR ENTERPRISE & ARCHITECTURE ROLES",
+  title: "IT Manager — Enterprise Infrastructure, Systems & Automation",
+  badge: "OPEN TO ENTERPRISE IT LEADERSHIP & ADVISORY",
   leadParagraph:
-    "I keep infrastructure stable and turn manual work into automation. Orchestrating mission-critical high-availability systems, automated OCR pipelines, and enterprise ERP backbones across Karachi and multi-national operations.",
-  location: "Karachi, PK",
-  slaUptime: "99.9% Historical SLA Uptime",
+    "Hands-on IT Manager with 8+ years directing enterprise IT infrastructure, Cisco networks, Odoo ERP, and hybrid cloud operations in corporate and tier-1 banking environments. I bridge infrastructure stability with high-ROI automation—from in-house QuickBooks OCR pipelines to production SEO web systems.",
+  location: "Karachi, Pakistan",
+  slaUptime: "99.9% Core Uptime",
   status: "ONLINE",
   email: "saad.zafar060@gmail.com",
   linkedin: "https://linkedin.com/in/szmughal",
+  github: "https://github.com/szmughal",
   phone: "+92-333-3415230",
   coordinates: "Karachi, Pakistan • PKT (UTC+5)",
-  portraitUrl:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuA4TVKdmkzhx_VTQvc4JZx-QojFzz6kCTqulNQ9ZC4DA6p9GbbfaBGJ7hAqWTAFi5tLO5qroefyxo4lRTfp6lhzhuxmSq-qMQFvaWc-SehGaGSGt4u3UuMiPKvDPAgPKHh0YDOzRFkm3EJ_OzbOfXEs2AyOklbSI9sqIwK72S5CNw5twmVbjOqkPA0alMlN-KjDcsYUGwUTN-zu364xs0UjiU6KiE_jtrV5wdTpUg_G",
+  portraitUrl: "/saad-portrait.jpg",
   portraitAlt:
-    "Futuristic portrait of Saad Zafar, Pakistani Senior IT Manager and Enterprise Architect with clean modern grooming, dark tailored blazer, cinematic blue and indigo rim lighting, high-tech server racks subtly blurred in the background",
-  bioHeading: "Engineering Resilient Infrastructure and Automated Enterprise Workflows",
+    "Portrait of Saad Zafar, IT Manager and Enterprise Systems Architect based in Karachi, Pakistan",
+  bioHeading: "Bridging Core Infrastructure Stability with High-ROI Digital Automation",
   bioParagraphs: [
-    "Based in Karachi, Pakistan, I operate as a Senior IT Manager and Enterprise Solutions Architect with a deep specialization in bridging complex on-premise hardware footprints with resilient hybrid cloud ecosystems.",
-    "Throughout my 8+ year trajectory—spanning multinational logistics companies, financial banking networks, and manufacturing plants—I have owned the architecture of multi-site SD-WAN/VLAN networks, end-to-end ERP rollouts (Odoo), and mission-critical disaster recovery pipelines.",
-    "My guiding philosophy is simple: eliminate repetitive manual operational friction through Python automated pipelines and intelligent OCR, while locking down server perimeters with Zero-Trust network discipline.",
+    "Promoted to lead complete IT operations at Enter and Post LLC, I direct enterprise cybersecurity, Google Workspace administration, hybrid Mega Cloud and encrypted EaseUS backups, and multi-tier end-user support at 99.9% uptime.",
+    "Across 8+ years spanning Standard Chartered Bank, Soneri Bank, and manufacturing operations at Universal BrushWares, I have managed Cisco routing and switching, Active Directory domains, Linux servers, and Odoo ERP across Inventory, Sales, Purchase, and Manufacturing modules.",
+    "Where manual accounting or lead bottlenecks slow teams down, I build practical automation: an in-house Python OCR pipeline that turns multi-page scanned PDFs into QuickBooks-ready Excel workbooks (cutting entry time by 85%), paired with production web deployments and AEO/GEO search optimization.",
+  ],
+  trustedOrgs: [
+    "Enter and Post LLC",
+    "Universal BrushWares",
+    "Soneri Bank",
+    "Standard Chartered Bank",
   ],
   techTags: [
-    { label: "Linux Enterprise", icon: "terminal", category: "os" },
-    { label: "Odoo ERP", icon: "apps", category: "erp" },
-    { label: "Disaster Recovery", icon: "shield", category: "security" },
-    { label: "Python Agents", icon: "bot", category: "ai" },
     { label: "Cisco CCNA", icon: "router", category: "network" },
-    { label: "Technical SEO", icon: "search", category: "seo" },
+    { label: "Odoo ERP", icon: "apps", category: "erp" },
+    { label: "Python OCR", icon: "bot", category: "ai" },
+    { label: "Linux & AD", icon: "terminal", category: "os" },
+    { label: "Google Workspace", icon: "shield", category: "cloud" },
+    { label: "Technical SEO / AEO", icon: "search", category: "seo" },
   ],
 };

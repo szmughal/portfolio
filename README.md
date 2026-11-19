@@ -1,14 +1,30 @@
-# Saad Zafar — Enterprise Solutions Architect & IT Manager Portfolio
+# Saad Zafar — Enterprise Systems & IT Operations Portfolio
 
-Production website built from the approved Figma design for Saad Zafar's portfolio.
+Production portfolio website redesigned with the **`ui-ux-pro-max` v2.15.0** design intelligence system, combining **Swiss Architectural Minimalism** with an **Asymmetric Bento Box** layout, interactive 3D network topology, GSAP scroll choreography, and WCAG AA+ accessibility.
 
 ## Stack
 - **Framework**: Next.js 15 (App Router) + TypeScript + React 19
-- **Styling**: Tailwind CSS configured with Figma design tokens
-- **Typography**: `next/font` for Space Grotesk, Inter, and JetBrains Mono
-- **Motion & 3D**: Framer Motion, GSAP + ScrollTrigger, Lenis (smooth scroll), Three.js + React Three Fiber + Drei
-- **Forms & Validation**: React Hook Form + Zod + Resend
+- **Styling & Tokens**: Tailwind CSS + CSS Custom Properties (`design-system/saad-zafar/MASTER.md`, `tokens.css`, `tokens.json`)
+- **Typography**: `next/font` for `Space Grotesk`, `Inter`, and `JetBrains Mono`
+- **Motion & 3D**: Framer Motion (spring 3D card tilt + filtered grid transitions), GSAP + ScrollTrigger (wave staggers, metric count-ups, scroll-drawn timeline), Lenis (smooth scroll), React Three Fiber + Three.js (lazy-loaded 3D core topology with mobile static fallback & GPU cleanup)
+- **Forms & Validation**: React Hook Form + Zod + Resend API route (`/api/contact`) with honeypot, rate limiting, and accessible focusable error summary
 - **Deployment**: Vercel
+
+---
+
+## Design System Source of Truth (`design-system/saad-zafar/`)
+
+Generated via `ui-ux-pro-max`:
+- `design-system/saad-zafar/MASTER.md` — System-wide pattern, typography, color contrast rules, and motion guidelines
+- `design-system/saad-zafar/tokens.css` & `tokens.json` — Exported semantic color and spacing tokens
+- `design-system/saad-zafar/preview.html` — Token preview sheet
+
+**Palette Summary**:
+- Canvas: `#F8FAFC` (with 64px architectural hairline grid)
+- Card Surface: `#FFFFFF` (`1px solid #E2E8F0`)
+- Dark Telemetry / Code Surface: `#0B1120` (Obsidian)
+- Primary Ink: `#0F172A` | Muted Ink: `#475569`
+- Cobalt Accent: `#0369A1` | Signal Emerald: `#059669`
 
 ---
 
@@ -25,7 +41,7 @@ Create a `.env.local` file in the root directory:
 # Optional Resend API Key for live email dispatch
 RESEND_API_KEY=re_your_api_key_here
 ```
-*(If `RESEND_API_KEY` is not provided, the contact API runs in development logging mode).*
+*(If `RESEND_API_KEY` is omitted, `/api/contact` logs payloads safely in development mode.)*
 
 ### 3. Run Development Server
 ```bash
@@ -33,7 +49,7 @@ npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 4. Production Build & Verification
+### 4. Production Build & Start
 ```bash
 npm run build
 npm run start
@@ -41,73 +57,23 @@ npm run start
 
 ---
 
-## 3D & Motion Architecture (`src/components/3d/` & `src/components/motion/`)
+## Editing Portfolio Content (`src/data/*.ts`)
 
-- **Hero 3D Scene (`NetworkTopology.tsx` & `Hero3DCanvas.tsx`)**:
-  - Built with **React Three Fiber** and **Three.js**.
-  - Renders a floating central frosted glass server core (`#4F46E5`), outer wireframe cage (`#06B6D4`), dynamic network splines/cables, and glowing satellite nodes with cyan/indigo emissive materials.
-  - Continuous rotation on X and Y axes, gentle core pulse, and subtle pointer parallax.
-  - Lazy-loaded via `next/dynamic` with `ssr: false` and a lightweight geometric orbital static fallback while loading.
-  - Automatically scales down node count and resolution on mobile screens (< 768px).
-- **3D Card Spring Tilt (`TiltCard.tsx`)**:
-  - Implemented using **Framer Motion** springs (`useSpring`, `useMotionValue`, `useTransform`).
-  - Applied to all 6 **BrowserFrame** project cards and the About portrait card for natural perspective tilt.
-- **GSAP ScrollTrigger (`ScrollAnimations.tsx`)**:
-  - **Staggered Reveals**: Smooth scroll-triggered entrance for all sections (`#metrics`, `#about`, `#skills`, `#case-study`, `#work`, `#experience`, `#credentials`, `#contact`).
-  - **Animated Count-Up**: Triggers numerical count-up on `.counter-metric` elements when entering view.
-  - **Drawing Timeline Line**: The vertical timeline line in the Experience section dynamically scales down along the Y-axis from 0% to 100% height scrubbed to scroll position.
-  - **Subtle Parallax**: Depth offset on project browser frames during scroll.
-- **Lenis Smooth Scroll (`SmoothScroll.tsx`)**:
-  - Inertial smooth scrolling synchronized directly with the GSAP ticker (`lenis.raf`).
-- **Accessibility (`prefers-reduced-motion`)**:
-  - Automatically detects OS reduced-motion preferences: disables Lenis smooth scroll, stops 3D rotation and parallax, and ensures immediate static visibility.
-
----
-
-## Contact API & Dispatch Engine (`src/app/api/contact/`)
-
-- **Validation**: Schema-validated via `zod` (`src/lib/validations/contact.ts`).
-- **Anti-Bot Protection**: Honeypot field (`website_honeypot`) that silently rejects bot submissions.
-- **Rate Limiting**: In-memory IP tracking limiting to max 5 transmissions per 10 minutes per IP address.
-- **Email Delivery**: Integrates with **Resend** to dispatch structured HTML notifications directly to `saad.zafar060@gmail.com`.
-- **User Feedback**: Custom glass toast notifications for success (`#0891B2` cyan) and errors (`#EF4444` rose).
-
----
-
-## SEO & Accessibility (Lighthouse 90+ Target)
-
-- **Metadata API**: Dynamic Open Graph and Twitter Card tags configured in `src/app/layout.tsx`.
-- **Social Banner**: Custom 1200x630 vector asset at `/og-image.svg`.
-- **Search Engine Discovery**: Auto-generated `/sitemap.xml` (`sitemap.ts`) and `/robots.txt` (`robots.ts`).
-- **JSON-LD Structured Data**: Embedded `Person` schema markup attributing credentials (MCS, CCNA), 8+ years experience, contact info, and production works.
-- **WCAG AA Compliance**: High-contrast typography (`#0F172A` on `#FFFFFF` / `#F8FAFC`), visible focus rings (`focus-visible:ring-2 focus-visible:ring-indigo-600`), semantic heading levels (H1–H4), skip-to-content links, and descriptive `alt` tags.
-
----
-
-## Centralized Data Layer (`src/data/*.ts`)
-
-All content is decoupled from components for instant editing:
-- `src/data/personal.ts` — Bio, contact info, coordinates, credentials
-- `src/data/metrics.ts` — 4 headline metric counters
-- `src/data/skills.ts` — 6 bento competency blocks
-- `src/data/caseStudy.ts` — Accounting OCR case study phases & code
-- `src/data/projects.ts` — 6 production web assets (TNT, Enter & Post, Jangle, Natural Wonders, Acewall, Duncan Brooke)
-- `src/data/experience.ts` — 6 enterprise career roles
-- `src/data/education.ts` — Academic degrees and Cisco certifications
-- `src/data/navigation.ts` — Top nav links
+All text, CV roles, metrics, credentials, and project showcases live in `/src/data/`:
+- `src/data/personal.ts` — Name, title, bio, trusted organizations, contact links, `/saad-portrait.jpg`
+- `src/data/metrics.ts` — 4 executive KPI counters (`8+`, `99.9%`, `85%`, `6`)
+- `src/data/skills.ts` — 6 asymmetric Bento capabilities (`01 // INFRA` through `06 // WEB`)
+- `src/data/caseStudy.ts` — Enter and Post LLC QuickBooks OCR extraction case study & sample CSV rows
+- `src/data/projects.ts` — 6 live websites (TNT Commercial Services 615, Enter and Post LLC, Jangle Painting, Natural Wonder Trees, Acewall Scholars, Duncan Brooke)
+- `src/data/experience.ts` — Chronological career history (2018–Present)
+- `src/data/education.ts` — MCS, BSc, Cisco CCNA curriculum, bilingual operations
+- `src/data/navigation.ts` — Top header & mobile drawer navigation links
 
 ---
 
 ## Deployment to Vercel
 
-1. Push this repository to GitHub or GitLab:
-   ```bash
-   git add .
-   git commit -m "feat: complete Phase D - contact form with Resend, SEO metadata, JSON-LD, and performance optimizations"
-   git remote add origin <your-repo-url>
-   git push -u origin main
-   ```
-2. Import the project in [Vercel](https://vercel.com/new).
-3. Under **Project Settings &rarr; Environment Variables**, add:
-   - `RESEND_API_KEY`: Your Resend API key (optional for email dispatch).
-4. Click **Deploy**. Vercel will build the Next.js 15 App Router project with automatic edge CDN caching.
+```bash
+git push -u origin main
+```
+Import the repository in [Vercel](https://vercel.com/new), optionally add `RESEND_API_KEY` under **Project Settings → Environment Variables**, and deploy.

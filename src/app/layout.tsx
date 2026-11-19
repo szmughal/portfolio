@@ -7,15 +7,15 @@ const siteUrl = 'https://szmughal.dev';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Saad Zafar // Senior IT Manager & Enterprise Solutions Architect',
+    default: 'Saad Zafar | IT Manager, Enterprise Systems & Automation Architect',
     template: '%s | Saad Zafar',
   },
   description:
-    'Senior IT Manager with 8+ years directing enterprise infrastructure, Cisco networks, Odoo ERP, in-house OCR document extraction pipelines for QuickBooks, and top-ranking SEO web portals.',
+    'Hands-on IT Manager with 8+ years directing enterprise IT infrastructure, Cisco networking, Odoo ERP, in-house OCR pipelines for QuickBooks, and production SEO web systems.',
   keywords: [
     'Saad Zafar',
-    'Senior IT Manager',
-    'Enterprise Solutions Architect',
+    'IT Manager',
+    'Enterprise Systems Architect',
     'Cisco CCNA',
     'Odoo ERP',
     'OCR Automation QuickBooks',
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Saad Zafar // Senior IT Manager & Enterprise Solutions Architect',
+    title: 'Saad Zafar | IT Manager, Enterprise Systems & Automation Architect',
     description:
-      '8+ years directing enterprise infrastructure, Cisco network topology, Odoo ERP, and building in-house OCR pipelines for QuickBooks cutting entry time by 85%.',
+      '8+ years directing enterprise IT infrastructure, Cisco network topology, Odoo ERP, and engineering in-house OCR pipelines for QuickBooks cutting data-entry time by 85%.',
     url: siteUrl,
     siteName: 'Saad Zafar Portfolio',
     locale: 'en_US',
@@ -41,15 +41,15 @@ export const metadata: Metadata = {
         url: '/og-image.svg',
         width: 1200,
         height: 630,
-        alt: 'Saad Zafar - Enterprise Architecture & Systems Leadership',
+        alt: 'Saad Zafar - IT Manager & Enterprise Systems Architect',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Saad Zafar // Senior IT Manager & Enterprise Solutions Architect',
+    title: 'Saad Zafar | IT Manager & Enterprise Systems Architect',
     description:
-      'Enterprise IT leadership, in-house OCR automation pipelines for QuickBooks, and top-ranking web deployments.',
+      'Enterprise IT leadership, in-house OCR automation pipelines for QuickBooks, and production web deployments.',
     creator: '@szmughal',
     images: ['/og-image.svg'],
   },
@@ -66,15 +66,14 @@ export const metadata: Metadata = {
   },
 };
 
-// JSON-LD Person & Professional Service Schema
 const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Saad Zafar',
   alternateName: 'Saad Zafar Mughal',
-  jobTitle: 'Senior IT Manager & Enterprise Solutions Architect',
+  jobTitle: 'IT Manager | Infrastructure, Enterprise Systems & Automation',
   url: siteUrl,
-  image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA4TVKdmkzhx_VTQvc4JZx-QojFzz6kCTqulNQ9ZC4DA6p9GbbfaBGJ7hAqWTAFi5tLO5qroefyxo4lRTfp6lhzhuxmSq-qMQFvaWc-SehGaGSGt4u3UuMiPKvDPAgPKHh0YDOzRFkm3EJ_OzbOfXEs2AyOklbSI9sqIwK72S5CNw5twmVbjOqkPA0alMlN-KjDcsYUGwUTN-zu364xs0UjiU6KiE_jtrV5wdTpUg_G',
+  image: `${siteUrl}/saad-portrait.jpg`,
   email: 'saad.zafar060@gmail.com',
   telephone: '+92-333-3415230',
   address: {
@@ -105,11 +104,11 @@ const personJsonLd = {
   knowsAbout: [
     'Enterprise IT Infrastructure & Networks',
     'Cisco Routing & Switching',
-    'Odoo ERP Architecture & PostgreSQL',
-    'Python In-House OCR Document Extraction for QuickBooks',
+    'Odoo ERP Administration & PostgreSQL',
+    'In-House OCR Document Extraction for QuickBooks',
     'On-Page & Off-Page SEO',
     'Answer Engine Optimization (AEO/GEO)',
-    'Zero-Trust Cybersecurity & Disaster Recovery',
+    'Symantec Endpoint Protection & Hybrid Disaster Recovery',
     'Standard Chartered & Soneri Banking SLA Support',
   ],
 };
@@ -130,10 +129,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body className="blueprint-bg font-sans text-slate-800 antialiased selection:bg-indigo-100 selection:text-indigo-900 min-h-screen">
+      <body className="swiss-grid-bg font-sans text-[#0F172A] antialiased selection:bg-sky-100 selection:text-sky-950 min-h-screen">
         <a
           href="#hero"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-xl focus:shadow-lg focus:font-mono focus:text-xs"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2.5 focus:bg-[#0369A1] focus:text-white focus:rounded-lg focus:shadow-lg focus:font-mono focus:text-xs focus:font-semibold"
         >
           Skip to main content
         </a>
