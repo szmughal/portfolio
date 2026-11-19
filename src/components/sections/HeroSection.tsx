@@ -1,28 +1,11 @@
 'use client';
 
 import React from 'react';
-import dynamic from 'next/dynamic';
 import { personalData } from '@/data/personal';
 import { Button } from '@/components/ui/Button';
 import { TagPill } from '@/components/ui/TagPill';
+import { HeroVideoShowcase } from '@/components/sections/HeroVideoShowcase';
 import { MapPin, ShieldCheck, ArrowUpRight, ArrowRight, ChevronDown } from 'lucide-react';
-
-const Static3DFallback = () => (
-  <div className="relative flex items-center justify-center w-full h-full select-none" aria-hidden="true">
-    <div className="relative w-52 h-52 flex items-center justify-center">
-      <div className="absolute inset-0 rounded-full border border-sky-400/25" />
-      <div className="absolute inset-6 rounded-full border border-dashed border-emerald-400/35" />
-      <div className="relative z-10 w-12 h-12 rounded-xl bg-[#0369A1] border border-sky-400/40 text-white flex items-center justify-center font-mono text-xs font-bold shadow-lg shadow-sky-500/20">
-        SZ
-      </div>
-    </div>
-  </div>
-);
-
-const Hero3DCanvas = dynamic(() => import('@/components/3d/Hero3DCanvas'), {
-  ssr: false,
-  loading: () => <Static3DFallback />,
-});
 
 export const HeroSection: React.FC = () => {
   return (
@@ -102,36 +85,9 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Elevated Obsidian 3D Telemetry Card (5 cols) */}
+        {/* Right Column: Elevated Obsidian 14s Showreel Video Player (5 cols) */}
         <div className="lg:col-span-5 w-full flex items-center justify-center">
-          <div className="relative w-full aspect-square max-w-[460px] rounded-2xl bg-[#0B1120] border border-slate-800 shadow-overlay overflow-hidden flex flex-col">
-            
-            {/* Obsidian Header Bar */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-800/90 bg-slate-950/60 font-mono text-xs">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-sky-400" aria-hidden="true" />
-                <span className="text-slate-200 uppercase tracking-wider font-semibold">
-                  TOPOLOGY // ENTERPRISE CORE
-                </span>
-              </div>
-              <span className="text-emerald-400 font-semibold">99.9% SLA</span>
-            </div>
-
-            {/* 3D R3F Canvas Viewport */}
-            <div
-              id="hero-3d-container"
-              className="flex-1 w-full relative bg-[radial-gradient(circle_at_center,rgba(3,105,161,0.16),transparent_70%)]"
-            >
-              <Hero3DCanvas />
-            </div>
-
-            {/* Subtle Node Legend Bar */}
-            <div className="px-4 py-2.5 border-t border-slate-800/90 bg-slate-950/70 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span>Cisco • Linux • Odoo • OCR</span>
-              <span className="text-sky-400 hidden sm:inline">Interactive 3D Topology</span>
-            </div>
-
-          </div>
+          <HeroVideoShowcase />
         </div>
 
       </div>

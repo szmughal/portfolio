@@ -47,8 +47,8 @@ export const metricsData: MetricItem[] = [
   {
     id: "scale",
     tag: "WEB // PRODUCTION",
-    value: "6",
-    targetNumber: 6,
+    value: "8",
+    targetNumber: 8,
     suffix: "",
     label: "Live Websites",
     description: "Production web deployments hardened with SSL/DNS, On-Page SEO, and AEO/GEO.",

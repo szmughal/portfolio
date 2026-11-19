@@ -98,4 +98,32 @@ export const projectsData: ProjectItem[] = [
     categories: ["website"],
     accentColor: "slate",
   },
+  {
+    id: "best-valuation",
+    name: "Best Valuation",
+    domain: "bestvaluation.vercel.app",
+    url: "https://bestvaluation.vercel.app/",
+    tags: ["Website"],
+    description:
+      "SECP and PBA approved certified asset valuation platform for property, vehicle, gold, and net-worth reports across Pakistan with 1-working-day turnaround.",
+    imageUrl: "/projects/best-valuation.png",
+    imageAlt:
+      "Live homepage screenshot of Best Valuation certified asset valuers website in Pakistan",
+    categories: ["website"],
+    accentColor: "cobalt",
+  },
+  {
+    id: "growmore",
+    name: "GrowMore Terminal",
+    domain: "growmore-ruddy.vercel.app",
+    url: "https://growmore-ruddy.vercel.app/",
+    tags: ["Website"],
+    description:
+      "Institutional Pakistan Stock Exchange (KSE 100) live intelligence terminal featuring automated valuation engines, technical decision levels, and wealth tracking.",
+    imageUrl: "/projects/growmore.png",
+    imageAlt:
+      "Live terminal dashboard screenshot of GrowMore PSX financial intelligence and wealth management platform",
+    categories: ["website"],
+    accentColor: "emerald",
+  },
 ];

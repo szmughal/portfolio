@@ -16,7 +16,7 @@ export const ProjectsSection: React.FC = () => {
   });
 
   const categories: Array<{ id: ProjectCategory; label: string }> = [
-    { id: 'all', label: 'All (6)' },
+    { id: 'all', label: `All (${projectsData.length})` },
     { id: 'website', label: 'Website' },
     { id: 'on-page', label: 'On-Page SEO' },
     { id: 'off-page', label: 'Off-Page SEO' },
