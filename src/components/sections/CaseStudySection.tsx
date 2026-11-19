@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { caseStudyData } from '@/data/caseStudy';
 import { GlassCard } from '@/components/ui/GlassCard';
 import {
@@ -8,34 +9,32 @@ import {
   FileText,
   BrainCircuit,
   CheckCircle2,
-  Play,
-  Download,
   Terminal,
-  Table2,
-  Loader2,
+  MonitorCheck,
+  Maximize2,
+  X,
 } from 'lucide-react';
 
 export const CaseStudySection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'code' | 'preview'>('preview');
-  const [simState, setSimState] = useState<'idle' | 'running' | 'complete'>('complete');
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isLightboxOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsLightboxOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isLightboxOpen]);
 
   const iconMap: Record<string, React.ReactNode> = {
     receipt_long: <FileText className="w-4 h-4 text-[#0F172A]" aria-hidden="true" />,
     neurology: <BrainCircuit className="w-4 h-4 text-[#0369A1]" aria-hidden="true" />,
     verified: <CheckCircle2 className="w-4 h-4 text-[#059669]" aria-hidden="true" />,
   };
-
-  const runExtractionDemo = () => {
-    setSimState('running');
-    setTimeout(() => {
-      setSimState('complete');
-    }, 850);
-  };
-
-  const totalExtracted = caseStudyData.sampleExtractionRows.reduce(
-    (sum, row) => sum + row.lineTotal,
-    0
-  );
 
   return (
     <section id="case-study" aria-labelledby="case-study-heading">
@@ -160,8 +159,8 @@ export const CaseStudySection: React.FC = () => {
                         : 'text-slate-400 hover:text-slate-200'
                     }`}
                   >
-                    <Table2 className="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>QuickBooks Export Preview</span>
+                    <MonitorCheck className="w-3.5 h-3.5" aria-hidden="true" />
+                    <span>Statement Ops — Live UI</span>
                   </button>
 
                   <button
@@ -188,7 +187,7 @@ export const CaseStudySection: React.FC = () => {
               </span>
             </div>
 
-            {/* Tab Panel 1: QuickBooks Export Preview */}
+            {/* Tab Panel 1: Statement Ops Production UI Showcase */}
             {activeTab === 'preview' && (
               <div
                 id="panel-preview"
@@ -199,94 +198,62 @@ export const CaseStudySection: React.FC = () => {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
                     <p className="font-mono text-xs text-sky-400 font-semibold">
-                      INPUT: Vendor_Hardware_Invoice_Scan_300DPI.pdf (Page 1/4)
+                      {caseStudyData.showcase.appName}
                     </p>
                     <p className="font-mono text-xs text-slate-400 mt-0.5">
-                      Extracted structured line items ready for QuickBooks batch import
+                      {caseStudyData.showcase.documentLabel}
                     </p>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2.5">
                     <button
                       type="button"
-                      onClick={runExtractionDemo}
-                      disabled={simState === 'running'}
-                      className="min-h-[40px] px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                      onClick={() => setIsLightboxOpen(true)}
+                      className="min-h-[40px] px-3.5 py-2 rounded-lg bg-[#0369A1] hover:bg-sky-600 text-white font-mono text-xs font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
                     >
-                      {simState === 'running' ? (
-                        <>
-                          <Loader2 className="w-3.5 h-3.5 animate-spin" aria-hidden="true" />
-                          <span>Parsing PDF...</span>
-                        </>
-                      ) : (
-                        <>
-                          <Play className="w-3.5 h-3.5" aria-hidden="true" />
-                          <span>Run Sample Extraction</span>
-                        </>
-                      )}
+                      <Maximize2 className="w-3.5 h-3.5" aria-hidden="true" />
+                      <span>Inspect Full Screen</span>
                     </button>
-
-                    <a
-                      href={caseStudyData.csvDownloadPath}
-                      download
-                      className="min-h-[40px] px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 font-mono text-xs font-semibold inline-flex items-center gap-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
-                    >
-                      <Download className="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
-                      <span>Download CSV</span>
-                    </a>
                   </div>
                 </div>
 
-                {/* Extracted Table */}
-                <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70">
-                  <table className="w-full text-left font-mono text-xs">
-                    <thead className="border-b border-slate-800 text-slate-400 text-[11px] uppercase">
-                      <tr>
-                        <th className="py-3 px-4">Item Description</th>
-                        <th className="py-3 px-3 text-center">Qty</th>
-                        <th className="py-3 px-3 text-right">Unit Price</th>
-                        <th className="py-3 px-3 text-right">Line Total</th>
-                        <th className="py-3 px-4 text-right">QuickBooks Account</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-800/80 text-slate-200 tabular-nums">
-                      {simState === 'running' ? (
-                        <tr>
-                          <td colSpan={5} className="py-8 text-center text-sky-400">
-                            Deskewing scan, detecting table boundaries, and mapping QuickBooks accounts...
-                          </td>
-                        </tr>
-                      ) : (
-                        caseStudyData.sampleExtractionRows.map((row) => (
-                          <tr key={row.description} className="hover:bg-slate-900/60">
-                            <td className="py-3 px-4 font-medium text-white">{row.description}</td>
-                            <td className="py-3 px-3 text-center">{row.quantity}</td>
-                            <td className="py-3 px-3 text-right">${row.unitPrice.toFixed(2)}</td>
-                            <td className="py-3 px-3 text-right text-emerald-400 font-semibold">
-                              ${row.lineTotal.toFixed(2)}
-                            </td>
-                            <td className="py-3 px-4 text-right text-sky-400">{row.account}</td>
-                          </tr>
-                        ))
-                      )}
-                    </tbody>
-                  </table>
-                </div>
+                {/* Real Production Screenshot */}
+                <button
+                  type="button"
+                  onClick={() => setIsLightboxOpen(true)}
+                  aria-label="Open Statement Ops interface screenshot in full-screen view"
+                  className="group relative block w-full bg-white rounded-xl overflow-hidden border border-slate-700/80 shadow-xl cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                >
+                  <Image
+                    src={caseStudyData.showcase.imageUrl}
+                    alt={caseStudyData.showcase.imageAlt}
+                    width={1024}
+                    height={726}
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    className="w-full h-auto block"
+                  />
+                  <span className="pointer-events-none absolute bottom-3 right-3 px-2.5 py-1.5 rounded-lg bg-slate-950/85 border border-slate-700 text-slate-100 font-mono text-[11px] font-semibold inline-flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                    <Maximize2 className="w-3 h-3 text-sky-400" aria-hidden="true" />
+                    <span>Click to zoom</span>
+                  </span>
+                </button>
 
-                <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono pt-1">
-                  <span className="text-slate-400">
-                    Reconciled Batch Total:{' '}
-                    <strong className="text-white tabular-nums">${totalExtracted.toFixed(2)}</strong>
-                  </span>
-                  <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4" aria-hidden="true" />
-                    <span>100% Reconciled • Zero Manual Re-keying</span>
-                  </span>
+                {/* Authentic Production Highlights Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  {caseStudyData.showcase.highlights.map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-start gap-2.5 px-3.5 py-2.5 rounded-xl bg-slate-900/75 border border-slate-800 text-xs font-mono text-slate-200"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" aria-hidden="true" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
 
-            {/* Tab Panel 2: Python OCR Source View */}
+            {/* Tab Panel 2: Python Statement Ops Source View */}
             {activeTab === 'code' && (
               <div
                 id="panel-code"
@@ -295,17 +262,16 @@ export const CaseStudySection: React.FC = () => {
               >
                 <pre className="p-5 sm:p-6 font-mono text-xs sm:text-[13px] leading-relaxed text-slate-200 overflow-x-auto">
                   <code>
-                    <span className="text-amber-400">import</span> cv2, pytesseract, re, pandas <span className="text-amber-400">as</span> pd{'\n'}
-                    <span className="text-slate-400"># Preprocess scanned PDF page: grayscale conversion &amp; noise filtering</span>{'\n'}
-                    <span className="text-sky-400">def</span> <span className="text-emerald-400">extract_invoice_to_quickbooks</span>(page_image):{'\n'}
-                    {'    '}gray = cv2.cvtColor(page_image, cv2.COLOR_BGR2GRAY){'\n'}
-                    {'    '}cleaned = cv2.bilateralFilter(gray, 9, 75, 75){'\n'}
-                    {'    '}ocr_data = pytesseract.image_to_data(cleaned, output_type=pytesseract.Output.DICT){'\n\n'}
-                    {'    '}<span className="text-slate-400"># Parse structured line items &amp; assign QuickBooks Chart of Accounts</span>{'\n'}
-                    {'    '}rows = parse_line_items(ocr_data, pattern=r<span className="text-emerald-400">&quot;([A-Z0-9\s\-\+]+)\s+(\d+)\s+(\d+\.\d&#123;2&#125;)&quot;</span>){'\n'}
-                    {'    '}df = map_quickbooks_accounts(pd.DataFrame(rows)){'\n'}
-                    {'    '}df.to_excel(<span className="text-emerald-400">&quot;quickbooks_import_batch_ready.xlsx&quot;</span>, index=<span className="text-amber-400">False</span>){'\n'}
-                    <span className="text-sky-400">&gt;&gt;&gt; [OK] Batch exported in 1.48s • Monthly accounting entry time cut by 85%</span>
+                    <span className="text-amber-400">import</span> cv2, pytesseract, pandas <span className="text-amber-400">as</span> pd{'\n'}
+                    <span className="text-slate-400"># Statement Ops: extract multi-page bank statement tables &amp; flag variance</span>{'\n'}
+                    <span className="text-sky-400">def</span> <span className="text-emerald-400">extract_bank_statement</span>(pdf_pages, opening_balance, stated_closing):{'\n'}
+                    {'    '}txns = parse_ocr_transactions(pdf_pages){'\n'}
+                    {'    '}computed = opening_balance + txns[<span className="text-emerald-400">&quot;credit&quot;</span>].sum() - txns[<span className="text-emerald-400">&quot;debit&quot;</span>].sum(){'\n'}
+                    {'    '}variance = round(computed - stated_closing, 2){'\n\n'}
+                    {'    '}<span className="text-slate-400"># Flag running-balance mismatches &amp; inverted credit/debit rows for review</span>{'\n'}
+                    {'    '}validated, needs_review = verify_running_balance(txns, variance){'\n'}
+                    {'    '}export_accounting_workbook(validated, xlsx=<span className="text-emerald-400">&quot;statement_ops_ready.xlsx&quot;</span>){'\n'}
+                    <span className="text-sky-400">&gt;&gt;&gt; [OK] 31 validated • 9 flagged for review • Balance audit complete</span>
                   </code>
                 </pre>
               </div>
@@ -315,6 +281,47 @@ export const CaseStudySection: React.FC = () => {
 
         </div>
       </GlassCard>
+
+      {/* Accessible Full-Screen Lightbox Modal */}
+      {isLightboxOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Statement Ops full-size production interface"
+          className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
+          onClick={() => setIsLightboxOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-6xl bg-slate-900 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between gap-4 px-4 sm:px-6 py-3 bg-slate-950 border-b border-slate-800">
+              <div className="font-mono text-xs sm:text-sm text-slate-200 font-semibold truncate">
+                {caseStudyData.showcase.appName} — {caseStudyData.showcase.documentLabel}
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsLightboxOpen(false)}
+                aria-label="Close full-screen preview"
+                className="min-h-[36px] px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 font-mono text-xs font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 shrink-0"
+              >
+                <X className="w-4 h-4" aria-hidden="true" />
+                <span>Close</span>
+              </button>
+            </div>
+            <div className="p-2 sm:p-4 bg-white max-h-[82vh] overflow-auto">
+              <Image
+                src={caseStudyData.showcase.imageUrl}
+                alt={caseStudyData.showcase.imageAlt}
+                width={1024}
+                height={726}
+                sizes="100vw"
+                className="w-full h-auto rounded-lg block"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

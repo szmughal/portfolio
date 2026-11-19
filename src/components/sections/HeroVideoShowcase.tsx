@@ -15,7 +15,7 @@ export function HeroVideoShowcase() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(14);
+  const [duration, setDuration] = useState(13.5);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -77,7 +77,7 @@ export function HeroVideoShowcase() {
             aria-hidden="true"
           />
           <span className="text-slate-200 uppercase tracking-wider font-semibold">
-            SHOWREEL // ENTERPRISE OPS
+            INTRO // SAAD ZAFAR
           </span>
         </div>
         <span className="text-emerald-400 font-semibold tabular-nums">
@@ -85,7 +85,7 @@ export function HeroVideoShowcase() {
         </span>
       </div>
 
-      {/* 1:1 Showreel Video Viewport */}
+      {/* 1:1 Intro Reel Video Viewport */}
       <div
         id="hero-video-container"
         className="relative aspect-square w-full bg-[#0B1120] overflow-hidden group cursor-pointer"
@@ -93,8 +93,8 @@ export function HeroVideoShowcase() {
       >
         <video
           ref={videoRef}
-          src="/hero-showreel.webm"
-          poster="/hero-showreel-poster.png"
+          src="/hero-showreel.webm?v=2"
+          poster="/hero-showreel-poster.png?v=2"
           muted
           loop
           playsInline
@@ -106,7 +106,7 @@ export function HeroVideoShowcase() {
             if (Number.isFinite(d) && d > 0) setDuration(d);
           }}
           onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
-          aria-label="14-second showreel covering enterprise IT infrastructure, OCR accounting pipeline, Odoo ERP, and 8 production websites"
+          aria-label="13.5-second personal introduction featuring Saad Zafar, banking-grade infrastructure uptime, Statement Ops OCR software, and 8 live web platforms"
           className="w-full h-full object-cover block"
         />
 
@@ -156,7 +156,7 @@ export function HeroVideoShowcase() {
         </div>
 
         <span className="text-[11px] font-mono text-slate-400 hidden sm:inline shrink-0">
-          Infra • OCR • ERP • 8 Sites
+          Intro • Statement Ops • 8 Sites
         </span>
       </div>
     </div>

@@ -7,12 +7,12 @@ export interface CaseStudyPhase {
   isEngineCore?: boolean;
 }
 
-export interface SampleExtractionRow {
-  description: string;
-  quantity: number;
-  unitPrice: number;
-  lineTotal: number;
-  account: string;
+export interface StatementOpsShowcase {
+  appName: string;
+  imageUrl: string;
+  imageAlt: string;
+  documentLabel: string;
+  highlights: string[];
 }
 
 export interface CaseStudyData {
@@ -30,14 +30,14 @@ export interface CaseStudyData {
     status: string;
   };
   csvDownloadPath: string;
-  sampleExtractionRows: SampleExtractionRow[];
+  showcase: StatementOpsShowcase;
 }
 
 export const caseStudyData: CaseStudyData = {
   badge: "KEY ACHIEVEMENT // ENTER AND POST LLC",
-  title: "Accounting OCR Document Extraction Pipeline",
+  title: "Statement Ops — Financial Extraction & Reconciliation Engine",
   subtitle:
-    "Engineered and deployed an in-house OCR pipeline that parses multi-page scanned PDF invoices and bank statements into structured Excel (.xlsx/.csv) batches ready for QuickBooks—eliminating manual transcription errors.",
+    "Engineered and deployed Statement Ops, an in-house OCR extraction and mathematical verification platform that parses multi-page bank statements into validated transactions, flags balance variances, and exports Excel (.xlsx), CSV, and QuickBooks-ready batches.",
   efficiencyHighlight: {
     percentage: "85%",
     label: "Time Reduction",
@@ -46,63 +46,46 @@ export const caseStudyData: CaseStudyData = {
   phases: [
     {
       phase: "01 // INPUT",
-      title: "Scanned PDFs & Statements",
+      title: "Multi-Page Bank Statements",
       description:
-        "Multi-page vendor invoices and bank statements previously required line-by-line manual transcription by the accounting team.",
+        "Scanned multi-page client bank statements and PDFs previously required slow manual line-by-line entry and manual balance checking by senior bookkeepers.",
       metrics: "Manual baseline: ~45 min / batch",
       icon: "receipt_long",
     },
     {
-      phase: "02 // OCR ENGINE",
-      title: "In-House Python Pipeline",
+      phase: "02 // EXTRACTION & RECONCILIATION",
+      title: "OCR Parsing & Variance Checks",
       description:
-        "Image deskewing, table boundary detection, optical text parsing, and automated chart-of-accounts rule matching.",
-      metrics: "Line-item totals cross-checked",
+        "Automated table extraction paired with live mathematical balance checks (Closing = Opening + Credits − Debits), running-balance alerts, and one-click debit/credit swap.",
+      metrics: "Auto-flags discrepancy & review rows",
       icon: "neurology",
       isEngineCore: true,
     },
     {
       phase: "03 // EXPORT",
-      title: "QuickBooks-Ready Workbooks",
+      title: "Validated Accounting Workbooks",
       description:
-        "Exports clean, structured .xlsx and .csv batches mapped directly to QuickBooks expense accounts with zero manual re-keying.",
+        "Bulk-approve validated transactions and export clean Excel (.xlsx), CSV, and PDF summary workbooks ready for QuickBooks import with full audit trail.",
       metrics: "85% time saved • Reconciled totals",
       icon: "verified",
     },
   ],
   terminal: {
-    filename: "ocr_pipeline_worker.py",
+    filename: "statement_ops_engine.py",
     status: "STATUS: PRODUCTION",
   },
   csvDownloadPath: "/quickbooks_import_batch_ready.csv",
-  sampleExtractionRows: [
-    {
-      description: "CAT6 SHIELDED ETHERNET CABLE 1000FT",
-      quantity: 4,
-      unitPrice: 145.0,
-      lineTotal: 580.0,
-      account: "50000 - IT Hardware & Infrastructure Expense",
-    },
-    {
-      description: "CISCO SFP+ 10GBASE-SR TRANSCEIVER",
-      quantity: 8,
-      unitPrice: 42.5,
-      lineTotal: 340.0,
-      account: "50000 - IT Hardware & Infrastructure Expense",
-    },
-    {
-      description: "SERVER RACK MOUNT SHELF 2U",
-      quantity: 2,
-      unitPrice: 68.0,
-      lineTotal: 136.0,
-      account: "50000 - IT Hardware & Infrastructure Expense",
-    },
-    {
-      description: "EATON 1500VA UPS BATTERY PACK",
-      quantity: 1,
-      unitPrice: 389.0,
-      lineTotal: 389.0,
-      account: "50000 - IT Hardware & Infrastructure Expense",
-    },
-  ],
+  showcase: {
+    appName: "Statement Ops — Financial Extraction Engine",
+    imageUrl: "/projects/statement-ops-ocr.jpg",
+    imageAlt:
+      "Statement Ops Financial Extraction Engine showing mathematical balance reconciliation, discrepancy alerts, and validated bank statement transactions",
+    documentLabel: "10. Found Bank State - Oct-2026 - 9378.pdf • 4 Pages",
+    highlights: [
+      "Mathematical Balance Check (Opening + Credits − Debits)",
+      "Automated Discrepancy Flagging & Debit/Credit Swap",
+      "Bulk Approve Validated Rows (31 Validated / 9 Review)",
+      "One-Click Export to Excel (.xlsx), CSV & PDF Summary",
+    ],
+  },
 };
