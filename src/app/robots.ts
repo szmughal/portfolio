@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://szmughal.dev/sitemap.xml',
+    sitemap: 'https://saadzafar.vercel.app/sitemap.xml',
   };
 }

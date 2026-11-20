@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { spaceGrotesk, inter, jetbrainsMono } from './fonts';
 import './globals.css';
 
-const siteUrl = 'https://szmughal.dev';
+const siteUrl = 'https://saadzafar.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
