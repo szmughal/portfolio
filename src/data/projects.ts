@@ -1,4 +1,4 @@
-export type ProjectCategory = 'all' | 'website' | 'on-page' | 'off-page';
+export type ProjectCategory = 'all' | 'website' | 'on-page' | 'off-page' | 'social';
 
 export interface ProjectItem {
   id: string;
@@ -33,27 +33,27 @@ export const projectsData: ProjectItem[] = [
     name: "Enter and Post LLC",
     domain: "enterandpost.com",
     url: "https://enterandpost.com/",
-    tags: ["Website", "On-Page SEO", "Off-Page SEO"],
+    tags: ["Website", "On-Page SEO", "Off-Page SEO", "Social Media Content"],
     description:
-      "Portland, OR bookkeeping, tax, staffing, and modern technology platform engineered with full On-Page and Off-Page SEO, AEO/GEO optimization, and consultation funnels.",
+      "Portland, OR bookkeeping, tax, staffing, and modern technology platform engineered with full On-Page and Off-Page SEO, AEO/GEO optimization, consultation funnels, and ongoing social media content creation.",
     imageUrl: "/projects/enter-and-post.png",
     imageAlt:
       "Live homepage screenshot of Enter and Post LLC showing bookkeeping, tax, staffing, and modern technology services",
-    categories: ["website", "on-page", "off-page"],
+    categories: ["website", "on-page", "off-page", "social"],
     accentColor: "cobalt",
   },
   {
     id: "janglee-painting",
-    name: "Jangle Painting",
+    name: "Janglee Painting",
     domain: "jangleepainting.com",
     url: "http://www.jangleepainting.com/",
-    tags: ["Website"],
+    tags: ["Website", "Social Media Content"],
     description:
-      "Residential and commercial interior/exterior painting contractor website for Jang Lee Painting LLC with service showcases, offers, and renovation booking.",
+      "Residential and commercial interior/exterior painting contractor website for Jang Lee Painting LLC with service showcases, offers, renovation booking, and social media content creation.",
     imageUrl: "/projects/janglee-painting.png",
     imageAlt:
       "Live homepage screenshot of Jang Lee Painting LLC showcasing interior and exterior renovation services",
-    categories: ["website"],
+    categories: ["website", "social"],
     accentColor: "slate",
   },
   {
@@ -75,13 +75,13 @@ export const projectsData: ProjectItem[] = [
     name: "Acewall Scholars",
     domain: "acewallscholars.org",
     url: "https://www.acewallscholars.org/",
-    tags: ["Website", "Off-Page SEO"],
+    tags: ["Off-Page SEO", "Social Media Content"],
     description:
-      "Virginia and online K-12/test-prep tutoring and mentoring platform supported by targeted Off-Page SEO authority outreach, donation flows, and student appointment scheduling.",
+      "Virginia and online K-12/test-prep tutoring and mentoring organization supported with targeted Off-Page SEO authority outreach and ongoing social media content creation.",
     imageUrl: "/projects/ace-wall-scholars.png",
     imageAlt:
       "Live homepage screenshot of Acewall Scholars tutoring and academic mentoring organization",
-    categories: ["website", "off-page"],
+    categories: ["off-page", "social"],
     accentColor: "cobalt",
   },
   {

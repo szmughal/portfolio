@@ -20,6 +20,7 @@ export const ProjectsSection: React.FC = () => {
     { id: 'website', label: 'Website' },
     { id: 'on-page', label: 'On-Page SEO' },
     { id: 'off-page', label: 'Off-Page SEO' },
+    { id: 'social', label: 'Social Media' },
   ];
 
   return (

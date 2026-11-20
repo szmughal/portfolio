@@ -109,6 +109,8 @@ export const BrowserFrame = React.forwardRef<HTMLDivElement, BrowserFrameProps>(
                       ? 'cobalt'
                       : tag.toLowerCase().includes('off-page')
                       ? 'emerald'
+                      : tag.toLowerCase().includes('social')
+                      ? 'obsidian'
                       : 'slate'
                   }
                   size="sm"
